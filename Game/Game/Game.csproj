@@ -51,5 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMain.cs" />
+    <Compile Include="SpinObstacle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="textures\piv.png" />
+    <Content Include="textures\metal.png" />
+    <Content Include="textures\mo.png" />
+    <Content Include="textures\Lever2.png" />
+    <Content Include="textures\Lever1.png" />
   </ItemGroup>
 </Project>

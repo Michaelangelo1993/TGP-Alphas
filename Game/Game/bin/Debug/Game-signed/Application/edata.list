@@ -1,0 +1,15 @@
+shaders/Texture.cgx
+app.exe
+Sce.PlayStation.HighLevel.GameEngine2D.dll
+System.Json.dll
+System.Xml.dll
+System.Runtime.Serialization.dll
+System.Core.dll
+System.ServiceModel.Web.dll
+System.ServiceModel.dll
+Sce.PlayStation.HighLevel.UI.dll
+textures/piv.png
+textures/metal.png
+textures/mo.png
+textures/Lever2.png
+textures/Lever1.png
