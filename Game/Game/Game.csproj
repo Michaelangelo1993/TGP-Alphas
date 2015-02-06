@@ -51,5 +51,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMain.cs" />
+    <Compile Include="TntWall.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Spring.cs" />
+    <Compile Include="Seasaw.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="textures\dclouds.png" />
+    <Content Include="textures\lavawall3.png" />
+    <Content Include="textures\volcano.png" />
+    <Content Include="textures\tntbox.png" />
+    <Content Include="textures\tntplun.png" />
+    <Content Include="textures\rock.png" />
+    <Content Include="textures\explo.png" />
+    <Content Include="textures\volc2.png" />
+    <Content Include="textures\brownwall.png" />
+    <Content Include="textures\cavestart.png" />
+    <Content Include="textures\dclouds2.png" />
+    <Content Include="textures\dyno.png" />
+    <Content Include="textures\floor.png" />
+    <Content Include="textures\brownwall2.png" />
+    <Content Include="textures\cavestart2.png" />
+    <Content Include="textures\Seasaw.png" />
+    <Content Include="textures\stick.png" />
+    <Content Include="textures\Spring.png" />
+    <Content Include="textures\SpringTop.png" />
+    <Content Include="textures\Trap.png" />
   </ItemGroup>
 </Project>

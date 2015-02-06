@@ -1,6 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\Seasaw.cs">
+    <Files>
+      <File FileName="Game\AppMain.cs" Line="25" Column="35" />
+      <File FileName="Game\TntWall.cs" Line="87" Column="44" />
+      <File FileName="Game\Background.cs" Line="195" Column="55" />
+      <File FileName="Game\Player.cs" Line="121" Column="16" />
+      <File FileName="Game\Seasaw.cs" Line="34" Column="72" />
+      <File FileName="Game\Spring.cs" Line="40" Column="35" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
