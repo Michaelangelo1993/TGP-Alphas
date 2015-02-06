@@ -1,6 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\Geiser.cs">
+    <Files>
+      <File FileName="Game\AppMain.cs" Line="65" Column="54" />
+      <File FileName="Game\Spring.cs" Line="88" Column="4" />
+      <File FileName="Game\Geiser.cs" Line="31" Column="46" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

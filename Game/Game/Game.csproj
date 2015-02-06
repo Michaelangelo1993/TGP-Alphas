@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{293A8A53-2CF7-420C-BE2D-B2311ACFF5A7}</ProjectGuid>
+    <ProjectGuid>{C01A2D1D-467C-4DD1-AA39-9590A1270924}</ProjectGuid>
     <ProjectTypeGuids>{69878862-DA7D-4DC6-B0A1-50D8FAB4242F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Game</RootNamespace>
@@ -37,19 +37,25 @@
     <Reference Include="Sce.PlayStation.HighLevel.GameEngine2D" />
     <Reference Include="Sce.PlayStation.HighLevel.UI" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="shaders\" />
-    <Folder Include="textures\" />
+    <Compile Include="AppMain.cs" />
+    <Compile Include="Geiser.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ShaderProgram Include="shaders\Texture.fcg" />
-    <ShaderProgram Include="shaders\Texture.vcg" />
+    <ShaderProgram Include="shaders\Simple.fcg" />
+    <ShaderProgram Include="shaders\Simple.vcg" />
   </ItemGroup>
   <ItemGroup>
     <PsmMetadata Include="app.xml" />
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="AppMain.cs" />
+    <Folder Include="textures\" />
+    <Folder Include="music\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="textures\Geiser.png" />
+    <Content Include="textures\Spike.png" />
+    <Content Include="music\157172__danipenet__distant-world.mp3" />
   </ItemGroup>
 </Project>

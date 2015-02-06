@@ -62,6 +62,9 @@ namespace Game
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
+			Geiser g = new Geiser(gameScene, new Vector2(400, 0));
+			
+			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 		}
