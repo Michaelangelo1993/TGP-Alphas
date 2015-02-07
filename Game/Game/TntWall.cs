@@ -75,27 +75,11 @@ namespace Game
 			exploTextureInfo.Dispose ();
 		}
 		
-		public void Update(float deltaTime, float x, float y)
+		public void Update(float deltaTime)
 		{			
 			
-			yPos = (y * (Director.Instance.GL.Context.GetViewport().Height / 2))
-					+ (Director.Instance.GL.Context.GetViewport().Height / 2)
-					- (pluTextureInfo.TextureSizef.Y / 2);
 			
-			xPos = (x * (Director.Instance.GL.Context.GetViewport().Width / 2))
-					+ (Director.Instance.GL.Context.GetViewport().Width / 2)
-					- (pluTextureInfo.TextureSizef.Y / 2);
-			
-			//System.Diagnostics.Debug.WriteLine (xPos);
-			
-			if(yPos <= pluSprite.Position.Y + 64.0f && yPos >= pluSprite.Position.Y + 16.0f 
-			   && xPos <= pluSprite.Position.X + 32.0f && xPos >= pluSprite.Position.X - 32.0f)
-				
-				{
-					if(yPos < startY + 64.0f && yPos > startY + 4.0f)
-						pluSprite.Position = new Vector2(boxSprite.Position.X , yPos - 25);	
-				}	
-			if(pluSprite.Position.Y <= startY + 10.0f)
+			if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
 				blowUpRock ();
 			
 			counter--;
@@ -124,9 +108,26 @@ namespace Game
 			
 		}
 		
-		public void Tapped()
+		public void Tapped(float x, float y)
 		{
+			yPos = (y * (Director.Instance.GL.Context.GetViewport().Height / 2))
+					+ (Director.Instance.GL.Context.GetViewport().Height / 2)
+					- (pluTextureInfo.TextureSizef.Y / 2);
 			
+			xPos = (x * (Director.Instance.GL.Context.GetViewport().Width / 2))
+					+ (Director.Instance.GL.Context.GetViewport().Width / 2)
+					- (pluTextureInfo.TextureSizef.Y / 2);
+			
+			//System.Diagnostics.Debug.WriteLine (xPos);
+			
+			//NEEDS TO BE ADJUSTED TO WORK WITH MOVING CAMERA
+			
+			if(yPos <= pluSprite.Position.Y + 64.0f && yPos >= pluSprite.Position.Y + 16.0f 
+			   && xPos <= pluSprite.Position.X + 32.0f && xPos >= pluSprite.Position.X - 32.0f)				
+				{
+					if(yPos < boxSprite.Position.Y + 64.0f && yPos > boxSprite.Position.Y + 4.0f)
+						pluSprite.Position = new Vector2(boxSprite.Position.X , yPos - 25);	
+				}	
 		}
 	}
 }

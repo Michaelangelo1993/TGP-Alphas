@@ -95,20 +95,20 @@ namespace Game
 			spring.Update(0, moveSpeed);
 			player.Update(0);
 			background.Update(0.0f, moveSpeed);
-			tntWall.Update (0.0f, x, y);
+			tntWall.Update (0.0f);
 			
 			isColliding();
 			
 			//If tapped, do something
 			if(touches.Count > 0)
 			{
-				
+				tntWall.Tapped(x, y);
 			}
 				
 			// Move update code here
 			//Update the camera to follow the player
-			gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
-			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.5f));
+//			gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
+//			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.5f));
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
 			
 		}
