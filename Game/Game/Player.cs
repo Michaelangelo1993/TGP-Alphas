@@ -15,12 +15,13 @@ namespace Game
 		private static TextureInfo	_textureInfo;
 		private static Vector2		_min, _max;
 		private static Bounds2		_box;
-		private static float 		_scale, _angle, _size;
+		private static float 		_scale, _angle, _size,
+									_gravity, _upForce,
+									_speed;
 		private static int 			_frameTime, _animationDelay,
 									_noOnSpritesheetWidth,
 									_noOnSpritesheetHeight,
-									_widthCount, _heightCount,
-									_speed;
+									_widthCount, _heightCount;
 		
 		//Public functions.
 		public Player (Scene scene)
@@ -109,8 +110,7 @@ namespace Game
 		}
 		
 		//Set the height of the player
-		public void SetYPos(int y) { _sprite.Position = new Vector2(_sprite.Position.X, y); }
-		public void SetYPos(float y) { _sprite.Position = new Vector2(_sprite.Position.X, (((_textureInfo.TextureSizef.Y/_noOnSpritesheetHeight)*_scale)*0.5f) + y); }
+		public void SetYPos(float y) { _sprite.Position = new Vector2(_sprite.Position.X, y); }
 		
 		//Get and set the size of the player
 		public void SetScale(float scale)
@@ -125,9 +125,20 @@ namespace Game
 		public void SetAngle(float angle) { _angle = angle; }//_sprite.Angle = _angle; }
 		public float GetAngle(){ return _angle; }
 		
+		//Get and set the gravity of the player
+		public void SetGravity(int gravity) { _gravity = gravity; }
+		public float GetGravity(){ return _gravity; }
+		
+		//Get and set the upforce of the player
+		public void SetUpForce(int upForce) { _upForce = upForce; }
+		public float GetUpForce(){ return _upForce; }
+		
 		//Get and set the speed of the player
 		public void SetSpeed(int speed) { _speed = speed; }
-		public int GetSpeed(){ return _speed; }
+		public float GetSpeed(){ return _speed; }
+		
+		//Get the size of the player
+		public float GetSize(){ return _size; }
 		
 		//Get and Set the position of the player
 		public void SetPos(float x, float y) { new Vector2(x, (((_textureInfo.TextureSizef.Y/_noOnSpritesheetHeight)*_scale)*0.5f) + y); }

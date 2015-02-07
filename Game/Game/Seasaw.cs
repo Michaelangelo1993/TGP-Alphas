@@ -116,7 +116,7 @@ namespace Game
 			hypotenuse  = adjacent/(float)(System.Math.Sin(_angle2));
 			opposite 	= (float)(System.Math.Cos(_angle2))*hypotenuse;
 			
-			return (_sprite.Position.Y+((_textureInfo.TextureSizef.Y *_scale)*0.8f))- opposite;
+			return ((_sprite.Position.Y+((_textureInfo.TextureSizef.Y *_scale)*0.8f))- opposite) + (115/2);
 			
 		}
 		
