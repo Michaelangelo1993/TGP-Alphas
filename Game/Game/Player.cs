@@ -35,6 +35,8 @@ namespace Game
 			_size 			= 115.0f;
 			_scale 			= 1.00f;
 			_angle 			= 0.0f;
+			_gravity 			= 0.0f;
+			_upForce 			= 0.0f;
 			
 			//SpriteSheet Info
 			_textureInfo  			= new TextureInfo("/Application/textures/stick.png");
@@ -88,7 +90,7 @@ namespace Game
 			_frameTime++;
 			
 			//Move Player
-			_sprite.Position = new Vector2(_sprite.Position.X + _speed, _sprite.Position.Y - 9.8f);
+			_sprite.Position = new Vector2(_sprite.Position.X + _speed, _sprite.Position.Y);
 			
 			//Stop player from falling through the ground
 			if (_sprite.Position.Y < ((_textureInfo.TextureSizef.Y/_noOnSpritesheetHeight)*_scale)*0.5f +80)
