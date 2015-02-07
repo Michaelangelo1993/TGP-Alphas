@@ -67,6 +67,11 @@ namespace Game
 			scene.AddChild(springTopSprite);
 		}
 		
+		public void Dispose()
+		{
+			
+		}
+		
 		public void ReleaseSpring()
 		{
 			springRelease = true;

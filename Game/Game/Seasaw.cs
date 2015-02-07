@@ -17,21 +17,18 @@ namespace Game
 		private static Bounds2		_box;
 		private static float 		_scale, _angle, _angle2, _rotationSpeed,
 									_adjacent, _opposite, _hypotenuse;
-		private static bool 		_rotateLeft;
-		
-		
-		private static Vector2 oldTouchPos = new Vector2( 0.0f, 0.0f ); // Position of first touch on screen
-		private static Vector2 newTouchPos = new Vector2( 0.0f, 0.0f ); // Position of last touch on screen
+		private static bool 		_onObstacle, _rotateLeft;
 		
 		public Seasaw (Scene scene, Vector2 position)
 		{
 			//Initialise Variables
-			_scale = 1.00f;
-			_rotationSpeed = -0.015f;
-			_rotateLeft = false;
+			_scale 					= 1.00f;
+			_rotationSpeed 			= -0.015f;
+			_rotateLeft 			= false;
+			_onObstacle 			= false;
 
 			//SpriteSheet Info
-			_textureInfo  = new TextureInfo("/Application/textures/Seasaw.png");
+			_textureInfo  			= new TextureInfo("/Application/textures/Seasaw.png");
 			
 			//Create Sprite
 			_sprite	 				= new SpriteUV();
@@ -60,9 +57,10 @@ namespace Game
 		
 		public void Update(float deltaTime, float speed)
 		{
-			//_sprite.Rotate(0.1f);
 			CheckInput();
-			UpdateAngle();
+			UpdateAngles();
+			
+
 			
 			//Storing Bounds2 box data for collisions
 			_min.X			= _sprite.Position.X - (_adjacent *_scale);
@@ -82,11 +80,9 @@ namespace Game
 			{				
 				_rotateLeft = true;								
 			}					
-			
-			
 		}
 		
-		private void UpdateAngle()
+		private void UpdateAngles()
 		{
 			
 			if(_rotateLeft)
@@ -94,19 +90,41 @@ namespace Game
 			else
 				_sprite.Rotate(_rotationSpeed);
 			
+			//Keep Seasaw from rotating too far left
 			if (_sprite.Angle > 0.55f)
 			{
-				_sprite.Angle = 0.55f;
-				_rotateLeft = false;
+				_sprite.Angle 	= 0.55f;
+				_rotateLeft 	= false;
 			}
 			
+			//Keep Seasaw from rotating too far Right
 			if (_sprite.Angle < -0.55f)
 			{
 				_sprite.Angle = -0.55f;
 			}
 			
-			_angle = _sprite.Angle;
+			//Update the angle variables
+			_angle 		= _sprite.Angle;
+			_angle2 	= (float)((System.Math.PI/2) - _angle);
 		}
+		
+		//Get the player Y position for walking on the Seasaw
+		public float GetNewPlayerYPos(Vector2 position)
+		{
+			
+			float adjacent, opposite, hypotenuse;
+			
+			adjacent 	= _sprite.Position.X - position.X;
+			hypotenuse  = adjacent/(float)(System.Math.Sin(_angle2));
+			opposite 	= (float)(System.Math.Cos(_angle2))*hypotenuse;
+			
+			return (_sprite.Position.Y+((_textureInfo.TextureSizef.Y *_scale)*0.8f))- opposite;
+			
+		}
+		
+		//Get and Set if the player is on the seasaw
+		public void SetIsOn() { if (_angle > 0.5f) _onObstacle = true; }
+		public bool IsOn(){ return _onObstacle; }
 		
 		//Get and set the rotation of the player
 		public void SetAngle(float angle) { _angle = angle; }

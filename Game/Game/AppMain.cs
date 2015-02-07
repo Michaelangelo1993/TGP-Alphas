@@ -49,6 +49,7 @@ namespace Game
 			background.Dispose();
 			tntWall.Dispose();
 			seasaw.Dispose();
+			spring.Dispose();
 			player.Dispose();
 			
 			Director.Terminate ();
@@ -65,19 +66,19 @@ namespace Game
 			gameScene.Camera.SetViewFromViewport();
 			
 			//Set the ui scene.
-			uiScene = new Sce.PlayStation.HighLevel.UI.Scene();
-			Panel panel  = new Panel();
-			panel.Width  = Director.Instance.GL.Context.GetViewport().Width;
-			panel.Height = Director.Instance.GL.Context.GetViewport().Height;
+			uiScene 		= new Sce.PlayStation.HighLevel.UI.Scene();
+			Panel panel  	= new Panel();
+			panel.Width  	= Director.Instance.GL.Context.GetViewport().Width;
+			panel.Height 	= Director.Instance.GL.Context.GetViewport().Height;
 			
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
-			background 		= new Background(gameScene);
-			tntWall = new TntWall(gameScene, 600.0f, 100.0f);
-			seasaw = new Seasaw(gameScene, new Vector2(2000.0f, 150.0f));
-			spring = new Spring(gameScene, new Vector2(1500.0f, 0.0f));
-			player = new Player(gameScene);
+			background 	= new Background(gameScene);
+			tntWall 	= new TntWall(gameScene, 600.0f, 100.0f);
+			seasaw 		= new Seasaw(gameScene, new Vector2(2000.0f, 150.0f));
+			spring		= new Spring(gameScene, new Vector2(1500.0f, 0.0f));
+			player 		= new Player(gameScene);
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -86,9 +87,9 @@ namespace Game
 		public static void Update()
 		{
 			//Determine whether the player tapped the screen
-			var touches = Touch.GetData(0);
-			var y = Input2.Touch00.Pos.Y;
-			var x = Input2.Touch00.Pos.X;
+			var touches 	= Touch.GetData(0);
+			var y 			= Input2.Touch00.Pos.Y;	
+			var x 			= Input2.Touch00.Pos.X;
 			
 			// Update code here
 			seasaw.Update(0, moveSpeed);
@@ -97,6 +98,7 @@ namespace Game
 			background.Update(0.0f, moveSpeed);
 			tntWall.Update (0.0f, x, y);
 			
+			//Check Collisions
 			isColliding();
 			
 			//If tapped, do something
@@ -105,10 +107,11 @@ namespace Game
 				
 			}
 				
-			// Move update code here
 			//Update the camera to follow the player
 			gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
 			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.5f));
+			
+			//Sets the volcano background to follow the sprite
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
 			
 		}
@@ -117,7 +120,12 @@ namespace Game
 		{
 			if(player.GetBox().Overlaps(seasaw.GetBox()))
 			{
-				player.SetAngle(seasaw.GetAngle());
+				seasaw.SetIsOn();
+				if(seasaw.IsOn())
+				{
+					player.SetAngle(seasaw.GetAngle());
+					player.SetYPos(seasaw.GetNewPlayerYPos(player.GetPos()));
+				}
 			}
 			else
 				player.SetAngle(0.0f);
