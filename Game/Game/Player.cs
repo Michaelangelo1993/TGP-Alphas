@@ -109,6 +109,7 @@ namespace Game
 		}
 		
 		//Set the height of the player
+		public void SetYPos(int y) { _sprite.Position = new Vector2(_sprite.Position.X, y); }
 		public void SetYPos(float y) { _sprite.Position = new Vector2(_sprite.Position.X, (((_textureInfo.TextureSizef.Y/_noOnSpritesheetHeight)*_scale)*0.5f) + y); }
 		
 		//Get and set the size of the player

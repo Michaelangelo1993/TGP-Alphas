@@ -60,8 +60,6 @@ namespace Game
 			CheckInput();
 			UpdateAngles();
 			
-
-			
 			//Storing Bounds2 box data for collisions
 			_min.X			= _sprite.Position.X - (_adjacent *_scale);
 			_min.Y			= _sprite.Position.Y - (_opposite *_scale);
