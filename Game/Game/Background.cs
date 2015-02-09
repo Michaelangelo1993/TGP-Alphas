@@ -67,7 +67,7 @@ namespace Game
 			entrSprite.Position 	= new Vector2(width, 0.0f);
 			
 			floorSprite 			= new SpriteUV();			
-			floorTextureInfo 		= new TextureInfo("/Application/textures/floor.png");
+			floorTextureInfo 		= new TextureInfo("/Application/textures/floor2.png");
 			floorSprite 			= new SpriteUV(floorTextureInfo);
 			floorSprite.Position 	= new Vector2(0.0f, 0.0f);
 			floorSprite.Quad.S 		= floorTextureInfo.TextureSizef;
