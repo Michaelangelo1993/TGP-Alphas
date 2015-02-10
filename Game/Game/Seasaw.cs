@@ -17,7 +17,8 @@ namespace Game
 		private static Bounds2		_box;
 		private static float 		_scale, _angle, _angle2, _rotationSpeed,
 									_adjacent, _opposite, _hypotenuse,
-									_floorHeight, _defaultYPos;
+									_floorHeight, _defaultYPos, _tempScale,
+									_scaleLimiter, _scalerValue;
 		private static bool 		_onObstacle, _rotateLeft;
 		
 		public Seasaw (Scene scene, float floorHeight, float xPos)
@@ -25,6 +26,8 @@ namespace Game
 			//Initialise Variables
 			_scale 					= 1.00f;
 			_rotationSpeed 			= 0.03f;
+			_scaleLimiter			= 0.3f;
+			_tempScale				= 1.0f;
 			_rotateLeft 			= false;
 			_onObstacle 			= false;
 			_floorHeight			= floorHeight;
@@ -47,6 +50,7 @@ namespace Game
 			_opposite 				= FMath.Cos(_angle2) * _hypotenuse;
 			_adjacent 				= FMath.Tan(_angle) * _opposite;
 			_sprite.Angle 			= _angle;
+			_scalerValue 			= _tempScale/(_angle*10);
 			
 			//Add to the current scene.
 			scene.AddChild(_sprite);
@@ -106,6 +110,7 @@ namespace Game
 			//Update the angle variables
 			_angle 	= _sprite.Angle;
 			_angle2 = (FMath.PI/2) - _angle;
+			
 		}
 		
 		//Get the player Y position for walking on the Seasaw
@@ -123,7 +128,14 @@ namespace Game
 				hypotenuse  = adjacent/(FMath.Sin(_angle2));
 				opposite 	= (FMath.Cos(_angle2))*hypotenuse;
 				
-				return ((_sprite.Position.Y+((_textureInfo.TextureSizef.Y *_scale)*0.8f))- opposite) + (115/2);
+				_tempScale = ((_angle *10) * _scalerValue);
+				
+				if (_tempScale < 0)
+					_tempScale = -_tempScale;
+				
+				float tempScale = 0.45f + (_scaleLimiter * _tempScale);
+				
+				return ((_sprite.Position.Y+((_textureInfo.TextureSizef.Y *_scale)*tempScale))- opposite) + (115/2);
 			}
 			else
 				_onObstacle = false;
