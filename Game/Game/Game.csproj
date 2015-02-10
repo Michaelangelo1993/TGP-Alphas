@@ -57,6 +57,7 @@
     <Compile Include="Spring.cs" />
     <Compile Include="Seasaw.cs" />
     <Compile Include="Trap.cs" />
+    <Compile Include="SpinObstacle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />
@@ -82,5 +83,7 @@
     <Content Include="textures\playerSprite.png" />
     <Content Include="textures\playerSpriteSheet.png" />
     <Content Include="textures\stick2.png" />
+    <Content Include="textures\firebeam.png" />
+    <Content Include="textures\piv.png" />
   </ItemGroup>
 </Project>

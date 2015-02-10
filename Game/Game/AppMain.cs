@@ -23,6 +23,7 @@ namespace Game
 		private static Player 			player;
 		private static Seasaw 			seasaw;
 		private static Spring 			spring;
+		private static SpinObstacle     spinObstacle;
 		
 		private static int 				frameTime = 0, currentFrameTime = 0;
 		private static float			moveSpeed = 3.0f;
@@ -79,6 +80,7 @@ namespace Game
 			tntWall 	= new TntWall(gameScene, 1000.0f, 100.0f);
 			seasaw 		= new Seasaw(gameScene, background.GetFloorHeight(), 3000.0f);
 			spring 		= new Spring(gameScene, new Vector2(2000.0f, 0.0f));
+			spinObstacle = new SpinObstacle(gameScene, new Vector2(1500.0f, 0.0f));
 			player 		= new Player(gameScene, background.GetFloorHeight());
 			
 			//Run the scene.
@@ -89,11 +91,14 @@ namespace Game
 		{		
 			Vector2 touchPos = GetTouchPosition();
 			
+			
+			
 			// Update code here
 			player.Update(0.0f);
 			UpdateTouchData();
 			UpdateSeasaw();
 			UpdateSpring();
+			UpdateSpin();
 			background.Update(0.0f, moveSpeed);
 			tntWall.Update (0.0f, GetTouchPosition().X, GetTouchPosition().Y);
 			UpdateCamera();
@@ -231,6 +236,34 @@ namespace Game
 				else if(spring.IsReleased)
 					player.DoJump();
 			}
+			
 		}
+		
+		public static void UpdateSpin()
+		{
+			
+			var motion = Motion.GetData(0);
+			Vector3 acc = motion.Acceleration;
+			
+			Vector3 vel = motion.AngularVelocity;
+			
+			
+			if(vel.Y > 0.10000f)
+					
+			spinObstacle.Left();
+			
+			if(vel.Y < -0.10000f)
+				
+				spinObstacle.Right();
+			
+			if(vel.Y < 0.10000f && vel.Y > -0.10000f )
+					
+			spinObstacle.Stop ();
+			
+			if(spinObstacle.GetPosition1.X+500 < player.GetPos().X)
+				spinObstacle.Reset();
+			
+		}
+		
 	}
 }
