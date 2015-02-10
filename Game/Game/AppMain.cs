@@ -18,6 +18,8 @@ namespace Game
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		
 		// Member Variables go here
+		
+		private static SpinObstacle[]	spinObstacles;
 				
 		public static void Main (string[] args)
 		{
@@ -62,6 +64,10 @@ namespace Game
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
+			//Create spin obstacles.
+			spinObstacles = new SpinObstacle[2];
+			spinObstacles[0] = new SpinObstacle(gameScene, new Vector2(100.0f, 150.0f));	
+			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 		}
@@ -71,6 +77,26 @@ namespace Game
 			//Determine whether the player tapped the screen
 			var touches = Touch.GetData(0);
 			
+			var motion = Motion.GetData(0);
+			
+			Vector3 acc = motion.Acceleration;
+			
+			Vector3 vel = motion.AngularVelocity;
+			
+			
+			if(vel.Y > 0.10000f)
+				
+				spinObstacles[0].Left();
+			
+			if(vel.Y < -0.10000f)
+				
+				spinObstacles[0].Right();
+			
+			if(vel.Y < 0.10000f && vel.Y > -0.10000f )
+				
+				spinObstacles[0].Stop();
+		
+			
 			//If tapped, do something
 			if(touches.Count > 0)
 			{
@@ -78,6 +104,13 @@ namespace Game
 			}
 				
 			// Move update code here
+			
+			
+			
+			//if (spinObstacles[0].HasCollidedWith (player.Sprite) == true)
+				//{
+					//quitGame = true; 
+				//}
 			
 		}		
 	}

@@ -13,8 +13,6 @@ namespace Game
 		
 		//Private variables.
 		private 	SpriteUV[] 	spinSprite;
-		private 	SpriteUV 	leverOnSprite;
-		private 	SpriteUV 	leverOffSprite;
 		private 	SpriteUV[] 	pivSprite;
 		private 	TextureInfo	textureSpinObstacle;
 		private 	TextureInfo	textureSpinPiv;
@@ -23,13 +21,23 @@ namespace Game
 		private bool			stop;
 		private bool			on;
 		
+		public float Width;
+		public float Height;
+		
+		public Vector2 GetPosition1 { get { return spinSprite[0].Position; }}
+		public Vector2 GetPosition2 { get { return spinSprite[1].Position; }}
+		public Vector2 GetPosition3 { get { return spinSprite[2].Position; }}
+		public float GetWidth { get { return Width; }}
+		
+	
+		
+		
+		
 		//Public functions.
-		public SpinObstacle (float startX, Scene scene)
+		public SpinObstacle (Scene scene, Vector2 position)
 		{
-			textureSpinObstacle     = new TextureInfo("/Application/textures/metal.png");
+			textureSpinObstacle     = new TextureInfo("/Application/textures/firebeam.png");
 			textureSpinPiv     		= new TextureInfo("/Application/textures/piv.png");
-			textureSpinLeverOn      = new TextureInfo ("/Application/textures/Lever2.png");
-			textureSpinLeverOff     = new TextureInfo ("/Application/textures/Lever1.png");
 			
 			stop  = false;
 			on = 	false; 
@@ -57,6 +65,9 @@ namespace Game
 			//Add to the current scene.
 			scene.AddChild(pivSprite[2]);
 			
+			
+			
+			
 			spinSprite	= new SpriteUV[3];
 			
 			//1st Obstacle
@@ -81,19 +92,6 @@ namespace Game
 			scene.AddChild(spinSprite[2]);
 			
 			
-			// Lever	
-			leverOffSprite			= new SpriteUV(textureSpinLeverOff);	
-			leverOffSprite.Quad.S 	= textureSpinLeverOff.TextureSizef;
-			
-			leverOnSprite			= new SpriteUV(textureSpinLeverOn);	
-			leverOnSprite.Quad.S 	= textureSpinLeverOn.TextureSizef;
-			
-			//Add to the current scene.
-			scene.AddChild(leverOffSprite);
-			scene.AddChild(leverOnSprite);
-			
-			
-			
 			//Position Obstacle
 			spinSprite[0].Position = new Vector2(450.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
 			                              
@@ -108,70 +106,54 @@ namespace Game
 			
 			pivSprite[2].Position = new Vector2(840.0f,260.0f);
 			
-			//Position lever
-			leverOffSprite.Position = new Vector2 (40.0f,80.0f);
-			
-			//Position lever
-			leverOnSprite.Position = new Vector2 (40.0f,80.0f);
+	
 		}
 		
 		public void Dispose()
 		{
 			textureSpinObstacle.Dispose();
 			textureSpinPiv.Dispose();
-			textureSpinLeverOn.Dispose();
-			textureSpinLeverOff.Dispose();
 			
 		}
 		
 		public void Update(float deltaTime)
 		{			
-			
-			if(stop)
-			{
-				spinSprite[0].Rotate(0.001f);
-				spinSprite[1].Rotate(0.001f);
-				spinSprite[2].Rotate(0.001f);
 				
-				stop = false;
-			}
+		}
+		
+	
+		
+		
+		public void Right()
 			
-			else
-			{
-				spinSprite[0].Rotate(0.060f);
-				spinSprite[1].Rotate(0.090f);
-				spinSprite[2].Rotate(0.030f);
-				
-			}  
+		{
 			
-			if(on)
-			{
-				leverOffSprite.Visible = false;
-				leverOnSprite.Visible = true; 
-				on = false;
-			}
-			
-			else 
-			{
-				leverOffSprite.Visible = true; 
-				leverOnSprite.Visible = false; 
-			}
-			
+			spinSprite[0].Rotate(0.060f);
+			spinSprite[1].Rotate(0.090f);
+			spinSprite[2].Rotate(0.030f);
 			
 		}
 		
-		public void Tapped()
-		{
-			if(!stop)
-			{
-				stop = true;
-			}
+		public void Stop()
 			
-			if(!on)
-			{
-				on = true;
-			}
+		{
+			
+			spinSprite[0].Rotate(0.00f);
+			spinSprite[1].Rotate(0.00f);
+			spinSprite[2].Rotate(0.00f);
+			
 		}
+		
+		public void Left()
+			
+		{
+			
+			spinSprite[0].Rotate(-0.060f);
+			spinSprite[1].Rotate(-0.090f);
+			spinSprite[2].Rotate(-0.030f);
+			
+		}
+		
 		
 		public bool HasCollidedWith(SpriteUV sprite)
 		{
@@ -188,20 +170,20 @@ namespace Game
 			spinSprite[2].GetContentWorldBounds(ref beam3);
 			
 			//player bounds
-			Bounds2 bird = sprite.GetlContentLocalBounds();
-			sprite.GetContentWorldBounds(ref bird);
+			Bounds2 player = sprite.GetlContentLocalBounds();
+			sprite.GetContentWorldBounds(ref player);
 			
-			if (bird.Overlaps(beam1))
+			if (player.Overlaps(beam1))
 			{
 				return true; 
 			}
 			
-			if (bird.Overlaps(beam2))
+			if (player.Overlaps(beam2))
 			{
 				return true; 
 			}
 			
-			if (bird.Overlaps(beam3))
+			if (player.Overlaps(beam3))
 			{
 				return true; 
 			}
@@ -213,5 +195,4 @@ namespace Game
 		}
 	}
 }
-
 

@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Game\SpinObstacle.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\app.xml">
     <Files>
-      <File FileName="Game\SpinObstacle.cs" Line="218" Column="1" />
+      <File FileName="Game\SpinObstacle.cs" Line="186" Column="14" />
+      <File FileName="Game\AppMain.cs" Line="108" Column="4" />
+      <File FileName="Game\app.xml" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

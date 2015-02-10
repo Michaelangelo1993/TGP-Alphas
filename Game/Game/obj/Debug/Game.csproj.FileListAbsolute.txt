@@ -37,3 +37,5 @@ C:\Users\paul\Desktop\GroupProject\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Ap
 C:\Users\paul\Desktop\GroupProject\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\mo.png
 C:\Users\paul\Desktop\GroupProject\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever2.png
 C:\Users\paul\Desktop\GroupProject\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever1.png
+C:\Users\paul\Desktop\GroupProject\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+C:\Users\paul\Desktop\GroupProject\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png

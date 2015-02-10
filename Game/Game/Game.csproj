@@ -59,5 +59,6 @@
     <Content Include="textures\mo.png" />
     <Content Include="textures\Lever2.png" />
     <Content Include="textures\Lever1.png" />
+    <Content Include="textures\firebeam.png" />
   </ItemGroup>
 </Project>
