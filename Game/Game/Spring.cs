@@ -24,6 +24,9 @@ namespace Game
 		private float springOriginalHeight;
 		private float springCurrentHeight;
 		public float springWidth;
+		
+		private static Vector2		_min, _max;
+		private static Bounds2		_box;
 				
 		public float GetOriginalHeight { get { return springOriginalHeight; }}
 		public bool BeingPushed { get { return beingPushed; }}
@@ -32,6 +35,7 @@ namespace Game
 		public Vector2 GetPosition { get { return springSprite.Position; }}
 		public float GetSpringWidth { get { return springWidth; }}
 		public float GetTop { get { return (springTopSprite.Position.Y + springTopHeight); }}
+		public Bounds2 GetBox() { return _box; }
 		
 		public Spring (Scene scene, Vector2 position)
 		{
@@ -128,6 +132,13 @@ namespace Game
 			{
 				WindSpring();
 			}
+			
+			_min.X			= springTopSprite.Position.X ;
+			_min.Y			= springTopSprite.Position.Y ;
+			_max.X			= springTopSprite.Position.X + springTopTextureInfo.TextureSizef.X;
+			_max.Y			= springTopSprite.Position.Y + springTopTextureInfo.TextureSizef.Y;
+			_box.Min 		= _min;			
+			_box.Max 		= _max;
 		}
 		
 		public void Reset()

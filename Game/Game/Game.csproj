@@ -79,5 +79,8 @@
     <Content Include="textures\Spring.png" />
     <Content Include="textures\SpringTop.png" />
     <Content Include="textures\Trap.png" />
+    <Content Include="textures\playerSprite.png" />
+    <Content Include="textures\playerSpriteSheet.png" />
+    <Content Include="textures\stick2.png" />
   </ItemGroup>
 </Project>

@@ -24,8 +24,9 @@ namespace Game
 		private static Seasaw 			seasaw;
 		private static Spring 			spring;
 		
+		private static int 				frameTime = 0, currentFrameTime = 0;
 		private static float			moveSpeed = 3.0f;
-				
+		private static bool				shakeCamera = false;
 		public static void Main (string[] args)
 		{
 			Initialize();
@@ -56,7 +57,7 @@ namespace Game
 		}
 
 		public static void Initialize ()
-		{
+		{			
 			//Set up director and UISystem.
 			Director.Initialize ();
 			UISystem.Initialize(Director.Instance.GL.Context);
@@ -76,40 +77,69 @@ namespace Game
 			
 			background 	= new Background(gameScene);
 			tntWall 	= new TntWall(gameScene, 1000.0f, 100.0f);
-			seasaw 		= new Seasaw(gameScene, new Vector2(3000.0f, 150.0f));
+			seasaw 		= new Seasaw(gameScene, background.GetFloorHeight(), 3000.0f);
 			spring 		= new Spring(gameScene, new Vector2(2000.0f, 0.0f));
-			player 		= new Player(gameScene);
-			
+			player 		= new Player(gameScene, background.GetFloorHeight());
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 		}
 		
 		public static void Update()
-		{
-			player.SetAngle(0.0f);
-			if(player.GetPos().Y > (100+115/2))
-			{
-				player.SetYPos((int)(player.GetPos().Y-2));
-				// TODO : add player bounce fall
-			}
-			
+		{		
 			Vector2 touchPos = GetTouchPosition();
 			
 			// Update code here
+			player.Update(0.0f);
 			UpdateTouchData();
 			UpdateSeasaw();
 			UpdateSpring();
-			player.Update(0);
 			background.Update(0.0f, moveSpeed);
 			tntWall.Update (0.0f, GetTouchPosition().X, GetTouchPosition().Y);
-				
-			// Move update code here
-			//Update the camera to follow the player
-			gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
-			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.5f));
+			UpdateCamera();
+			
 			// Sets the volcano background to follow the sprite
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
+			
+		}
+		
+		public static void UpdateCamera()
+		{
+			if (shakeCamera)
+			{
+				if(currentFrameTime == 1)
+				{
+					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
+			                            new Vector2(player.GetPos().X + 405, Director.Instance.GL.Context.GetViewport().Height*0.5f));
+				}
+				if(currentFrameTime == 2)
+				{
+					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
+			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.51f));
+				}
+				if(currentFrameTime == 3)
+				{
+					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
+			                            new Vector2(player.GetPos().X + 395, Director.Instance.GL.Context.GetViewport().Height*0.5f));
+				}
+				if(currentFrameTime == 4)
+				{
+					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
+			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.49f));
+					currentFrameTime = 0;
+				}
+				if (frameTime == 60)
+				{
+					shakeCamera = false;
+					frameTime = 0;
+				}
+				
+				currentFrameTime++;
+				frameTime++;
+			}
+			else //Update the camera to follow the player
+				gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
+			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.5f));
 			
 		}
 		
@@ -123,13 +153,10 @@ namespace Game
 			// Translate touch(-1 to 1) to screen pixels
 			Vector2 touchPos = Input2.Touch00.Pos;
 			if(touchPos.X >=0)
-			{
 				touchPos = new Vector2((touchPos.X * 450) + 450, (touchPos.Y * 272)+272);	
-			}
 			else
-			{
 				touchPos = new Vector2(((touchPos.X+1) * 450), ((touchPos.Y+1) * 272));
-			}
+			
 			// Get world position from Player, add local touch position
 			Vector2 playerPos = player.GetPos();
 			playerPos = new Vector2(playerPos.X + 115/2 -150,0.0f);
@@ -153,7 +180,6 @@ namespace Game
 			{
 				// Screen Touched
 				Vector2 touchPos = GetTouchPosition();
-				System.Diagnostics.Debug.WriteLine(touchPos.Y);
 				// Touching spring
 				if((touchPos.X-100 < spring.GetPosition.X) &&
 				   (touchPos.X+125 > spring.GetPosition.X + spring.GetSpringWidth) &&
@@ -177,15 +203,12 @@ namespace Game
 			
 			// Check player seasaw collision
 			if(IsColliding(seasaw))
-			{
-				// TODO: If player.IsOnSeasaw() == true, adjust angle and yoffset
-				// TODO: Else, reduce y position and die in lava
 				seasaw.SetIsOn();
-				if(seasaw.IsOn())
-				{
-					player.SetAngle(seasaw.GetAngle());
-					player.SetYPos(seasaw.GetNewPlayerYPos(player.GetPos()));
-				}
+			
+			if(seasaw.IsOn())
+			{
+				player.SetAngle(seasaw.GetAngle());
+				player.SetYPos(seasaw.GetNewPlayerYPos(player.GetPos()));
 			}
 		}
 						
@@ -195,37 +218,18 @@ namespace Game
 			
 			// If left of screen, reset 
 			if(spring.GetPosition.X+500 < player.GetPos().X)
-			{
 				spring.Reset();	
-			}
 			
 			// On/In Spring
-			if((player.GetPos().X+115/2 > spring.GetPosition.X-50) &&
-			   (player.GetPos().X-115/2 < spring.GetPosition.X + spring.GetSpringWidth + 50))
+			if(player.GetBottomBox().Overlaps(spring.GetBox()))
 			{
 				if(spring.MissedSpring)
 				{
 					// Die in lava	
 					
-				}
-				else
-				{
-					
-					if(player.GetPos().Y-115/2 < spring.GetTop)
-					{
-						spring.MissSpring();	
-					}
-					else
-					{
-						System.Diagnostics.Debug.WriteLine(spring.GetTop);
-						
-						if(spring.IsReleased)
-						{
-							player.SetYPos(85+spring.GetTop);
-							// TODO: Add player bounce
-						}
-					}
-				}
+				}	
+				else if(spring.IsReleased)
+					player.DoJump();
 			}
 		}
 	}
