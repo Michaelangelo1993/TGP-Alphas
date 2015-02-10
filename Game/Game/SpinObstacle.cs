@@ -13,24 +13,23 @@ namespace Game
 		
 		//Private variables.
 		private 	SpriteUV[] 	spinSprite;
+		
 		private 	SpriteUV[] 	pivSprite;
 		private 	TextureInfo	textureSpinObstacle;
 		private 	TextureInfo	textureSpinPiv;
-		private 	TextureInfo	textureSpinLeverOn;
-		private 	TextureInfo	textureSpinLeverOff;
+		
 		private bool			stop;
 		private bool			on;
 		
-		public float Width;
-		public float Height;
+		public float beamWidth;
+		public float beamHeight;
 		
 		public Vector2 GetPosition1 { get { return spinSprite[0].Position; }}
 		public Vector2 GetPosition2 { get { return spinSprite[1].Position; }}
 		public Vector2 GetPosition3 { get { return spinSprite[2].Position; }}
-		public float GetWidth { get { return Width; }}
+		public float GetSpringWidth { get { return beamWidth; }}
 		
 	
-		
 		
 		
 		//Public functions.
@@ -38,6 +37,7 @@ namespace Game
 		{
 			textureSpinObstacle     = new TextureInfo("/Application/textures/firebeam.png");
 			textureSpinPiv     		= new TextureInfo("/Application/textures/piv.png");
+			
 			
 			stop  = false;
 			on = 	false; 
@@ -74,6 +74,7 @@ namespace Game
 			spinSprite[0]			= new SpriteUV(textureSpinObstacle);	
 			spinSprite[0].Quad.S 	= textureSpinObstacle.TextureSizef;
 			spinSprite[0].CenterSprite(new Vector2(0.5f,0.5f));
+			spinSprite[0].Rotate(-0.9000f);
 			//Add to the current scene.
 			scene.AddChild(spinSprite[0]);
 			
@@ -81,6 +82,7 @@ namespace Game
 			spinSprite[1]			= new SpriteUV(textureSpinObstacle);	
 			spinSprite[1].Quad.S 	= textureSpinObstacle.TextureSizef;
 			spinSprite[1].CenterSprite(new Vector2(0.5f,0.5f));
+			spinSprite[1].Rotate(0.9000f);
 			//Add to the current scene.
 			scene.AddChild(spinSprite[1]);
 			
@@ -88,8 +90,12 @@ namespace Game
 			spinSprite[2]			= new SpriteUV(textureSpinObstacle);	
 			spinSprite[2].Quad.S 	= textureSpinObstacle.TextureSizef;
 			spinSprite[2].CenterSprite(new Vector2(0.5f,0.5f));
+			spinSprite[2].Rotate(-0.9000f);
 			//Add to the current scene.
 			scene.AddChild(spinSprite[2]);
+			
+	
+			
 			
 			
 			//Position Obstacle
@@ -99,6 +105,9 @@ namespace Game
 			
 			spinSprite[2].Position = new Vector2(850.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
 			
+			
+		
+			
 			//Position pivot
 			pivSprite[0].Position = new Vector2(440.0f,260.0f);
 			                              
@@ -106,31 +115,31 @@ namespace Game
 			
 			pivSprite[2].Position = new Vector2(840.0f,260.0f);
 			
-	
+		
 		}
 		
 		public void Dispose()
 		{
 			textureSpinObstacle.Dispose();
 			textureSpinPiv.Dispose();
+		
 			
 		}
 		
 		public void Update(float deltaTime)
 		{			
+			
 				
 		}
-		
-	
-		
-		
+
 		public void Right()
 			
 		{
 			
 			spinSprite[0].Rotate(0.060f);
-			spinSprite[1].Rotate(0.090f);
-			spinSprite[2].Rotate(0.030f);
+			spinSprite[1].Rotate(0.060f);
+			spinSprite[2].Rotate(0.060f);
+			
 			
 		}
 		
@@ -149,9 +158,17 @@ namespace Game
 		{
 			
 			spinSprite[0].Rotate(-0.060f);
-			spinSprite[1].Rotate(-0.090f);
-			spinSprite[2].Rotate(-0.030f);
+			spinSprite[1].Rotate(-0.060f);
+			spinSprite[2].Rotate(-0.060f);
 			
+			
+		}
+		
+		public void Reset()
+		{
+			spinSprite[0].Position = new Vector2(spinSprite[0].Position.X+2500,spinSprite[0].Position.Y);
+			spinSprite[1].Position = new Vector2(spinSprite[1].Position.X+2500,spinSprite[1].Position.Y);
+			spinSprite[2].Position = new Vector2(spinSprite[2].Position.X+2500,spinSprite[2].Position.Y);
 		}
 		
 		
