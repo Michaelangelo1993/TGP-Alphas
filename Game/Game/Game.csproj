@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C01A2D1D-467C-4DD1-AA39-9590A1270924}</ProjectGuid>
+    <ProjectGuid>{293A8A53-2CF7-420C-BE2D-B2311ACFF5A7}</ProjectGuid>
     <ProjectTypeGuids>{69878862-DA7D-4DC6-B0A1-50D8FAB4242F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Game</RootNamespace>
@@ -37,25 +37,58 @@
     <Reference Include="Sce.PlayStation.HighLevel.GameEngine2D" />
     <Reference Include="Sce.PlayStation.HighLevel.UI" />
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="AppMain.cs" />
-    <Compile Include="Geiser.cs" />
+    <Folder Include="shaders\" />
+    <Folder Include="textures\" />
   </ItemGroup>
   <ItemGroup>
-    <ShaderProgram Include="shaders\Simple.fcg" />
-    <ShaderProgram Include="shaders\Simple.vcg" />
+    <ShaderProgram Include="shaders\Texture.fcg" />
+    <ShaderProgram Include="shaders\Texture.vcg" />
   </ItemGroup>
   <ItemGroup>
     <PsmMetadata Include="app.xml" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="textures\" />
-    <Folder Include="music\" />
+    <Compile Include="AppMain.cs" />
+    <Compile Include="TntWall.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Spring.cs" />
+    <Compile Include="Seasaw.cs" />
+    <Compile Include="Trap.cs" />
+    <Compile Include="SpinObstacle.cs" />
+    <Compile Include="Geiser.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="textures\Geiser.png" />
-    <Content Include="textures\Spike.png" />
+    <Content Include="textures\dclouds.png" />
+    <Content Include="textures\lavawall3.png" />
+    <Content Include="textures\volcano.png" />
+    <Content Include="textures\tntbox.png" />
+    <Content Include="textures\tntplun.png" />
+    <Content Include="textures\rock.png" />
+    <Content Include="textures\explo.png" />
+    <Content Include="textures\volc2.png" />
+    <Content Include="textures\brownwall.png" />
+    <Content Include="textures\cavestart.png" />
+    <Content Include="textures\dclouds2.png" />
+    <Content Include="textures\dyno.png" />
+    <Content Include="textures\floor.png" />
+    <Content Include="textures\brownwall2.png" />
+    <Content Include="textures\cavestart2.png" />
+    <Content Include="textures\Seasaw.png" />
+    <Content Include="textures\stick.png" />
+    <Content Include="textures\Spring.png" />
+    <Content Include="textures\SpringTop.png" />
+    <Content Include="textures\Trap.png" />
+    <Content Include="textures\playerSprite.png" />
+    <Content Include="textures\playerSpriteSheet.png" />
+    <Content Include="textures\stick2.png" />
+    <Content Include="textures\firebeam.png" />
+    <Content Include="textures\piv.png" />
+    <Content Include="textures\geiserSpriteSheet.png" />
+    <Content Include="textures\stalagmite.png" />
     <Content Include="music\157172__danipenet__distant-world.mp3" />
+    <Content Include="music\Calm Before The Storm - PaulRHJT.wav" />
   </ItemGroup>
 </Project>
