@@ -18,9 +18,6 @@ namespace Game
 		private 	TextureInfo	textureSpinObstacle;
 		private 	TextureInfo	textureSpinPiv;
 		
-		private bool			stop;
-		private bool			on;
-		
 		public float beamWidth;
 		public float beamHeight;
 		
@@ -52,7 +49,7 @@ namespace Game
 				pivSprite[i]			= new SpriteUV(textureSpinPiv);	
 				pivSprite[i].Quad.S 	= textureSpinPiv.TextureSizef;
 				pivSprite[i].CenterSprite();
-				pivSprite[i].Position = new Vector2(position.X +(i *200.0f),Director.Instance.GL.Context.GetViewport().Height*0.5f);
+				pivSprite[i].Position = new Vector2(position.X +(i *200.0f),Director.Instance.GL.Context.GetViewport().Height*0.45f);
 				
 				spinSprite[i]			= new SpriteUV(textureSpinObstacle);	
 				spinSprite[i].Quad.S 	= textureSpinObstacle.TextureSizef;
@@ -117,10 +114,10 @@ namespace Game
 			
 		}
 		
-		public void Reset()
+		public void Reset(float x)
 		{
 			for (int i = 0; i < numberOfObstacles; i++)
-				pivSprite[i].Position = new Vector2(spinSprite[i].Position.X+2500,spinSprite[i].Position.Y);
+				pivSprite[i].Position = new Vector2(spinSprite[i].Position.X+x,spinSprite[i].Position.Y);
 		}
 		
 		

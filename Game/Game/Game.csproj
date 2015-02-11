@@ -98,5 +98,8 @@
     <Content Include="textures\dyno2.png" />
     <Content Include="textures\wire.png" />
     <Content Include="textures\wire2.png" />
+    <Content Include="textures\cavestart3.png" />
+    <Content Include="textures\floor2.png" />
+    <Content Include="textures\tntplun2.png" />
   </ItemGroup>
 </Project>

@@ -54,7 +54,7 @@ namespace Game
 			spikeTextureInfo = new TextureInfo("/Application/textures/stalagmite.png");
 			spikeSprite = new SpriteUV(spikeTextureInfo);
 			spikeSprite.Position = position;
-			spikeSprite.Position = new Vector2(position.X+70, position.Y+450);
+			spikeSprite.Position = new Vector2(position.X+70, position.Y+475);
 			spikeSprite.Quad.S = spikeTextureInfo.TextureSizef;
 			Bounds2 spikeBounds = spikeSprite.Quad.Bounds2();
 								
@@ -76,31 +76,36 @@ namespace Game
 		public void Update(float deltaTime, float speed)
 		{
 			AnimateGeiser();
-			spikeSprite.Position = new Vector2(spikeSprite.Position.X-speed, spikeSprite.Position.Y);
-			geiserSprite.Position = new Vector2(geiserSprite.Position.X-speed, geiserSprite.Position.Y);
+			
 			
 			if(spikeBroken == true)
 			{
-				spikeSprite.Position = new Vector2(spikeSprite.Position.X, spikeSprite.Position.Y-10);
-				geiserSprite.Position = new Vector2(geiserSprite.Position.X, geiserSprite.Position.Y);
+				geiserSprite.Position = new Vector2(geiserSprite.Position.X-speed, geiserSprite.Position.Y);
+				spikeSprite.Position = new Vector2((geiserSprite.Position.X + (geiserTextureInfo.TextureSizef.X/2) -spikeTextureInfo.TextureSizef.X/2)-speed, spikeSprite.Position.Y);
+				
 				//Check to see whether spike has reached the ground
-				if(spikeSprite.Position.Y < geiserSprite.Position.Y)
+				if(spikeSprite.Position.Y > geiserSprite.Position.Y)
+				{
+					spikeSprite.Position = new Vector2(geiserSprite.Position.X, spikeSprite.Position.Y-10);
+					//Remove geiser from players path
+					//spikeSprite.Position = new Vector2(400,0);
+					//spikeBroken = false;
+				}
+				if(spikeSprite.Position.Y < geiserSprite.Position.Y+100)
 				{
 					//Remove geiser from players path
 					geiserSprite.Visible = false;
 					//spikeSprite.Position = new Vector2(400,0);
-					spikeBroken = false;
+					//spikeBroken = false;
 				}
 			}
+			else
+				geiserSprite.Position = new Vector2(geiserSprite.Position.X-speed, geiserSprite.Position.Y);
+				spikeSprite.Position = new Vector2((geiserSprite.Position.X + (sizeX/2) -spikeTextureInfo.TextureSizef.X/2)-speed, spikeSprite.Position.Y);
 		}
 		
 		private void AnimateGeiser()
 		{
-			if(spikeBroken = false)
-			{
-				//don't know what i'm doing
-			}
-			
 			if(frameTime == animationDelay)
 			{
 				if (widthCount == noOnSpritesheetWidth)
@@ -114,12 +119,12 @@ namespace Game
 			frameTime++;
 		}
 		
-		public void Reset()
+		public void Reset(float x)
 		{
 			spikeBroken = false;
 			geiserSprite.Visible = true;
-			geiserSprite.Position += new Vector2(2500, 0);
-			spikeSprite.Position = new Vector2(geiserSprite.Position.X, geiserSprite.Position.Y+400);
+			geiserSprite.Position += new Vector2(x, 0);
+			spikeSprite.Position = new Vector2(geiserSprite.Position.X, geiserSprite.Position.Y+475);
 			geiserSprite.Visible = true;
 		}
 	}

@@ -31,7 +31,7 @@ namespace Game
 		public TntWall (Scene scene, float x, float y)
 		{
 			boxTextureInfo = new TextureInfo("/Application/textures/box2.png");
-			pluTextureInfo = new TextureInfo("/Application/textures/tntplun.png");
+			pluTextureInfo = new TextureInfo("/Application/textures/tntplun2.png");
 			rockTextureInfo = new TextureInfo("/Application/textures/rock.png");
 			exploTextureInfo = new TextureInfo("/Application/textures/explo.png");
 			dynoTextureInfo = new TextureInfo("/Application/textures/dyno2.png");
@@ -50,7 +50,7 @@ namespace Game
 			boxSprite.Position = new Vector2(x, y);
 			
 			dynoSprite.Quad.S 	= boxTextureInfo.TextureSizef;
-			dynoSprite.Position = new Vector2(x + 120.0f, y - 5.0f);
+			dynoSprite.Position = new Vector2(x + 120.0f, y);
 			
 			pluSprite.Quad.S 	= pluTextureInfo.TextureSizef;
 			pluSprite.Position = new Vector2(x, y + 44.0f);
@@ -99,7 +99,7 @@ namespace Game
 			
 			
 			boxSprite.Position += new Vector2(-t, 0);
-			dynoSprite.Position = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y  - 5.0f);
+			dynoSprite.Position = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			pluSprite.Position = new Vector2(boxSprite.Position.X, pluSprite.Position.Y);
 			rockSprite.Position = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
@@ -150,7 +150,7 @@ namespace Game
 			return pluSprite.Position;
 		}
 		
-		public void Reset(Scene scene)
+		public void Reset(Scene scene, float x)
 		{
 			tScene.RemoveChild(rockSprite, false);
 			tScene.RemoveChild(boxSprite, false);
@@ -162,7 +162,7 @@ namespace Game
 			scene.AddChild(boxSprite);
 			scene.AddChild(dynoSprite);
 			
-			boxSprite.Position += new Vector2(2500, 0);
+			boxSprite.Position += new Vector2(x, 0);
 			pluSprite.Position = new Vector2(boxSprite.Position.X, boxSprite.Position.Y +44);
 			counter = 20;
 		}

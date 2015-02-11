@@ -21,6 +21,8 @@ namespace Game
 									_scaleLimiter, _scalerValue;
 		private static bool 		_onObstacle, _rotateLeft;
 		
+		private static Trap			_trap;
+		
 		public Seasaw (Scene scene, float floorHeight, float xPos)
 		{
 			//Initialise Variables
@@ -32,6 +34,7 @@ namespace Game
 			_onObstacle 			= false;
 			_floorHeight			= floorHeight;
 			_defaultYPos			= floorHeight + 70.0f;
+			
 
 			//SpriteSheet Info
 			_textureInfo  			= new TextureInfo("/Application/textures/Seasaw.png");
@@ -52,6 +55,9 @@ namespace Game
 			_sprite.Angle 			= _angle;
 			_scalerValue 			= _tempScale/(_angle*10);
 			
+			_trap = new Trap(scene, new Vector2(xPos - _adjacent, 0.0f));
+			_trap.SetWidth(_adjacent*2);
+			
 			//Add to the current scene.
 			scene.AddChild(_sprite);
 		}
@@ -67,6 +73,8 @@ namespace Game
 			UpdateAngles();
 			
 			_sprite.Position += new Vector2(-t, 0.0f);
+			
+			_trap.Update(deltaTime, t);
 			
 			//Storing Bounds2 box data for collisions
 			_min.X			= _sprite.Position.X - (_adjacent *_scale);
@@ -154,7 +162,7 @@ namespace Game
 		public float GetAngle(){ return _angle; }
 		
 		//Set X position of the seasaw 
-		public void SetXPos(float x) { _sprite.Position = new Vector2(x, _defaultYPos); }
+		public void SetXPos(float x) { _sprite.Position = new Vector2(x, _defaultYPos); _trap.SetXPos(x - _adjacent); }
 		
 		//Get the postion of the seasaw
 		public Vector2 GetPos(){ return _sprite.Position; }

@@ -44,14 +44,14 @@ namespace Game
 			beingPushed = false;
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
-			springTextureInfo = new TextureInfo("/Application/textures/Spring.png");
-			springSprite = new SpriteUV(springTextureInfo);
-			springSprite.Quad.S = springTextureInfo.TextureSizef;
-			Bounds2 springBounds = springSprite.Quad.Bounds2 ();
-			springSprite.Position = new Vector2(position.X, position.Y);
-			springWidth = springBounds.Point10.X;
-			springOriginalHeight = springBounds.Point01.Y;
-			springCurrentHeight = springBounds.Point01.Y;
+			springTextureInfo 		= new TextureInfo("/Application/textures/Spring.png");
+			springSprite 			= new SpriteUV(springTextureInfo);
+			springSprite.Quad.S 	= springTextureInfo.TextureSizef;
+			Bounds2 springBounds 	= springSprite.Quad.Bounds2 ();
+			springSprite.Position 	= new Vector2(position.X, position.Y);
+			springWidth 			= springBounds.Point10.X;
+			springOriginalHeight 	= springBounds.Point01.Y;
+			springCurrentHeight 	= springBounds.Point01.Y;
 			
 			trap = new Trap(scene, new Vector2((position.X + 125), (position.Y )));			
 			
@@ -113,6 +113,7 @@ namespace Game
 		{
 			springSprite.Position = new Vector2(springSprite.Position.X - speed, springSprite.Position.Y);
 			springTopSprite.Position = new Vector2(springTopSprite.Position.X - speed, springTopSprite.Position.Y);
+			
 			trap.Update(deltaTime, speed);
 			
 			if(springReleased)
@@ -141,14 +142,14 @@ namespace Game
 			_box.Max 		= _max;
 		}
 		
-		public void Reset()
+		public void Reset(float x)
 		{
 			springReleased = false;
 			missedSpring = false;
 			beingPushed = false;
-			springSprite.Position = new Vector2((springSprite.Position.X + 2500), (springSprite.Position.Y));
-			trap.Reset();
-			springTopSprite.Position += new Vector2(2500, 0);
+			springSprite.Position = new Vector2((springSprite.Position.X + x), (springSprite.Position.Y));
+			trap.Reset(x);
+			springTopSprite.Position += new Vector2(x, 0);
 		}
 	}
 }

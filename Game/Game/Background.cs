@@ -61,10 +61,10 @@ namespace Game
 			smogSprite.Position	 	= new Vector2(0.0f, 0.0f);
 			smogSprite2.Position 	= new Vector2(width-2.0f, 0.0f);	
 			
-			wallSprite.Position 	= new Vector2(width, 0.0f);
-			wallSprite2.Position 	= new Vector2(width*2-2.0f, 0.0f);
+			wallSprite.Position 	= new Vector2(width*1.5f, 0.0f);
+			wallSprite2.Position 	= new Vector2(width*2.5f-2.0f, 0.0f);
 					
-			entrSprite.Position 	= new Vector2(width, 0.0f);
+			entrSprite.Position 	= new Vector2(width*0.5f, 0.0f);
 			
 			floorSprite 			= new SpriteUV();			
 			floorTextureInfo 		= new TextureInfo("/Application/textures/floor.png");
@@ -76,7 +76,6 @@ namespace Game
 			floor2Sprite 			= new SpriteUV(floorTextureInfo);
 			floor2Sprite.Position 	= new Vector2(width, 0.0f);
 			floor2Sprite.Quad.S 	= floorTextureInfo.TextureSizef;
-			
 			
 			addToScene(scene);
 
@@ -120,7 +119,7 @@ namespace Game
 			
 			//wall textures
 			wallTextureInfo  = new TextureInfo("/Application/textures/brownwall2.png");
-			wall2TextureInfo = new TextureInfo("/Application/textures/cavestart2.png");
+			wall2TextureInfo = new TextureInfo("/Application/textures/cavestart3.png");
 			
 			wallSprite = new SpriteUV(wallTextureInfo);
 			wallSprite2 = new SpriteUV(wallTextureInfo);

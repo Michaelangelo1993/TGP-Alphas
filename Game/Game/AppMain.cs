@@ -84,11 +84,11 @@ namespace Game
 			
 			background 		= new Background(gameScene);
 			tntWall 		= new TntWall(gameScene, 1500.0f, 100.0f);
-			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2100.0f);
-			spring 			= new Spring(gameScene, new Vector2(2700.0f, 0.0f));
-			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3300.0f, 0.0f));
+			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2300.0f);
+			spring 			= new Spring(gameScene, new Vector2(3100.0f, 0.0f));
+			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3900.0f, 0.0f));
 			player 			= new Player(gameScene, background.GetFloorHeight());
-			geiser			= new Geiser(gameScene, new Vector2(4500.0f, 0.0f));
+			geiser			= new Geiser(gameScene, new Vector2(4700.0f, 0.0f));
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -227,7 +227,10 @@ namespace Game
 			
 			// If left of screen, reset 
 			if(seasaw.GetPos().X+700 < player.GetPos().X)
-				seasaw.SetXPos(player.GetPos().X + 2500);
+			{
+				seasaw.SetXPos(tntWall.GetPosition().X + 1000);
+			}
+			
 		}
 						
 		public static void UpdateSpring()
@@ -236,7 +239,7 @@ namespace Game
 			
 			// If left of screen, reset 
 			if(spring.GetPosition.X+700 < player.GetPos().X)
-				spring.Reset();	
+				spring.Reset(seasaw.GetPos().X+200);	
 			
 			// On/In Spring
 			if(player.GetBottomBox().Overlaps(spring.GetBox()))
@@ -274,7 +277,7 @@ namespace Game
 			spinObstacle.Stop ();
 			
 			if(spinObstacle.GetPosition1.X+700 < player.GetPos().X)
-				spinObstacle.Reset();
+				spinObstacle.Reset(spring.GetPosition.X+200);
 			
 		}
 		
@@ -296,16 +299,16 @@ namespace Game
 			}
 			
 			if(tntWall.GetPosition().X+700 < player.GetPos().X)
-				tntWall.Reset(gameScene);
+				tntWall.Reset(gameScene, geiser.GetPosition.X+200);
 		}
 		
 		public static void UpdateGeiser()
 		{
 			geiser.Update(0, moveSpeed);
 			Vector2 touchPos = GetTouchPosition();
-			Vector2 pluPos = geiser.GetPosition;
-			if(touchPos.Y <= pluPos.Y + 114.0f && touchPos.Y >= pluPos.Y - 50.0f
-			   && touchPos.X <= pluPos.X + 114.0f && touchPos.X >= pluPos.X - 50.0f)				
+			Vector2 geiserPos = geiser.GetPosition;
+			if(touchPos.Y <= geiserPos.Y + 114.0f && touchPos.Y >= geiserPos.Y - 50.0f
+			   && touchPos.X <= geiserPos.X + 114.0f && touchPos.X >= geiserPos.X - 50.0f)				
 			{
 				geiser.BreakSpike();
 			}
@@ -313,7 +316,7 @@ namespace Game
 			
 			
 			if(geiser.GetPosition.X+700 < player.GetPos().X)
-				geiser.Reset();
+				geiser.Reset(spinObstacle.GetPosition1.X + 200);
 			
 		}
 	}

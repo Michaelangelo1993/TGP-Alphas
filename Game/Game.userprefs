@@ -1,20 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Game\TntWall.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\SpinObstacle.cs">
     <Files>
-      <File FileName="Game\AppMain.cs" Line="91" Column="51" />
-      <File FileName="Game\Player.cs" Line="122" Column="22" />
-      <File FileName="Game\Seasaw.cs" Line="125" Column="59" />
-      <File FileName="Game\Background.cs" Line="205" Column="24" />
-      <File FileName="Game\Spring.cs" Line="141" Column="21" />
-      <File FileName="Game\Geiser.cs" Line="109" Column="83" />
-      <File FileName="Game\TntWall.cs" Line="31" Column="49" />
-      <File FileName="Game\Trap.cs" Line="1" Column="1" />
-      <File FileName="Game\SpinObstacle.cs" Line="52" Column="6" />
+      <File FileName="Game\AppMain.cs" Line="231" Column="52" />
+      <File FileName="Game\Player.cs" Line="66" Column="31" />
+      <File FileName="Game\Background.cs" Line="73" Column="57" />
+      <File FileName="Game\TntWall.cs" Line="151" Column="4" />
+      <File FileName="Game\Geiser.cs" Line="87" Column="56" />
+      <File FileName="Game\Seasaw.cs" Line="133" Column="47" />
+      <File FileName="Game\SpinObstacle.cs" Line="19" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\Spring.cs" line="42" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
