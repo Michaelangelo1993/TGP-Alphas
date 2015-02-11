@@ -205,6 +205,8 @@ namespace Game
 		}
 		
 		public void SetVolcanoPosition(float x, float y) { volcSprite.Position = new Vector2(x,y); }
+		public Vector2 GetVolcanoPosition() { return volcSprite.Position; }
+		
 		public float GetFloorHeight() { return floorTextureInfo.TextureSizef.Y-5; }
 	}
 }

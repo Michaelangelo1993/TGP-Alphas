@@ -96,19 +96,19 @@ namespace Game
 			_angle = 0.0f;
 			
 			//Storing Bounds2 box data for collisions
-			_min.X					= _sprite.Position.X - ((_size*_scale)*0.5f);
-			_min.Y					= _sprite.Position.Y - ((_size*_scale)*0.3f);
-			_max.X					= _sprite.Position.X + ((_size*_scale)*0.5f);
-			_max.Y					= _sprite.Position.Y + ((_size*_scale)*0.3f);
+			_min.X					= _sprite.Position.X;
+			_min.Y					= _sprite.Position.Y - ((_size*_scale)*0.5f);
+			_max.X					= _sprite.Position.X + ((_size*_scale)*0.3f);
+			_max.Y					= _sprite.Position.Y + ((_size*_scale)*0.5f);
 			_box.Min 				= _min;			
 			_box.Max 				= _max;
 			
 			_min.X					= _sprite.Position.X - ((_size*_scale)*0.5f);
-			_min.Y					= _sprite.Position.Y - ((_size*_scale)*0.3f);
+			_min.Y					= _sprite.Position.Y - ((_size*_scale)*0.5f);
 			_max.X					= _sprite.Position.X + ((_size*_scale)*0.5f);
-			_max.Y					= _sprite.Position.Y - ((_size*_scale)*0.3f);
-			_bottomBox.Min 				= _min;			
-			_bottomBox.Max 				= _max;
+			_max.Y					= _sprite.Position.Y - ((_size*_scale)*0.5f);
+			_bottomBox.Min 			= _min;			
+			_bottomBox.Max 			= _max;
 		}
 		
 		private void AnimatePlayer()
@@ -144,12 +144,12 @@ namespace Game
 		{
 			if(!_jump)
 			{
-				_movementVector 	= new Vector2(_sprite.Position.X + 100.0f, _defaultYPos + _floorHeight);
+				_movementVector 	+= new Vector2(100.0f, 0.0f);
 				_velocity			= Normalize(_movementVector, _sprite.Position);
-				_velocity 			= new Vector2(_velocity.X * _speed, _velocity.Y * _speed);
-				_velocity 			= new Vector2(_velocity.X, _velocity.Y + (_gravity*_speed));
-				_sprite.Position 	= new Vector2 (_sprite.Position.X + _velocity.X, _sprite.Position.Y + _velocity.Y);
-				_velocity 			= new Vector2(_velocity.X, _velocity.Y * 0.95f);
+				_velocity 			*=  _speed;
+				_velocity 			+= new Vector2(0.0f, _gravity *_speed);
+				_sprite.Position 	+= _velocity;
+				_velocity 			*= new Vector2(0.0f, 0.95f);
 			}
 		}
 		

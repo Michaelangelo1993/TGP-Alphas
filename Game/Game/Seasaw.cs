@@ -61,10 +61,12 @@ namespace Game
 			_textureInfo.Dispose();
 		}
 		
-		public void Update(float deltaTime, float speed)
+		public void Update(float deltaTime, float t)
 		{
 			CheckInput();
 			UpdateAngles();
+			
+			_sprite.Position += new Vector2(-t, 0.0f);
 			
 			//Storing Bounds2 box data for collisions
 			_min.X			= _sprite.Position.X - (_adjacent *_scale);

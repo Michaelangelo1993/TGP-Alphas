@@ -19,13 +19,14 @@ namespace Game
 		private static TextureInfo	exploTextureInfo;
 		private static SpriteUV 	dynoSprite;
 		private static TextureInfo	dynoTextureInfo;
-		private static float		yPos;
-		private static float		xPos;
 		private static Scene tScene;
 		private static bool			blown = false;
 		private static int 			counter = 20;
 		private static float		startX;
 		private static float		startY;
+		private static bool			beingPushed;
+		private static Vector2		min, max;
+		private static Bounds2		box;
 		
 		public TntWall (Scene scene, float x, float y)
 		{
@@ -75,48 +76,58 @@ namespace Game
 			exploTextureInfo.Dispose ();
 		}
 		
-		public void Update(float deltaTime, float x, float y)
+		public void Update(float deltaTime, float t)
 		{			
-			
-			yPos = (y * (Director.Instance.GL.Context.GetViewport().Height / 2))
-					+ (Director.Instance.GL.Context.GetViewport().Height / 2)
-					- (pluTextureInfo.TextureSizef.Y / 2);
-			
-			xPos = (x * (Director.Instance.GL.Context.GetViewport().Width / 2))
-					+ (Director.Instance.GL.Context.GetViewport().Width / 2)
-					- (pluTextureInfo.TextureSizef.Y / 2);
-			
-			//System.Diagnostics.Debug.WriteLine (xPos);
-			
-			if(yPos <= pluSprite.Position.Y + 64.0f && yPos >= pluSprite.Position.Y + 16.0f 
-			   && xPos <= pluSprite.Position.X + 32.0f && xPos >= pluSprite.Position.X - 32.0f)
-				
-				{
-					if(yPos < startY + 64.0f && yPos > startY + 4.0f)
-						pluSprite.Position = new Vector2(boxSprite.Position.X , yPos - 25);	
-				}	
-			if(pluSprite.Position.Y <= startY + 10.0f)
+			if(beingPushed)
+			{
+				pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-1.0f);
+			}
+
+			if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
+			{
 				blowUpRock ();
+				pluSprite.Position = new Vector2(boxSprite.Position.X, boxSprite.Position.Y + 44.0f);
+			}
 			
 			counter--;
+			
 			if(counter<0)
-				tScene.RemoveChild(exploSprite, true);
-		}	
-		
-		public void blowUpRock()
-		{
-			tScene.RemoveChild(rockSprite, true);
-			//tScene.RemoveChild(boxSprite, true);
-			tScene.RemoveChild(pluSprite, true);
-			tScene.RemoveChild(dynoSprite, true);
-			if(!blown)
 			{
-				tScene.AddChild(exploSprite);
-				blown = true;
-				counter = 20;
+				tScene.RemoveChild(exploSprite, false);
+				counter=20;
 			}
 			
 			
+			boxSprite.Position += new Vector2(-t, 0);
+			dynoSprite.Position = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y  - 5.0f);
+			pluSprite.Position = new Vector2(boxSprite.Position.X, pluSprite.Position.Y);
+			rockSprite.Position = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
+			exploSprite.Position = new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
+			
+			//Storing Bounds2 box data for collisions
+			min.X			= boxSprite.Position.X;
+			min.Y			= boxSprite.Position.Y;
+			max.X			= boxSprite.Position.X + boxTextureInfo.TextureSizef.X;
+			max.Y			= boxSprite.Position.Y + 200;
+			box.Min 		= min;			
+			box.Max 		= max;
+		}
+		
+		public void blowUpRock()
+		{
+			tScene.RemoveChild(rockSprite, false);
+			tScene.RemoveChild(boxSprite, false);
+			tScene.RemoveChild(pluSprite, false);
+			tScene.RemoveChild(dynoSprite,false);
+			
+			if(!blown)
+			{
+				exploSprite.Position = new Vector2(rockSprite.Position.X-200.0f,rockSprite.Position.Y-80.0f);
+				tScene.AddChild(exploSprite);
+				
+				blown = true;
+				counter = 20;
+			}			
 		}
 		
 		public void CheckCollision()
@@ -126,8 +137,41 @@ namespace Game
 		
 		public void Tapped()
 		{
-			
+			beingPushed = true;
 		}
+		
+		public void ReleasePlunger()
+		{
+			beingPushed = false;
+		}
+		
+		public Vector2 GetPosition()
+		{
+			return pluSprite.Position;
+		}
+		
+		public void Reset(Scene scene)
+		{
+			tScene.RemoveChild(rockSprite, false);
+			tScene.RemoveChild(boxSprite, false);
+			tScene.RemoveChild(pluSprite, false);
+			tScene.RemoveChild(dynoSprite,false);
+			tScene.RemoveChild(exploSprite,false);
+			scene.AddChild(rockSprite);
+			scene.AddChild(pluSprite);
+			scene.AddChild(boxSprite);
+			scene.AddChild(dynoSprite);
+			
+			boxSprite.Position += new Vector2(2500, 0);
+			pluSprite.Position = new Vector2(boxSprite.Position.X, boxSprite.Position.Y +44);
+			counter = 20;
+		}
+		
+		public void SetBlown() { blown = false; }
+		public bool GetBlown() { return blown; }
+		
+		public Bounds2 GetBox() { return box; }
+		
 	}
 }
 

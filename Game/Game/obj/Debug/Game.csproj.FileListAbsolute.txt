@@ -306,3 +306,7 @@ C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.exe
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
