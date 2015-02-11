@@ -28,8 +28,6 @@ textures/stick.png
 textures/Spring.png
 textures/SpringTop.png
 textures/Trap.png
-textures/playerSprite.png
-textures/playerSpriteSheet.png
 textures/stick2.png
 textures/firebeam.png
 textures/piv.png
@@ -38,3 +36,12 @@ textures/geiserSpriteSheet.png
 textures/lavaWave.png
 textures/stalagmite.png
 music/Calm Before The Storm - PaulRHJT.mp3
+textures/Lever1.png
+textures/Lever2.png
+textures/metal.png
+textures/mo.png
+textures/spritesheet8.png
+textures/box2.png
+textures/dyno2.png
+textures/wire.png
+textures/wire2.png

@@ -81,8 +81,6 @@
     <Content Include="textures\Spring.png" />
     <Content Include="textures\SpringTop.png" />
     <Content Include="textures\Trap.png" />
-    <Content Include="textures\playerSprite.png" />
-    <Content Include="textures\playerSpriteSheet.png" />
     <Content Include="textures\stick2.png" />
     <Content Include="textures\firebeam.png" />
     <Content Include="textures\piv.png" />
@@ -91,5 +89,14 @@
     <Content Include="textures\lavaWave.png" />
     <Content Include="textures\stalagmite.png" />
     <Content Include="music\Calm Before The Storm - PaulRHJT.mp3" />
+    <Content Include="textures\Lever1.png" />
+    <Content Include="textures\Lever2.png" />
+    <Content Include="textures\metal.png" />
+    <Content Include="textures\mo.png" />
+    <Content Include="textures\spritesheet8.png" />
+    <Content Include="textures\box2.png" />
+    <Content Include="textures\dyno2.png" />
+    <Content Include="textures\wire.png" />
+    <Content Include="textures\wire2.png" />
   </ItemGroup>
 </Project>

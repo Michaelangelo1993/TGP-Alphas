@@ -30,11 +30,11 @@ namespace Game
 		
 		public TntWall (Scene scene, float x, float y)
 		{
-			boxTextureInfo = new TextureInfo("/Application/textures/tntbox.png");
+			boxTextureInfo = new TextureInfo("/Application/textures/box2.png");
 			pluTextureInfo = new TextureInfo("/Application/textures/tntplun.png");
 			rockTextureInfo = new TextureInfo("/Application/textures/rock.png");
 			exploTextureInfo = new TextureInfo("/Application/textures/explo.png");
-			dynoTextureInfo = new TextureInfo("/Application/textures/dyno.png");
+			dynoTextureInfo = new TextureInfo("/Application/textures/dyno2.png");
 			
 			tScene = scene;
 			startX = x;

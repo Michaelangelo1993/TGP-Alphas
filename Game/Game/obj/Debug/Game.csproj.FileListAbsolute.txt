@@ -259,8 +259,6 @@ C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Ap
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
-C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSprite.png
-C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSpriteSheet.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
@@ -296,8 +294,6 @@ C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Appl
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
-C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSprite.png
-C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSpriteSheet.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
 C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
@@ -399,3 +395,31 @@ C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Text
 C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
 C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.exe
 C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\geiserSpriteSheet.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavaWave.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stalagmite.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\geiserSpriteSheet.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavaWave.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stalagmite.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever1.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\metal.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\mo.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\spritesheet8.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever1.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\metal.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\mo.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\spritesheet8.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\box2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\box2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire2.png

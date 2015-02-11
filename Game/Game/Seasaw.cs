@@ -122,7 +122,7 @@ namespace Game
 			if(distanceBetween < 0)
 				distanceBetween = -distanceBetween;
 			
-			if(distanceBetween < (_textureInfo.TextureSizef.X/2) && _onObstacle)
+			if(distanceBetween < (_textureInfo.TextureSizef.X/2)+40 && _onObstacle)
 			{
 				float adjacent, opposite, hypotenuse;
 				

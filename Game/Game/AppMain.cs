@@ -83,12 +83,12 @@ namespace Game
 			UISystem.SetScene(uiScene);
 			
 			background 		= new Background(gameScene);
-			tntWall 		= new TntWall(gameScene, 1000.0f, 100.0f);
-			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2700.0f);
-			spring 			= new Spring(gameScene, new Vector2(1800.0f, 0.0f));
-			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3600.0f, 0.0f));
-			geiser		= new Geiser(gameScene, new Vector2(2000.0f, 0.0f));
+			tntWall 		= new TntWall(gameScene, 1500.0f, 100.0f);
+			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2100.0f);
+			spring 			= new Spring(gameScene, new Vector2(2700.0f, 0.0f));
+			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3300.0f, 0.0f));
 			player 			= new Player(gameScene, background.GetFloorHeight());
+			geiser			= new Geiser(gameScene, new Vector2(4500.0f, 0.0f));
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -107,6 +107,7 @@ namespace Game
 			UpdateSpring();
 			UpdateSpin();
 			UpdateTnt();
+			UpdateGeiser();
 			background.Update(0.0f, moveSpeed);
 			UpdateCamera();
 			
@@ -225,7 +226,7 @@ namespace Game
 			}
 			
 			// If left of screen, reset 
-			if(seasaw.GetPos().X+600 < player.GetPos().X)
+			if(seasaw.GetPos().X+700 < player.GetPos().X)
 				seasaw.SetXPos(player.GetPos().X + 2500);
 		}
 						
@@ -234,7 +235,7 @@ namespace Game
 			spring.Update(0, moveSpeed);
 			
 			// If left of screen, reset 
-			if(spring.GetPosition.X+600 < player.GetPos().X)
+			if(spring.GetPosition.X+700 < player.GetPos().X)
 				spring.Reset();	
 			
 			// On/In Spring
@@ -272,7 +273,7 @@ namespace Game
 					
 			spinObstacle.Stop ();
 			
-			if(spinObstacle.GetPosition1.X+600 < player.GetPos().X)
+			if(spinObstacle.GetPosition1.X+700 < player.GetPos().X)
 				spinObstacle.Reset();
 			
 		}
@@ -294,40 +295,25 @@ namespace Game
 				tntWall.SetBlown();
 			}
 			
-			if(tntWall.GetPosition().X+600 < player.GetPos().X)
+			if(tntWall.GetPosition().X+700 < player.GetPos().X)
 				tntWall.Reset(gameScene);
-			
-			//Query gamepad for current state
-			var gamePadData = GamePad.GetData(0);
-			
-			
-			//Determine whether the player tapped the screen
-			List<TouchData> touches = Touch.GetData(0);			
-		
-			foreach(TouchData data in touches)
-			{
-				if(data.Status.Equals(TouchStatus.Down))
-				{
-					oldTouchPos = new Vector2( data.X, data.Y );
-					newTouchPos = new Vector2( data.X, data.Y );
-				}
-				
-				if(data.Status.Equals(TouchStatus.Move))
-				{
-					newTouchPos = new Vector2( data.X, data.Y ); // Records the last position of swipe if movement is detected.	RMDS
-				}
-				
-				if(data.Status.Equals(TouchStatus.Up))	
-				{				
-					if((oldTouchPos.Y - newTouchPos.Y) > -0.20f)					
-						shakeCamera = true;
-						
-				}						
-			}
 		}
 		
 		public static void UpdateGeiser()
 		{
+			geiser.Update(0, moveSpeed);
+			Vector2 touchPos = GetTouchPosition();
+			Vector2 pluPos = geiser.GetPosition;
+			if(touchPos.Y <= pluPos.Y + 114.0f && touchPos.Y >= pluPos.Y - 50.0f
+			   && touchPos.X <= pluPos.X + 114.0f && touchPos.X >= pluPos.X - 50.0f)				
+			{
+				geiser.BreakSpike();
+			}
+			
+			
+			
+			if(geiser.GetPosition.X+700 < player.GetPos().X)
+				geiser.Reset();
 			
 		}
 	}

@@ -130,7 +130,6 @@ namespace Game
 					}
 					
 					_sprite.UV.T = new Vector2((1.0f/_noOnSpritesheetWidth)*_widthCount,(1.0f/_noOnSpritesheetHeight)*_heightCount);
-					
 					_widthCount++;
 					//_heightCount++;
 					_frameTime = 0;

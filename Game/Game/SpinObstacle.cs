@@ -62,7 +62,7 @@ namespace Game
 				
 				spinSprite[i].Position = pivSprite[i].Position;
 				
-				scene.AddChild(pivSprite[i]);
+				//scene.AddChild(pivSprite[i]);
 				scene.AddChild(spinSprite[i]);
 			}
 			spinSprite[0].Rotate(-0.9f);
