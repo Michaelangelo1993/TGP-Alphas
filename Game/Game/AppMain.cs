@@ -24,6 +24,7 @@ namespace Game
 		private static Seasaw 			seasaw;
 		private static Spring 			spring;
 		private static SpinObstacle     spinObstacle;
+		private static Geiser			geiser;
 		
 		private static int 				frameTime = 0, currentFrameTime = 0;
 		private static float			moveSpeed = 3.0f;
@@ -56,6 +57,7 @@ namespace Game
 			tntWall.Dispose();
 			seasaw.Dispose();
 			spring.Dispose();
+			geiser.Dispose();
 			player.Dispose();
 			
 			Director.Terminate ();
@@ -85,6 +87,7 @@ namespace Game
 			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2700.0f);
 			spring 			= new Spring(gameScene, new Vector2(1800.0f, 0.0f));
 			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3600.0f, 0.0f));
+			geiser		= new Geiser(gameScene, new Vector2(2000.0f, 0.0f));
 			player 			= new Player(gameScene, background.GetFloorHeight());
 			
 			//Run the scene.
@@ -318,13 +321,14 @@ namespace Game
 				{				
 					if((oldTouchPos.Y - newTouchPos.Y) > -0.20f)					
 						shakeCamera = true;
-					
-
-					
-					
+						
 				}						
 			}
 		}
 		
+		public static void UpdateGeiser()
+		{
+			
+		}
 	}
 }

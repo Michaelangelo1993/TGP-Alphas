@@ -58,6 +58,7 @@
     <Compile Include="Seasaw.cs" />
     <Compile Include="Trap.cs" />
     <Compile Include="SpinObstacle.cs" />
+    <Compile Include="Geiser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />
@@ -85,5 +86,10 @@
     <Content Include="textures\stick2.png" />
     <Content Include="textures\firebeam.png" />
     <Content Include="textures\piv.png" />
+    <Content Include="music\157172__danipenet__distant-world.mp3" />
+    <Content Include="textures\geiserSpriteSheet.png" />
+    <Content Include="textures\lavaWave.png" />
+    <Content Include="textures\stalagmite.png" />
+    <Content Include="music\Calm Before The Storm - PaulRHJT.mp3" />
   </ItemGroup>
 </Project>
