@@ -157,6 +157,7 @@ namespace Game
 			counter = 20;
 			ready = true;
 			blown = false;
+			beingPushed = false;
 		}
 	}
 }

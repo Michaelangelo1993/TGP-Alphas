@@ -12,6 +12,8 @@ namespace Game
 	{
 		private Trap trap;
 		private bool missedSpring;
+		
+		private bool ready;
 		private bool beingPushed;
 		private bool springReleased;
 		private SpriteUV springTopSprite;
@@ -24,6 +26,9 @@ namespace Game
 		private float springOriginalHeight;
 		private float springCurrentHeight;
 		public float springWidth;
+		
+		public bool IsReady { get { return ready; }}
+		public bool SetReady { set { ready = value; }}
 		
 		private static Vector2		_min, _max;
 		private static Bounds2		_box;
@@ -144,7 +149,7 @@ namespace Game
 		
 		public void Reset(float x)
 		{
-			springReleased = false;
+			springReleased = true;
 			missedSpring = false;
 			beingPushed = false;
 			springSprite.Position = new Vector2((springSprite.Position.X + x), (springSprite.Position.Y));

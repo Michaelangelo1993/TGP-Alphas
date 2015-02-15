@@ -286,6 +286,7 @@ namespace Game
 			tntWall.Update(0, moveSpeed);
 			Vector2 touchPos = GetTouchPosition();
 			Vector2 pluPos = tntWall.GetPosition();
+			
 			if(touchPos.Y <= pluPos.Y + 114.0f && touchPos.Y >= pluPos.Y - 50.0f
 			   && touchPos.X <= pluPos.X + 114.0f && touchPos.X >= pluPos.X - 50.0f)				
 			{
