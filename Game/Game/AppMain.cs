@@ -292,10 +292,10 @@ namespace Game
 				tntWall.Tapped();
 			}
 			
-			if (tntWall.GetBlown())
+			if (tntWall.GetShake())
 			{
 				shakeCamera = true;
-				tntWall.SetBlown();
+				tntWall.SetShakeOff();
 			}
 			
 			if(tntWall.GetPosition().X+700 < player.GetPos().X)

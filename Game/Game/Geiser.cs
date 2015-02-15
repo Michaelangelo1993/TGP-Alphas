@@ -77,7 +77,6 @@ namespace Game
 		{
 			AnimateGeiser();
 			
-			
 			if(spikeBroken == true)
 			{
 				geiserSprite.Position = new Vector2(geiserSprite.Position.X-speed, geiserSprite.Position.Y);

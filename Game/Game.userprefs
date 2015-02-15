@@ -1,20 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Game\SpinObstacle.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\TntWall.cs">
     <Files>
-      <File FileName="Game\AppMain.cs" Line="231" Column="52" />
+      <File FileName="Game\AppMain.cs" Line="298" Column="24" />
       <File FileName="Game\Player.cs" Line="66" Column="31" />
       <File FileName="Game\Background.cs" Line="73" Column="57" />
-      <File FileName="Game\TntWall.cs" Line="151" Column="4" />
-      <File FileName="Game\Geiser.cs" Line="87" Column="56" />
-      <File FileName="Game\Seasaw.cs" Line="133" Column="47" />
-      <File FileName="Game\SpinObstacle.cs" Line="19" Column="39" />
+      <File FileName="Game\TntWall.cs" Line="20" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\Spring.cs" line="42" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

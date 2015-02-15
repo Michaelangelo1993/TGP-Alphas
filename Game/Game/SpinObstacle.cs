@@ -13,22 +13,15 @@ namespace Game
 		
 		//Private variables.
 		private 	SpriteUV[] 	spinSprite;
-		
 		private 	SpriteUV[] 	pivSprite;
 		private 	TextureInfo	textureSpinObstacle;
 		private 	TextureInfo	textureSpinPiv;
 		
-		public float beamWidth;
-		public float beamHeight;
-		
-		public int 	 numberOfObstacles = 3;
+		private int 	 numberOfObstacles = 3;
 		
 		public Vector2 GetPosition1 { get { return spinSprite[0].Position; }}
 		public Vector2 GetPosition2 { get { return spinSprite[1].Position; }}
 		public Vector2 GetPosition3 { get { return spinSprite[2].Position; }}
-		public float GetSpringWidth { get { return beamWidth; }}
-		
-	
 		
 		
 		//Public functions.
@@ -36,10 +29,6 @@ namespace Game
 		{
 			textureSpinObstacle     = new TextureInfo("/Application/textures/firebeam.png");
 			textureSpinPiv     		= new TextureInfo("/Application/textures/piv.png");
-			
-			
-			stop  = false;
-			on = 	false; 
 		
 			pivSprite	= new SpriteUV[numberOfObstacles];
 			spinSprite	= new SpriteUV[numberOfObstacles];
@@ -54,8 +43,6 @@ namespace Game
 				spinSprite[i]			= new SpriteUV(textureSpinObstacle);	
 				spinSprite[i].Quad.S 	= textureSpinObstacle.TextureSizef;
 				spinSprite[i].CenterSprite();
-				
-				
 				
 				spinSprite[i].Position = pivSprite[i].Position;
 				
