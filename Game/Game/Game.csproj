@@ -56,6 +56,9 @@
     <Compile Include="Player.cs" />
     <Compile Include="Spring.cs" />
     <Compile Include="Seasaw.cs" />
+    <Compile Include="Trap.cs" />
+    <Compile Include="SpinObstacle.cs" />
+    <Compile Include="Geiser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />
@@ -69,7 +72,6 @@
     <Content Include="textures\brownwall.png" />
     <Content Include="textures\cavestart.png" />
     <Content Include="textures\dclouds2.png" />
-    <Content Include="textures\dyno.png" />
     <Content Include="textures\floor.png" />
     <Content Include="textures\brownwall2.png" />
     <Content Include="textures\cavestart2.png" />
@@ -78,5 +80,28 @@
     <Content Include="textures\Spring.png" />
     <Content Include="textures\SpringTop.png" />
     <Content Include="textures\Trap.png" />
+    <Content Include="textures\stick2.png" />
+    <Content Include="textures\firebeam.png" />
+    <Content Include="textures\piv.png" />
+    <Content Include="music\157172__danipenet__distant-world.mp3" />
+    <Content Include="textures\geiserSpriteSheet.png" />
+    <Content Include="textures\lavaWave.png" />
+    <Content Include="textures\stalagmite.png" />
+    <Content Include="music\Calm Before The Storm - PaulRHJT.mp3" />
+    <Content Include="textures\Lever1.png" />
+    <Content Include="textures\Lever2.png" />
+    <Content Include="textures\metal.png" />
+    <Content Include="textures\mo.png" />
+    <Content Include="textures\box2.png" />
+    <Content Include="textures\wire.png" />
+    <Content Include="textures\wire2.png" />
+    <Content Include="textures\cavestart3.png" />
+    <Content Include="textures\floor2.png" />
+    <Content Include="textures\tntplun2.png" />
+    <Content Include="textures\explosion.png" />
+    <Content Include="textures\transrocks.png" />
+    <Content Include="textures\explosion2.png" />
+    <Content Include="textures\dyna2.png" />
+    <Content Include="textures\dyna.png" />
   </ItemGroup>
 </Project>

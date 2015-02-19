@@ -1,192 +1,543 @@
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\obj\Debug\app.exe
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\obj\Debug\app.pdb
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
-C:\Users\Thomas\Desktop\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\app.info
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\app.info
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\app.exe
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game.psdp
-E:\TGP-Alphas-Tom\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
-E:\TGP-Alphas-Tom\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
-E:\TGP-Alphas-Tom\Game\Game\obj\Debug\app.exe
-E:\TGP-Alphas-Tom\Game\Game\obj\Debug\app.pdb
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
-E:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
-C:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
-C:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-C:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
-C:\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
-C:\Users\h021876c\Downloads\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
-C:\Users\h021876c\Downloads\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-C:\Users\h021876c\Downloads\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
-C:\Users\h021876c\Downloads\TGP-Alphas-Tom\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Seasaw.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Seasaw.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
-A:\Documents\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
-A:\Documents\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
-A:\Documents\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
-A:\Documents\TGP-Alphas\Game\Game\obj\Debug\app.exe
-A:\Documents\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Seasaw.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSprite.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSpriteSheet.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Seasaw.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSprite.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSpriteSheet.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
+A:\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
+A:\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
+A:\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.exe
+A:\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Seasaw.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSprite.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSpriteSheet.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Seasaw.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSprite.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSpriteSheet.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\obj\Debug\app.exe
+C:\Users\Oliver\Documents\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\app.info
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\Seasaw.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSprite.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSpriteSheet.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\app.info
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\app.exe
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\Seasaw.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\stick.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\playerSprite.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\playerSpriteSheet.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game.psdp
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\obj\Debug\app.exe
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\obj\Debug\app.pdb
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
+C:\Users\paul\Desktop\TGP_newmaster\TGP-Alphas-master\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Seasaw.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Seasaw.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.exe
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Seasaw.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSprite.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSpriteSheet.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\geiserSpriteSheet.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavaWave.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stalagmite.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Seasaw.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSprite.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSpriteSheet.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\geiserSpriteSheet.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavaWave.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stalagmite.png
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.exe
+C:\Users\Ed\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\geiserSpriteSheet.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavaWave.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stalagmite.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\geiserSpriteSheet.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavaWave.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stalagmite.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever1.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\metal.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\mo.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\spritesheet8.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever1.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\metal.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\mo.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\spritesheet8.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\box2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\box2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart3.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart3.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor2.png
+C:\Users\Oliver\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Json.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Xml.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Runtime.Serialization.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.Core.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.Web.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\System.ServiceModel.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe.mdb
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavawall3.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volcano.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntbox.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\rock.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explo.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\volc2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Seasaw.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\geiserSpriteSheet.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavaWave.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stalagmite.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever1.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\metal.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\mo.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\spritesheet8.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\box2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart3.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Json.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Xml.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Runtime.Serialization.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.Core.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.Web.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\System.ServiceModel.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe.mdb
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavawall3.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volcano.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntbox.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\rock.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explo.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\volc2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Seasaw.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\geiserSpriteSheet.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavaWave.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stalagmite.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever1.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\metal.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\mo.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\spritesheet8.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\box2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart3.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun2.png
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\app.exe
+C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\app.pdb
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.info
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\shaders\Texture.cgx
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\app.exe
@@ -210,7 +561,6 @@ C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\texture
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dclouds2.png
-C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\brownwall2.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart2.png
@@ -219,6 +569,24 @@ C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\texture
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\firebeam.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\piv.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\geiserSpriteSheet.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavaWave.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stalagmite.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever1.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\metal.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\mo.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\box2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart3.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun2.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.exe
@@ -242,7 +610,6 @@ C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dclouds2.png
-C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\brownwall2.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart2.png
@@ -251,8 +618,36 @@ C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\firebeam.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\piv.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\157172__danipenet__distant-world.mp3
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\geiserSpriteSheet.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavaWave.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stalagmite.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\Calm Before The Storm - PaulRHJT.mp3
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever1.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\metal.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\mo.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\box2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart3.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun2.png
 C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
 C:\Users\Thomas\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
 C:\Users\Thomas\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
 C:\Users\Thomas\TGP-Alphas\Game\Game\obj\Debug\app.exe
 C:\Users\Thomas\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explosion.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\transrocks.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explosion.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\transrocks.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\explosion2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\explosion2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyna2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyna.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyna2.png
+C:\Users\Thomas\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyna.png
