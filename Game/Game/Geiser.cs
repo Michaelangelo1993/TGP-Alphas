@@ -12,8 +12,8 @@ namespace Game
 	{
 		//Geiser
 		private bool geiserOn;
-		private SpriteUV geiserSprite;
-		private TextureInfo geiserTextureInfo;
+		private SpriteUV geiserSpriteSheet, geiserSprite;
+		private TextureInfo geiserSheetTextureInfo, geiserTextureInfo;
 		public float geiserPos, sizeX, sizeY;
 		
 		private static int 			frameTime, animationDelay,
@@ -25,6 +25,7 @@ namespace Game
 		private SpriteUV spikeSprite;
 		private TextureInfo spikeTextureInfo;
 		public float spikeCurrentHeight;
+		Bounds2 spikeBounds;
 		
 		public Vector2 GetPosition { get { return spikeSprite.Position; }}
 		
@@ -37,30 +38,35 @@ namespace Game
 			frameTime 		= 0;
 			animationDelay 	= 3;
 			widthCount 		= 0;
+			geiserOn		= true;
 
 			//Geiser sprite initialise /width of each geiser is 116.6px
-			geiserTextureInfo = new TextureInfo("/Application/textures/geiserSpriteSheet.png");
+			geiserSheetTextureInfo  = new TextureInfo("/Application/textures/geiserSpriteSheet.png");
 			noOnSpritesheetWidth 	= 8;
+			geiserTextureInfo		= new TextureInfo("/Application/textures/geiser.png");
 			
 			//defaultXPos				= ((textureInfo.TextureSizef.X/noOnGeiserSheetWidth)*1.00f)*0.5f;
-			geiserSprite = new SpriteUV(geiserTextureInfo);
-			geiserSprite.UV.S 			= new Vector2(1.0f/noOnSpritesheetWidth,1.0f);
-			geiserSprite.Position = position;
-			geiserSprite.Quad.S = new Vector2(116, 240);
-			geiserSprite.Scale = new Vector2(1.0f,1.0f);
-			Bounds2 geiserBounds = geiserSprite.Quad.Bounds2();
+			geiserSpriteSheet = new SpriteUV(geiserSheetTextureInfo);
+			geiserSpriteSheet.UV.S 			= new Vector2(1.0f/noOnSpritesheetWidth,1.0f);
+			geiserSprite	  = new SpriteUV(geiserTextureInfo);
+			geiserSpriteSheet.Position = position;
+			geiserSpriteSheet.Quad.S = new Vector2(116, 240);
+			geiserSpriteSheet.Scale = new Vector2(1.0f,1.0f);
+			Bounds2 geiserBounds = geiserSpriteSheet.Quad.Bounds2();
+			geiserSprite.Position = new Vector2(geiserSpriteSheet.Position.X,geiserSpriteSheet.Position.Y) ;
+			geiserSprite.Scale = new Vector2(117.0f,240.0f);
 			
 			//Spike sprite initialise
 			spikeTextureInfo = new TextureInfo("/Application/textures/stalagmite.png");
 			spikeSprite = new SpriteUV(spikeTextureInfo);
-			spikeSprite.Position = position;
-			spikeSprite.Position = new Vector2(position.X+70, position.Y+475);
 			spikeSprite.Quad.S = spikeTextureInfo.TextureSizef;
-			Bounds2 spikeBounds = spikeSprite.Quad.Bounds2();
-								
+			spikeBounds = spikeSprite.Quad.Bounds2();
+			spikeSprite.Position = new Vector2(position.X + 6 + spikeBounds.Point10.X/2, geiserSpriteSheet.Position.Y+475);
+			
 			// Add sprites to scene
-			scene.AddChild(geiserSprite);
+			scene.AddChild(geiserSpriteSheet);
 			scene.AddChild(spikeSprite);
+			scene.AddChild(geiserSprite);
 		}
 		
 		public void Dispose()
@@ -79,52 +85,70 @@ namespace Game
 			
 			if(spikeBroken == true)
 			{
-				geiserSprite.Position = new Vector2(geiserSprite.Position.X-speed, geiserSprite.Position.Y);
-				spikeSprite.Position = new Vector2((geiserSprite.Position.X + (geiserTextureInfo.TextureSizef.X/2) -spikeTextureInfo.TextureSizef.X/2)-speed, spikeSprite.Position.Y);
-				
+				geiserSpriteSheet.Position = new Vector2(geiserSpriteSheet.Position.X-speed, geiserSpriteSheet.Position.Y);
+				spikeSprite.Position = new Vector2(spikeSprite.Position.X-speed, spikeSprite.Position.Y);
+				geiserSprite.Position = geiserSpriteSheet.Position;
+			
 				//Check to see whether spike has reached the ground
-				if(spikeSprite.Position.Y > geiserSprite.Position.Y)
+				if(spikeSprite.Position.Y > geiserSpriteSheet.Position.Y)
 				{
-					spikeSprite.Position = new Vector2(geiserSprite.Position.X, spikeSprite.Position.Y-10);
-					//Remove geiser from players path
-					//spikeSprite.Position = new Vector2(400,0);
-					//spikeBroken = false;
+					spikeSprite.Position = new Vector2(spikeSprite.Position.X, spikeSprite.Position.Y-10);
 				}
-				if(spikeSprite.Position.Y < geiserSprite.Position.Y+100)
+				if(spikeSprite.Position.Y < geiserSpriteSheet.Position.Y+100)
 				{
 					//Remove geiser from players path
-					geiserSprite.Visible = false;
-					//spikeSprite.Position = new Vector2(400,0);
-					//spikeBroken = false;
+					geiserSpriteSheet.Visible = false;
+					geiserOn = false;
 				}
 			}
 			else
-				geiserSprite.Position = new Vector2(geiserSprite.Position.X-speed, geiserSprite.Position.Y);
-				spikeSprite.Position = new Vector2((geiserSprite.Position.X + (sizeX/2) -spikeTextureInfo.TextureSizef.X/2)-speed, spikeSprite.Position.Y);
+			{
+				geiserSpriteSheet.Position = new Vector2(geiserSpriteSheet.Position.X-speed, geiserSpriteSheet.Position.Y);
+				spikeSprite.Position = new Vector2(spikeSprite.Position.X-speed, spikeSprite.Position.Y);
+				geiserSprite.Position = geiserSpriteSheet.Position;
+			}
 		}
 		
 		private void AnimateGeiser()
 		{
-			if(frameTime == animationDelay)
+			if(geiserOn)
 			{
-				if (widthCount == noOnSpritesheetWidth)
-					widthCount = 0;
-				
-				geiserSprite.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount, 0.0f);
-				widthCount++;
-				frameTime = 0;
-			}
+				if(frameTime == animationDelay)
+				{
+					if (widthCount == noOnSpritesheetWidth)
+						widthCount = 0;
+					
+					geiserSpriteSheet.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount, 0.0f);
+					widthCount++;
+					frameTime = 0;
+				}
 			
-			frameTime++;
+				frameTime++;
+			}
+			else if(widthCount > 0)
+			{
+				if(frameTime == animationDelay)
+				{
+					if (widthCount == noOnSpritesheetWidth)
+						widthCount = 0;
+					
+					geiserSpriteSheet.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount, 0.0f);
+					widthCount++;
+					frameTime = 0;
+				}
+			
+				frameTime++;
+			}
 		}
 		
 		public void Reset(float x)
 		{
 			spikeBroken = false;
-			geiserSprite.Visible = true;
-			geiserSprite.Position += new Vector2(x, 0);
-			spikeSprite.Position = new Vector2(geiserSprite.Position.X, geiserSprite.Position.Y+475);
-			geiserSprite.Visible = true;
+			geiserSpriteSheet.Position += new Vector2(x, 0);
+			spikeSprite.Position = new Vector2(geiserSpriteSheet.Position.X + 6 + spikeBounds.Point10.X/2, 475);
+			geiserSprite.Position = geiserSpriteSheet.Position;
+			geiserSpriteSheet.Visible = true;
+			geiserOn = true;
 		}
 	}
 }

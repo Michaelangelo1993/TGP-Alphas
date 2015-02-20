@@ -1,2 +1,4 @@
 Game/Game/obj/Debug/Game.csproj.FileListAbsolute.txt
 Game/Game.userprefs
+*.userprefs
+*.pidb
