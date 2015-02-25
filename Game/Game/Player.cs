@@ -26,6 +26,9 @@ namespace Game
 									_noOnSpritesheetHeight,
 									_widthCount, _heightCount;
 		private static bool 		_jump;
+		private static bool			_dead;
+		
+		public bool IsDead() { return _dead; }
 		
 		//Public functions.
 		public Player (Scene scene, float floorHeight)
@@ -47,6 +50,7 @@ namespace Game
 			_jumpingVector 			= new Vector2(0.0f, 0.0f);
 			_jumpVelocity 			= new Vector2(0.0f, 0.0f);
 			_jump  					= false;
+			_dead					= false;
 			
 			//SpriteSheet Info
 			_textureInfo  			= new TextureInfo("/Application/textures/stick.png");

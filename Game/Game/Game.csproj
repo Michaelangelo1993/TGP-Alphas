@@ -59,6 +59,7 @@
     <Compile Include="Trap.cs" />
     <Compile Include="SpinObstacle.cs" />
     <Compile Include="Geiser.cs" />
+    <Compile Include="ScreenManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />
@@ -102,5 +103,9 @@
     <Content Include="textures\floor2.png" />
     <Content Include="textures\tntplun2.png" />
     <Content Include="textures\geiser.png" />
+    <Content Include="textures\gameOver.png" />
+    <Content Include="textures\menu.png" />
+    <Content Include="textures\splash.png" />
+    <Content Include="textures\game.png" />
   </ItemGroup>
 </Project>

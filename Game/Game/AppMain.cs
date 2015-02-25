@@ -18,6 +18,7 @@ namespace Game
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		
 		// Member Variables go here
+		private static ScreenManager	screenManager;
 		private static Background		background;
 		private static TntWall			tntWall;
 		private static Player 			player;
@@ -82,24 +83,39 @@ namespace Game
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
-			background 		= new Background(gameScene);
-			tntWall 		= new TntWall(gameScene, 1500.0f, 100.0f);
-			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2300.0f);
-			spring 			= new Spring(gameScene, new Vector2(3100.0f, 0.0f));
-			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3900.0f, 0.0f));
-			player 			= new Player(gameScene, background.GetFloorHeight());
-			geiser			= new Geiser(gameScene, new Vector2(4700.0f, 0.0f));
-			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
+			screenManager = new ScreenManager(gameScene);
 		}
 		
 		public static void Update()
 		{		
-			Vector2 touchPos = GetTouchPosition();
-			
-			
-			
+			if(screenManager.IsTransitioning())
+			{
+				screenManager.Update(gameScene);
+				
+				if(!screenManager.IsTransitioning())	// Transition Finished, load stuff
+					if(screenManager.GetScreen() == Screens.Game)
+						SetupGame();
+			}
+			else
+			{
+				UpdateTouchData();
+				
+				switch(screenManager.GetScreen())
+				{
+				case Screens.Splash:
+					screenManager.ChangeScreenTo(Screens.Menu);
+					break;
+				case Screens.Game:
+					GameUpdate ();
+					break;
+				}
+			}			
+		}
+		
+		public static void GameUpdate()
+		{
 			// Update code here
 			player.Update(0.0f);
 			UpdateTouchData();
@@ -114,34 +130,32 @@ namespace Game
 			// Sets the volcano background to follow the sprite
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
 			
+			if(player.IsDead())
+			{
+				screenManager.ChangeScreenTo(Screens.GameOver);	
+			}
 		}
 		
 		public static void UpdateCamera()
-		{
+		{			
 			if (shakeCamera)
 			{
 				if(currentFrameTime == 1)
-				{
 					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
 			                            new Vector2(player.GetPos().X + 410, Director.Instance.GL.Context.GetViewport().Height*0.5f));
-				}
-				if(currentFrameTime == 2)
-				{
+				else if(currentFrameTime == 2)
 					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
 			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.52f));
-				}
-				if(currentFrameTime == 3)
-				{
+				else if(currentFrameTime == 3)
 					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
 			                            new Vector2(player.GetPos().X + 390, Director.Instance.GL.Context.GetViewport().Height*0.5f));
-				}
-				if(currentFrameTime == 4)
+				else if(currentFrameTime == 4)
 				{
 					gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
 			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.48f));
 					currentFrameTime = 0;
 				}
-				if (frameTime == 40)
+				if (frameTime >= 40)
 				{
 					shakeCamera = false;
 					frameTime = 0;
@@ -180,35 +194,37 @@ namespace Game
 		
 		public static void UpdateTouchData()
 		{
-			var touches = Touch.GetData(0).ToArray();
-			if(touches.Length <= 0)
+			switch(screenManager.GetScreen())
 			{
-				// Screen Not Touched
-				if(spring.BeingPushed)
-				{
-					spring.ReleaseSpring(true);
-				}
-				tntWall.ReleasePlunger();
-			}
-			else
-			{
-				// Screen Touched
-				Vector2 touchPos = GetTouchPosition();
-				// Touching spring
-				if((touchPos.X-100 < spring.GetPosition.X) &&
-				   (touchPos.X+125 > spring.GetPosition.X + spring.GetSpringWidth) &&
-				   (touchPos.Y < spring.GetOriginalHeight+100))
-				{
-					//spring.ReleaseSpring(false);
-					//spring.WindSpring();
-					spring.PushSpring();
-				}
+				case Screens.Menu:
+					if(Touch.GetData (0).Count > 0)
+						screenManager.ChangeScreenTo(Screens.Game);				
+					break;
+				case Screens.Game:
+					var touches = Touch.GetData(0).ToArray();
 				
-				// TODO Touching TNT - Push down handle
-				// TODO Touching Guiser Stalagmite - Release it
-				// TODO Touching Spinning - Rotate them (unless Gyro?)
+					if(touches.Length <= 0) // Screen Not Touched
+					{
+						
+						if(spring.BeingPushed)
+						{
+							spring.ReleaseSpring(true);
+						}
+						tntWall.ReleasePlunger();
+					}
+					else
+					{
+						Vector2 touchPos = GetTouchPosition();
+						
+						if((touchPos.X-100 < spring.GetPosition.X) &&
+						   (touchPos.X+125 > spring.GetPosition.X + spring.GetSpringWidth) &&
+						   (touchPos.Y < spring.GetOriginalHeight+100)) // Touching spring
+						{
+							spring.PushSpring();
+						}
+					}
+					break;
 			}
-			
 		}
 		
 		public static void UpdateSeasaw()
@@ -319,6 +335,17 @@ namespace Game
 			if(geiser.GetPosition.X+700 < player.GetPos().X)
 				geiser.Reset(spinObstacle.GetPosition1.X + 200);
 			
+		}
+		
+		public static void SetupGame()
+		{
+			background 		= new Background(gameScene);
+			tntWall 		= new TntWall(gameScene, 1500.0f, 100.0f);
+			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2300.0f);
+			spring 			= new Spring(gameScene, new Vector2(3100.0f, 0.0f));
+			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3900.0f, 0.0f));
+			player 			= new Player(gameScene, background.GetFloorHeight());
+			geiser			= new Geiser(gameScene, new Vector2(4700.0f, 0.0f));
 		}
 	}
 }
