@@ -41,6 +41,7 @@
   <ItemGroup>
     <Folder Include="shaders\" />
     <Folder Include="textures\" />
+    <Folder Include="textures\tutorial\" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Texture.fcg" />
@@ -60,6 +61,7 @@
     <Compile Include="SpinObstacle.cs" />
     <Compile Include="Geiser.cs" />
     <Compile Include="ScreenManager.cs" />
+    <Compile Include="TutorialManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />
@@ -107,5 +109,12 @@
     <Content Include="textures\menu.png" />
     <Content Include="textures\splash.png" />
     <Content Include="textures\game.png" />
+    <Content Include="textures\tutorial\gamePopUpTutorialsOff.png" />
+    <Content Include="textures\tutorial\gamePopUpTutorialsOn.png" />
+    <Content Include="textures\tutorial\geiserPopUp.png" />
+    <Content Include="textures\tutorial\seaSawPopUp.png" />
+    <Content Include="textures\tutorial\spinningPopUp.png" />
+    <Content Include="textures\tutorial\springPopUp.png" />
+    <Content Include="textures\tutorial\tntPopUp.png" />
   </ItemGroup>
 </Project>

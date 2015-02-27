@@ -19,6 +19,7 @@ namespace Game
 		
 		// Member Variables go here
 		private static ScreenManager	screenManager;
+		private static TutorialManager  tutorialManager;
 		private static Background		background;
 		private static TntWall			tntWall;
 		private static Player 			player;
@@ -108,7 +109,10 @@ namespace Game
 					screenManager.ChangeScreenTo(Screens.Menu);
 					break;
 				case Screens.Game:
-					GameUpdate ();
+					if(!tutorialManager.HasPopUp())
+						GameUpdate ();
+					else
+						UpdateTouchData();
 					break;
 				}
 			}			
@@ -203,27 +207,43 @@ namespace Game
 				case Screens.Game:
 					var touches = Touch.GetData(0).ToArray();
 				
-					if(touches.Length <= 0) // Screen Not Touched
+					if(tutorialManager.HasPopUp())
 					{
-						
-						if(spring.BeingPushed)
+						// If tutorial manager is not ready but screen isnt touched, set ready, else if ready + tapped, close popup
+						if((!tutorialManager.IsReady()) && touches.Length <= 0)
+							tutorialManager.SetReady();
+						else if(tutorialManager.IsReady() && tutorialManager.HasPopUp() && touches.Length > 0)
 						{
-							spring.ReleaseSpring(true);
-						}
-						tntWall.ReleasePlunger();
-					}
-					else
-					{
-						Vector2 touchPos = GetTouchPosition();
+							Vector2 touchPos = Input2.Touch00.Pos;
 						
-						if((touchPos.X-100 < spring.GetPosition.X) &&
-						   (touchPos.X+125 > spring.GetPosition.X + spring.GetSpringWidth) &&
-						   (touchPos.Y < spring.GetOriginalHeight+100)) // Touching spring
-						{
-							spring.PushSpring();
+							if(touchPos.Y < 0)
+								tutorialManager.DisableTutorials(gameScene);
+							else
+								tutorialManager.ClosePopUp(gameScene);
 						}
 					}
+					else // No popup :: Add else if for pause etc?
+					{
+						if(touches.Length <= 0) // Screen Not Touched
+						{
+							if(spring.BeingPushed)
+								spring.ReleaseSpring(true);
+							tntWall.ReleasePlunger();
+						}
+						else
+						{
+							Vector2 touchPos = GetTouchPosition();
+							
+							if((touchPos.X-100 < spring.GetPosition.X) &&
+							   (touchPos.X+125 > spring.GetPosition.X + spring.GetSpringWidth) &&
+							   (touchPos.Y < spring.GetOriginalHeight+100)) // Touching spring
+							{
+								spring.PushSpring();
+							}
+						}
 					break;
+					}
+				break;
 			}
 		}
 		
@@ -346,6 +366,7 @@ namespace Game
 			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3900.0f, 0.0f));
 			player 			= new Player(gameScene, background.GetFloorHeight());
 			geiser			= new Geiser(gameScene, new Vector2(4700.0f, 0.0f));
+			tutorialManager = new TutorialManager(gameScene);
 		}
 	}
 }
