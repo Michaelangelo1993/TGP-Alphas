@@ -25,8 +25,8 @@ namespace Game
 		{	
 			_animationDelay = 4;
 			
-			_textureInfo = new TextureInfo("/Application/textures/Trap.png");	
-			_noOnSpritesheetWidth 	= 4;
+			_textureInfo = new TextureInfo("/Application/textures/TrapSpriteSheet.png");	
+			_noOnSpritesheetWidth 	= 6;
 			
 			//Create Sprite
 			_sprite	 				= new SpriteUV();

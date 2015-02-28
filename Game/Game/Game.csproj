@@ -118,5 +118,7 @@
     <Content Include="textures\tutorial\spinningPopUp.png" />
     <Content Include="textures\tutorial\springPopUp.png" />
     <Content Include="textures\tutorial\tntPopUp.png" />
+    <Content Include="textures\TrapSpriteSheet.png" />
+    <Content Include="textures\tutorial\old gamePopUpTutorialsOff.png" />
   </ItemGroup>
 </Project>

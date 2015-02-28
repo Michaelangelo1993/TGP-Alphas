@@ -30,8 +30,6 @@ A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\tex
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Spring.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\SpringTop.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Trap.png
-A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSprite.png
-A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\playerSpriteSheet.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stick2.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\app.info
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\shaders\Texture.cgx
@@ -65,8 +63,6 @@ A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textu
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Spring.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\SpringTop.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Trap.png
-A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSprite.png
-A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\playerSpriteSheet.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stick2.png
 A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game.psdp
 A:\Documents\GitHub\TGP-Alphas\Game\Game\obj\Debug\shaders\shaders\Texture.cgx
@@ -538,3 +534,65 @@ C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\shaders\s
 C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\convertedpdb\app.exe.mdb
 C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\app.exe
 C:\Users\PC\Desktop\TGP - group project\TGP-Alphas\Game\Game\obj\Debug\app.pdb
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\157172__danipenet__distant-world.mp3
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\geiserSpriteSheet.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\lavaWave.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\stalagmite.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\music\Calm Before The Storm - PaulRHJT.mp3
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever1.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\Lever2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\metal.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\mo.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\spritesheet8.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\box2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\dyno2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\wire2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\cavestart3.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\floor2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tntplun2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\geiser.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\gameOver.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\menu.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\splash.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\game.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\gamePopUpTutorialsOff.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\gamePopUpTutorialsOn.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\geiserPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\seaSawPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\spinningPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\springPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\tntPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\157172__danipenet__distant-world.mp3
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\geiserSpriteSheet.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\lavaWave.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\stalagmite.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\music\Calm Before The Storm - PaulRHJT.mp3
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever1.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\Lever2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\metal.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\mo.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\spritesheet8.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\box2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\dyno2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\wire2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\cavestart3.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\floor2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tntplun2.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\geiser.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\gameOver.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\menu.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\splash.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\game.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\gamePopUpTutorialsOff.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\gamePopUpTutorialsOn.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\geiserPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\seaSawPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\spinningPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\springPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\tntPopUp.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\TrapSpriteSheet.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-unsigned\Application\textures\tutorial\old gamePopUpTutorialsOff.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\TrapSpriteSheet.png
+A:\Documents\GitHub\TGP-Alphas\Game\Game\bin\Debug\Game-signed\Application\textures\tutorial\old gamePopUpTutorialsOff.png

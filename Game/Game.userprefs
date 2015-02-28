@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Game\TntWall.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\Trap.cs">
     <Files>
-      <File FileName="Game\AppMain.cs" Line="293" Column="19" />
+      <File FileName="Game\AppMain.cs" Line="222" Column="19" />
       <File FileName="Game\Player.cs" Line="66" Column="31" />
       <File FileName="Game\Background.cs" Line="73" Column="57" />
       <File FileName="Game\TntWall.cs" Line="160" Column="24" />
       <File FileName="Game\Spring.cs" Line="152" Column="26" />
+      <File FileName="Game\Trap.cs" Line="28" Column="73" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
