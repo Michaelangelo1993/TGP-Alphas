@@ -19,6 +19,7 @@ namespace Game
 									_widthCount;
 		
 		public Bounds2 GetBox { get { return _box; }}
+		public float GetEndPosition() { return (_sprite.Position.X + 270); }
 		
 		public Trap (Scene scene, Vector2 position)
 		{	
@@ -57,8 +58,8 @@ namespace Game
 		
 		public void Reset(float x)
 		{
-			_sprite.Position = new Vector2(_sprite.Position.X + x, _sprite.Position.Y);
-			
+			//_sprite.Position = new Vector2(_sprite.Position.X + x, _sprite.Position.Y);
+			_sprite.Position = new Vector2(x, _sprite.Position.Y);
 		}
 		
 		public void SetWidth(float width) { _sprite.Quad.S = new Vector2(width, _textureInfo.TextureSizef.Y); }

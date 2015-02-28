@@ -7,7 +7,7 @@ using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace Game
 {
-	public class TntWall
+	public class TntWall : Obstacle
 	{
 		private SpriteUV 	boxSprite;
 		private TextureInfo	boxTextureInfo;
@@ -15,20 +15,19 @@ namespace Game
 		private TextureInfo	pluTextureInfo;
 		private SpriteUV 	rockSprite;
 		private TextureInfo	rockTextureInfo;
+		private Bounds2		rockBounds;
 		private SpriteUV 	exploSprite;
 		private TextureInfo	exploTextureInfo;
 		private SpriteUV 	dynoSprite;
 		private TextureInfo	dynoTextureInfo;
 		private bool		blown = false;
 		private bool		ready;
-		private bool		shake;
 		private int 		counter = 20;
 		private bool		beingPushed;
-		
-		public void SetShakeOff() { shake = false; }
-		public bool GetShake() { return shake; }
 		public bool IsReady { get { return ready; }}
 		public bool SetReady { set { ready = value; }}
+		
+		override public float GetEndPosition() { return (rockSprite.Position.X + 128); }
 		
 		public TntWall (Scene scene, float x, float y)
 		{
@@ -55,6 +54,7 @@ namespace Game
 			
 			rockSprite.Quad.S 		= rockTextureInfo.TextureSizef;
 			rockSprite.Position 	= new Vector2(x+200.0f, y);
+			rockBounds				= rockSprite.Quad.Bounds2();
 			
 			exploSprite.Quad.S 		= exploTextureInfo.TextureSizef;
 			exploSprite.Position	= new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
@@ -67,11 +67,10 @@ namespace Game
 			scene.AddChild(exploSprite);
 			
 			ready 	= true;
-			shake 	= false;
 			counter = 20;
 		}
 				
-		public void Dispose()
+		override public void Dispose()
 		{
 			boxTextureInfo.Dispose();
 			pluTextureInfo.Dispose();
@@ -79,7 +78,7 @@ namespace Game
 			exploTextureInfo.Dispose ();
 		}
 		
-		public void Update(float deltaTime, float t)
+		override public void Update(float deltaTime, float t)
 		{	
 			if(ready && beingPushed)
 			{
@@ -119,15 +118,13 @@ namespace Game
 				beingPushed = true;
 			}
 			
-			//if(pluSprite.Position.X+700 < player.GetPos().X)
-				// Reset tntWall.Reset(gameScene, geiser.GetPosition.X+200);
+			if(Touch.GetData(0).ToArray().Length <= 0)
+				ReleasePlunger();
 		}
 		
 		public void blowUpRock()
 		{
 			rockSprite.Visible = false;
-			//boxSprite.Visible = false;
-			//pluSprite.Visible = false;
 			dynoSprite.Visible = false;
 			
 			if(!blown)
@@ -137,7 +134,7 @@ namespace Game
 				
 				blown 	= true;
 				counter = 20;
-				shake	= true;
+				AppMain.SetShake(true);
 			}
 		}
 		
@@ -146,7 +143,7 @@ namespace Game
 			beingPushed = true;
 		}
 		
-		public void ReleasePlunger()
+		override public void ReleasePlunger()
 		{
 			beingPushed = false;
 		}
@@ -156,15 +153,17 @@ namespace Game
 			return pluSprite.Position;
 		}
 		
-		public void Reset(Scene scene, float x)
+		override public void Reset(float x)
 		{
 			rockSprite.Visible  = true;
-			//boxSprite.Visible = true;
-			//pluSprite.Visible = true;
 			dynoSprite.Visible  = true;
 			
-			boxSprite.Position  += new Vector2(x, 0);
+			boxSprite.Position  = new Vector2(x, boxSprite.Position.Y);
 			pluSprite.Position  = new Vector2(boxSprite.Position.X, boxSprite.Position.Y +44);
+			dynoSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
+			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
+			exploSprite.Position = new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
+			
 			counter = 20;
 			ready = true;
 			blown = false;

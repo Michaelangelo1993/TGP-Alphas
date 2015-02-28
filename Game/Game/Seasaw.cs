@@ -9,7 +9,7 @@ using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace Game
 {
-	public class Seasaw
+	public class Seasaw : Obstacle
 	{
 		private static SpriteUV 	_sprite;
 		private static TextureInfo	_textureInfo;
@@ -21,9 +21,12 @@ namespace Game
 									_scaleLimiter, _scalerValue;
 		private static bool 		_onObstacle, _rotateLeft;
 		
-		private static Trap			_trap;
+		private Trap			_trap;
 		
-		public Seasaw (Scene scene, float floorHeight, float xPos)
+		
+		override public float GetEndPosition() { return (_sprite.Position.X + 150); }
+		
+		public Seasaw (Scene scene, float xPos, float floorHeight)
 		{
 			//Initialise Variables
 			_scale 					= 1.00f;
@@ -62,12 +65,12 @@ namespace Game
 			scene.AddChild(_sprite);
 		}
 		
-		public void Dispose()
+		override public void Dispose()
 		{
 			_textureInfo.Dispose();
 		}
 		
-		public void Update(float deltaTime, float t)
+		override public void Update(float deltaTime, float t)
 		{
 			CheckInput();
 			UpdateAngles();
@@ -93,11 +96,11 @@ namespace Game
 				AppMain.GetPlayer().SetAngle(_angle);
 				AppMain.GetPlayer().SetYPos(GetNewPlayerYPos(AppMain.GetPlayer().GetPos()));
 			}
-			
-			if(_sprite.Position.X+700 < AppMain.GetPlayer().GetPos().X)
-			{
-				// Reset
-			}
+		}
+		
+		override public void Reset(float x)
+		{
+			SetXPos(x);
 		}
 		
 		private void CheckInput()

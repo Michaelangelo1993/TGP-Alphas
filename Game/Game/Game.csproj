@@ -63,6 +63,7 @@
     <Compile Include="ScreenManager.cs" />
     <Compile Include="TutorialManager.cs" />
     <Compile Include="ObstacleManager.cs" />
+    <Compile Include="Obstacle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />

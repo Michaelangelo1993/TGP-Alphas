@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
@@ -11,64 +13,60 @@ namespace Game
 {
 	public class ObstacleManager
 	{
-		private static TntWall			tntWall;
-		private static Seasaw 			seasaw;
-		private static Spring 			spring;
-		private static SpinObstacle     spinObstacle;
-		private static Geiser			geiser;
+		private static List<Obstacle> activeObstacles = new List<Obstacle>();
+		private static List<Obstacle> deactiveObstacles = new List<Obstacle>();
+		private static List<Obstacle> offScreenObjs = new List<Obstacle>();
+		
+		private float newXPos;
+		private Random rand;
 		
 		public ObstacleManager (Scene scene)
 		{
-			tntWall 		= new TntWall(scene, 1500.0f, 100.0f);
-			seasaw 			= new Seasaw(scene, AppMain.GetBackground().GetFloorHeight(), 2300.0f);
-			spring 			= new Spring(scene, new Vector2(3100.0f, 0.0f));
-			spinObstacle 	= new SpinObstacle(scene, new Vector2(3900.0f, 0.0f));
-			geiser			= new Geiser(scene, new Vector2(4700.0f, 0.0f));
+			rand = new Random();
+			newXPos = 1500;
+				
+			deactiveObstacles.Add(new TntWall(scene, -1000.0f, 100.0f));
+			deactiveObstacles.Add(new Seasaw(scene, -1000.0f, AppMain.GetBackground().GetFloorHeight()));
+			deactiveObstacles.Add(new Spring(scene, new Vector2(-1000.0f, 0.0f)));
+			deactiveObstacles.Add(new SpinObstacle(scene, new Vector2(-1000.0f, 0.0f)));
+			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 0.0f)));
 		}
 		
 		public void Update(float moveSpeed)
 		{
-			seasaw.Update(0, moveSpeed);
-			spring.Update(0, moveSpeed);
-			spinObstacle.Update(0, moveSpeed);
-			tntWall.Update(0, moveSpeed);
-			geiser.Update(0, moveSpeed);
-			
-			if (tntWall.GetShake())
-			{
-				AppMain.SetShake(true);
-				tntWall.SetShakeOff();
-			}
-		}
-		
-		public void UpdateTouchData(TouchData[] touches)
-		{
-			if(touches.Length <= 0) // Screen Not Touched
-			{
-				if(spring.BeingPushed)
-					spring.ReleaseSpring(true);
-				tntWall.ReleasePlunger();
-			}
-			else
-			{
-				Vector2 touchPos = AppMain.GetTouchPosition();
-				
-				if((touchPos.X-100 < spring.GetPosition.X) &&
-				   (touchPos.X+125 > spring.GetPosition.X + spring.GetSpringWidth) &&
-				   (touchPos.Y < spring.GetOriginalHeight+100)) // Touching spring
+			if(activeObstacles.Count > 0)
+			{	
+				// check for offscreen obstacles and move them to deactive list
+				var selected = activeObstacles.Where (Obstacle => Obstacle.GetEndPosition() + 80 < AppMain.GetPlayer().GetPos ().X).ToList();
+				if(selected.Count > 0)
 				{
-					spring.PushSpring();
+					selected.ForEach(Obstacle => activeObstacles.Remove(Obstacle));
+					selected.ForEach(Obstacle => deactiveObstacles.Add(Obstacle));
 				}
-			}	
+			
+			}
+			
+			if(activeObstacles.Count <= 1)
+			{// Reset position of selected obstacle and move it to active
+				int randomPosition = (rand.Next(0, deactiveObstacles.Count));
+				deactiveObstacles.ElementAt(randomPosition).Reset(newXPos);
+				newXPos = 300 + deactiveObstacles.ElementAt(randomPosition).GetEndPosition();
+				activeObstacles.Add(deactiveObstacles.ElementAt(randomPosition));
+				deactiveObstacles.RemoveAt(randomPosition);
+			}			
+			
+			foreach(Obstacle obj in activeObstacles)
+			{
+				obj.Update(0, moveSpeed);
+			}
 		}
 		
 		public void CleanUp()
 		{
-			tntWall.Dispose();
-			seasaw.Dispose();
-			spring.Dispose();
-			spinObstacle.Dispose();
-			geiser.Dispose();
+			foreach(Obstacle obj in deactiveObstacles)
+			{
+				obj.Dispose();
+			}
 		}
 	}
 }

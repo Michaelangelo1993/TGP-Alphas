@@ -9,12 +9,13 @@ using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace Game
 {
-	public class SpinObstacle
+	public class SpinObstacle : Obstacle
 	{
 		
 		//Private variables.
 		private 	SpriteUV[] 	spinSprite;
 		private 	SpriteUV[] 	pivSprite;
+		private 	Bounds2		spinBounds;
 		private 	TextureInfo	textureSpinObstacle;
 		private 	TextureInfo	textureSpinPiv;
 		
@@ -23,7 +24,7 @@ namespace Game
 		public Vector2 GetPosition1 { get { return spinSprite[0].Position; }}
 		public Vector2 GetPosition2 { get { return spinSprite[1].Position; }}
 		public Vector2 GetPosition3 { get { return spinSprite[2].Position; }}
-		
+		override public float GetEndPosition() { return (spinSprite[2].Position.X + spinBounds.Point10.X*2); }
 		
 		//Public functions.
 		public SpinObstacle (Scene scene, Vector2 position)
@@ -43,6 +44,7 @@ namespace Game
 				
 				spinSprite[i]			= new SpriteUV(textureSpinObstacle);	
 				spinSprite[i].Quad.S 	= textureSpinObstacle.TextureSizef;
+				spinBounds				= spinSprite[i].Quad.Bounds2();
 				spinSprite[i].CenterSprite();
 				
 				spinSprite[i].Position = pivSprite[i].Position;
@@ -55,13 +57,13 @@ namespace Game
 			spinSprite[2].Rotate(-0.9f);
 		}
 		
-		public void Dispose()
+		override public void Dispose()
 		{
 			textureSpinObstacle.Dispose();
 			textureSpinPiv.Dispose();
 		}
 		
-		public void Update(float deltaTime, float t)
+		override public void Update(float deltaTime, float t)
 		{			
 			for (int i = 0; i < numberOfObstacles; i++)
 			{
@@ -90,7 +92,7 @@ namespace Game
 		public void Right()	
 		{
 			spinSprite[0].Rotate(0.060f);
-			spinSprite[1].Rotate(0.060f);
+			spinSprite[1].Rotate(-0.060f);
 			spinSprite[2].Rotate(0.060f);
 		}
 		
@@ -104,14 +106,18 @@ namespace Game
 		public void Left()
 		{
 			spinSprite[0].Rotate(-0.060f);
-			spinSprite[1].Rotate(-0.060f);
+			spinSprite[1].Rotate(0.060f);
 			spinSprite[2].Rotate(-0.060f);
 		}
 		
-		public void Reset(float x)
+		override public void Reset(float x)
 		{
+			
 			for (int i = 0; i < numberOfObstacles; i++)
-				pivSprite[i].Position = new Vector2(spinSprite[i].Position.X+x,spinSprite[i].Position.Y);
+			{
+				pivSprite[i].Position = new Vector2(x +(i * 200.0f),Director.Instance.GL.Context.GetViewport().Height*0.45f);
+				spinSprite[i].Position = pivSprite[i].Position;
+			}
 		}
 		
 		

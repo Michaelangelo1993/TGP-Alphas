@@ -2,13 +2,14 @@ using System;
 
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
+using Sce.PlayStation.Core.Input;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace Game
 {
-	public class Spring
+	public class Spring : Obstacle
 	{
 		private Trap trap;
 		private bool missedSpring;
@@ -41,6 +42,8 @@ namespace Game
 		public float GetSpringWidth { get { return springWidth; }}
 		public float GetTop { get { return (springTopSprite.Position.Y + springTopHeight); }}
 		public Bounds2 GetBox() { return _box; }
+		
+		override public float GetEndPosition() { return (trap.GetEndPosition()); }
 		
 		public Spring (Scene scene, Vector2 position)
 		{
@@ -75,7 +78,7 @@ namespace Game
 			scene.AddChild(springTopSprite);
 		}
 		
-		public void Dispose()
+		override public void Dispose()
 		{
 			
 		}
@@ -99,7 +102,7 @@ namespace Game
 			}
 		}
 		
-		public void ReleaseSpring(bool b)
+		override public void ReleaseSpring(bool b)
 		{ 
 			springReleased = b;
 		}
@@ -114,15 +117,12 @@ namespace Game
 			beingPushed = true;
 		}
 		
-		public void Update(float deltaTime, float speed)
+		override public void Update(float deltaTime, float speed)
 		{
 			springSprite.Position = new Vector2(springSprite.Position.X - speed, springSprite.Position.Y);
 			springTopSprite.Position = new Vector2(springTopSprite.Position.X - speed, springTopSprite.Position.Y);
 			
 			trap.Update(deltaTime, speed);
-			
-			if(springSprite.Position.X+700 < AppMain.GetPlayer().GetPos().X)
-				System.Diagnostics.Debug.WriteLine("hit");
 			
 			if(springReleased)
 			{
@@ -149,6 +149,18 @@ namespace Game
 			_box.Min 		= _min;			
 			_box.Max 		= _max;
 			
+			Vector2 touchPos = AppMain.GetTouchPosition();
+				
+			if((touchPos.X-100 < springSprite.Position.X) &&
+			   (touchPos.X+125 > springSprite.Position.X + springWidth) &&
+			   (touchPos.Y < springOriginalHeight+100)) // Touching spring
+			{
+				PushSpring();
+			}
+			
+			if(Touch.GetData(0).ToArray().Length <= 0)
+				ReleaseSpring(true);
+			
 			if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
 			{
 				if(missedSpring)
@@ -161,14 +173,14 @@ namespace Game
 			}
 		}
 		
-		public void Reset(float x)
+		override public void Reset(float x)
 		{
 			springReleased = true;
 			missedSpring = false;
 			beingPushed = false;
-			springSprite.Position = new Vector2((springSprite.Position.X + x), (springSprite.Position.Y));
-			trap.Reset(x);
-			springTopSprite.Position += new Vector2(x, 0);
+			springSprite.Position = new Vector2(x, springSprite.Position.Y);
+			trap.SetXPos(x + 125);
+			springTopSprite.Position = new Vector2(x, springTopSprite.Position.Y);
 		}
 	}
 }

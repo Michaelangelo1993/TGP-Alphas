@@ -206,10 +206,6 @@ namespace Game
 								tutorialManager.ClosePopUp(gameScene);
 						}
 					}
-					else // No popup :: Add else if for pause etc?
-					{
-						obstacleManager.UpdateTouchData(touches);
-					}
 				break;
 			}
 		}		

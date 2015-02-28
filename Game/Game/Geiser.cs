@@ -8,7 +8,7 @@ using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace Game
 {
-	public class Geiser
+	public class Geiser : Obstacle
 	{
 		//Geiser
 		private bool geiserOn;
@@ -28,6 +28,7 @@ namespace Game
 		Bounds2 spikeBounds;
 		
 		public Vector2 GetPosition { get { return spikeSprite.Position; }}
+		override public float GetEndPosition() { return (spikeSprite.Position.X + spikeBounds.Point10.X*2); }
 		
 		
 		public Geiser (Scene scene, Vector2 position)
@@ -69,7 +70,7 @@ namespace Game
 			scene.AddChild(geiserSprite);
 		}
 		
-		public void Dispose()
+		override public void Dispose()
 		{
 			
 		}
@@ -79,7 +80,7 @@ namespace Game
 			spikeBroken = true;
 		}
 				
-		public void Update(float deltaTime, float speed)
+		override public void Update(float deltaTime, float speed)
 		{
 			AnimateGeiser();
 			
@@ -152,10 +153,10 @@ namespace Game
 			}
 		}
 		
-		public void Reset(float x)
+		override public void Reset(float x)
 		{
 			spikeBroken = false;
-			geiserSpriteSheet.Position += new Vector2(x, 0);
+			geiserSpriteSheet.Position = new Vector2(x, geiserSpriteSheet.Position.Y);
 			spikeSprite.Position = new Vector2(geiserSpriteSheet.Position.X + 6 + spikeBounds.Point10.X/2, 475);
 			geiserSprite.Position = geiserSpriteSheet.Position;
 			geiserSpriteSheet.Visible = true;
