@@ -52,9 +52,10 @@ namespace Game
 				//scene.AddChild(pivSprite[i]);
 				scene.AddChild(spinSprite[i]);
 			}
-			spinSprite[0].Rotate(-0.9f);
-			spinSprite[1].Rotate(0.9f);
-			spinSprite[2].Rotate(-0.9f);
+			
+			spinSprite[0].Angle = 2.12f;
+			spinSprite[1].Angle = 1.02f;
+			spinSprite[2].Angle = 2.12f;
 		}
 		
 		override public void Dispose()
@@ -65,61 +66,52 @@ namespace Game
 		
 		override public void Update(float deltaTime, float t)
 		{			
+			var motionData = Motion.GetData(0);
+			
 			for (int i = 0; i < numberOfObstacles; i++)
 			{
 				pivSprite[i].Position += new Vector2(-t, 0.0f);
 				spinSprite[i].Position = pivSprite[i].Position;
+				
+				if(motionData.Acceleration.X< 0)
+					Left ();
+				else if(motionData.Acceleration.X > 0)
+					Right ();
+				
+				if (spinSprite[i].Angle > 2.12f)
+					spinSprite[i].Angle 	= 2.12f;
+				else if (spinSprite[i].Angle < 1.02f)
+					spinSprite[i].Angle 	= 1.02f;
 			}
-			
-			var motion = Motion.GetData(0);
-			Vector3 acc = motion.Acceleration;
-			Vector3 vel = motion.AngularVelocity;
-			
-			
-			if(vel.Y > 0.10000f)					
-				Left();
-			
-			if(vel.Y < -0.10000f)
-				Right();
-			
-			if(vel.Y < 0.10000f && vel.Y > -0.10000f )
-				Stop ();
-			
-			//if(spinObstacle.GetPosition1.X+700 < player.GetPos().X)
-				// Reset spinObstacle.Reset(spring.GetPosition.X+200);
 		}
 
 		public void Right()	
 		{
-			spinSprite[0].Rotate(0.060f);
-			spinSprite[1].Rotate(-0.060f);
-			spinSprite[2].Rotate(0.060f);
-		}
-		
-		public void Stop()
-		{
-			spinSprite[0].Rotate(0.00f);
-			spinSprite[1].Rotate(0.00f);
-			spinSprite[2].Rotate(0.00f);
+			spinSprite[0].Rotate(-0.01f);
+			spinSprite[1].Rotate(0.01f);
+			spinSprite[2].Rotate(-0.01f);
 		}
 		
 		public void Left()
 		{
-			spinSprite[0].Rotate(-0.060f);
-			spinSprite[1].Rotate(0.060f);
-			spinSprite[2].Rotate(-0.060f);
+			spinSprite[0].Rotate(0.01f);
+			spinSprite[1].Rotate(-0.01f);
+			spinSprite[2].Rotate(0.01f);
 		}
 		
 		override public void Reset(float x)
 		{
 			
+			spinSprite[0].Angle = 2.12f;
+			spinSprite[1].Angle = 1.02f;
+			spinSprite[2].Angle = 2.12f;
+			
 			for (int i = 0; i < numberOfObstacles; i++)
 			{
 				pivSprite[i].Position = new Vector2(x +(i * 200.0f),Director.Instance.GL.Context.GetViewport().Height*0.45f);
 				spinSprite[i].Position = pivSprite[i].Position;
-			}
+			}			
 		}
-		
 		
 		public bool HasCollidedWith(SpriteUV sprite)
 		{
