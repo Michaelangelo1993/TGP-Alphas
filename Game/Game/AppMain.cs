@@ -20,20 +20,19 @@ namespace Game
 		// Member Variables go here
 		private static ScreenManager	screenManager;
 		private static TutorialManager  tutorialManager;
+		private static ObstacleManager  obstacleManager;
 		private static Background		background;
-		private static TntWall			tntWall;
 		private static Player 			player;
-		private static Seasaw 			seasaw;
-		private static Spring 			spring;
-		private static SpinObstacle     spinObstacle;
-		private static Geiser			geiser;
-		
+				
 		private static int 				frameTime = 0, currentFrameTime = 0;
 		private static float			moveSpeed = 3.0f;
 		private static bool				shakeCamera = false;
 		
 		private static Vector2 oldTouchPos = new Vector2( 0.0f, 0.0f ); // Position of first touch on screen
 		private static Vector2 newTouchPos = new Vector2( 0.0f, 0.0f ); // Position of last touch on screen
+		public static void SetShake(bool shake) { shakeCamera = shake; }
+		public static Player GetPlayer() { return player; }
+		public static Background GetBackground() { return background; }
 		
 		public static void Main (string[] args)
 		{
@@ -56,10 +55,7 @@ namespace Game
 			//Clean up after ourselves.
 			//Dispose code goes here
 			background.Dispose();
-			tntWall.Dispose();
-			seasaw.Dispose();
-			spring.Dispose();
-			geiser.Dispose();
+			obstacleManager.CleanUp();
 			player.Dispose();
 			
 			Director.Terminate ();
@@ -123,11 +119,7 @@ namespace Game
 			// Update code here
 			player.Update(0.0f);
 			UpdateTouchData();
-			UpdateSeasaw();
-			UpdateSpring();
-			UpdateSpin();
-			UpdateTnt();
-			UpdateGeiser();
+			obstacleManager.Update(moveSpeed);
 			background.Update(0.0f, moveSpeed);
 			UpdateCamera();
 			
@@ -135,9 +127,7 @@ namespace Game
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
 			
 			if(player.IsDead())
-			{
 				screenManager.ChangeScreenTo(Screens.GameOver);	
-			}
 		}
 		
 		public static void UpdateCamera()
@@ -170,13 +160,7 @@ namespace Game
 			}
 			else //Update the camera to follow the player
 				gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
-			                            new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.5f));
-			
-		}
-		
-		public static bool IsColliding(Seasaw s)
-		{
-			return (player.GetBox().Overlaps(s.GetBox()));
+			                           		new Vector2(player.GetPos().X + 400, Director.Instance.GL.Context.GetViewport().Height*0.5f));
 		}
 		
 		public static Vector2 GetTouchPosition()
@@ -224,148 +208,17 @@ namespace Game
 					}
 					else // No popup :: Add else if for pause etc?
 					{
-						if(touches.Length <= 0) // Screen Not Touched
-						{
-							if(spring.BeingPushed)
-								spring.ReleaseSpring(true);
-							tntWall.ReleasePlunger();
-						}
-						else
-						{
-							Vector2 touchPos = GetTouchPosition();
-							
-							if((touchPos.X-100 < spring.GetPosition.X) &&
-							   (touchPos.X+125 > spring.GetPosition.X + spring.GetSpringWidth) &&
-							   (touchPos.Y < spring.GetOriginalHeight+100)) // Touching spring
-							{
-								spring.PushSpring();
-							}
-						}
-					break;
+						obstacleManager.UpdateTouchData(touches);
 					}
 				break;
 			}
-		}
-		
-		public static void UpdateSeasaw()
-		{
-			seasaw.Update(0, moveSpeed);
-			
-			// Check player seasaw collision
-			if(IsColliding(seasaw))
-				seasaw.SetIsOn();
-			
-			if(seasaw.IsOn())
-			{
-				player.SetAngle(seasaw.GetAngle());
-				player.SetYPos(seasaw.GetNewPlayerYPos(player.GetPos()));
-			}
-			
-			// If left of screen, reset 
-			if(seasaw.GetPos().X+700 < player.GetPos().X)
-			{
-				seasaw.SetXPos(tntWall.GetPosition().X + 1000);
-			}
-			
-		}
-						
-		public static void UpdateSpring()
-		{
-			spring.Update(0, moveSpeed);
-			
-			// If left of screen, reset 
-			if(spring.GetPosition.X+700 < player.GetPos().X)
-				spring.Reset(seasaw.GetPos().X+200);	
-			
-			// On/In Spring
-			if(player.GetBottomBox().Overlaps(spring.GetBox()))
-			{
-				if(spring.MissedSpring)
-				{
-					// Die in lava	
-					
-				}	
-				else if(spring.IsReleased)
-					player.DoJump();
-			}
-			
-		}
-		
-		public static void UpdateSpin()
-		{
-			spinObstacle.Update(0, moveSpeed);
-			var motion = Motion.GetData(0);
-			Vector3 acc = motion.Acceleration;
-			
-			Vector3 vel = motion.AngularVelocity;
-			
-			
-			if(vel.Y > 0.10000f)
-					
-			spinObstacle.Left();
-			
-			if(vel.Y < -0.10000f)
-				
-				spinObstacle.Right();
-			
-			if(vel.Y < 0.10000f && vel.Y > -0.10000f )
-					
-			spinObstacle.Stop ();
-			
-			if(spinObstacle.GetPosition1.X+700 < player.GetPos().X)
-				spinObstacle.Reset(spring.GetPosition.X+200);
-			
-		}
-		
-		public static void UpdateTnt()
-		{
-			tntWall.Update(0, moveSpeed);
-			Vector2 touchPos = GetTouchPosition();
-			Vector2 pluPos = tntWall.GetPosition();
-			
-			if(touchPos.Y <= pluPos.Y + 114.0f && touchPos.Y >= pluPos.Y - 50.0f
-			   && touchPos.X <= pluPos.X + 114.0f && touchPos.X >= pluPos.X - 50.0f)				
-			{
-				tntWall.Tapped();
-			}
-			
-			if (tntWall.GetShake())
-			{
-				shakeCamera = true;
-				tntWall.SetShakeOff();
-			}
-			
-			if(tntWall.GetPosition().X+700 < player.GetPos().X)
-				tntWall.Reset(gameScene, geiser.GetPosition.X+200);
-		}
-		
-		public static void UpdateGeiser()
-		{
-			geiser.Update(0, moveSpeed);
-			Vector2 touchPos = GetTouchPosition();
-			Vector2 geiserPos = geiser.GetPosition;
-			if(touchPos.Y <= geiserPos.Y + 114.0f && touchPos.Y >= geiserPos.Y - 50.0f
-			   && touchPos.X <= geiserPos.X + 114.0f && touchPos.X >= geiserPos.X - 50.0f)				
-			{
-				geiser.BreakSpike();
-			}
-			
-			
-			
-			if(geiser.GetPosition.X+700 < player.GetPos().X)
-				geiser.Reset(spinObstacle.GetPosition1.X + 200);
-			
-		}
+		}		
 		
 		public static void SetupGame()
 		{
 			background 		= new Background(gameScene);
-			tntWall 		= new TntWall(gameScene, 1500.0f, 100.0f);
-			seasaw 			= new Seasaw(gameScene, background.GetFloorHeight(), 2300.0f);
-			spring 			= new Spring(gameScene, new Vector2(3100.0f, 0.0f));
-			spinObstacle 	= new SpinObstacle(gameScene, new Vector2(3900.0f, 0.0f));
+			obstacleManager = new ObstacleManager(gameScene);
 			player 			= new Player(gameScene, background.GetFloorHeight());
-			geiser			= new Geiser(gameScene, new Vector2(4700.0f, 0.0f));
 			tutorialManager = new TutorialManager(gameScene);
 		}
 	}

@@ -110,6 +110,17 @@ namespace Game
 			pluSprite.Position	 = new Vector2(boxSprite.Position.X, pluSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
+			
+			Vector2 touchPos = AppMain.GetTouchPosition();
+			
+			if(touchPos.Y <= pluSprite.Position.Y + 114.0f && touchPos.Y >= pluSprite.Position.Y - 50.0f
+			   && touchPos.X <= pluSprite.Position.X + 114.0f && touchPos.X >= pluSprite.Position.X - 50.0f)				
+			{
+				beingPushed = true;
+			}
+			
+			//if(pluSprite.Position.X+700 < player.GetPos().X)
+				// Reset tntWall.Reset(gameScene, geiser.GetPosition.X+200);
 		}
 		
 		public void blowUpRock()

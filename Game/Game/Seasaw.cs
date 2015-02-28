@@ -83,6 +83,21 @@ namespace Game
 			_max.Y			= _sprite.Position.Y + (_opposite *_scale);
 			_box.Min 		= _min;			
 			_box.Max 		= _max;
+			
+			if(AppMain.GetPlayer().GetBox().Overlaps(_box))
+				if (_angle > 0.5f)
+					_onObstacle = true;
+			
+			if(_onObstacle)
+			{
+				AppMain.GetPlayer().SetAngle(_angle);
+				AppMain.GetPlayer().SetYPos(GetNewPlayerYPos(AppMain.GetPlayer().GetPos()));
+			}
+			
+			if(_sprite.Position.X+700 < AppMain.GetPlayer().GetPos().X)
+			{
+				// Reset
+			}
 		}
 		
 		private void CheckInput()
@@ -112,15 +127,11 @@ namespace Game
 			
 			//Keep Seasaw from rotating too far Right
 			if (_sprite.Angle < -0.55f)
-			{
 				_sprite.Angle = -0.55f;
-				
-			}
 			
 			//Update the angle variables
 			_angle 	= _sprite.Angle;
 			_angle2 = (FMath.PI/2) - _angle;
-			
 		}
 		
 		//Get the player Y position for walking on the Seasaw

@@ -62,6 +62,7 @@
     <Compile Include="Geiser.cs" />
     <Compile Include="ScreenManager.cs" />
     <Compile Include="TutorialManager.cs" />
+    <Compile Include="ObstacleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />

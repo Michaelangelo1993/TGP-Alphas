@@ -1,5 +1,6 @@
 using System;
 
+using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
 
@@ -67,38 +68,44 @@ namespace Game
 				pivSprite[i].Position += new Vector2(-t, 0.0f);
 				spinSprite[i].Position = pivSprite[i].Position;
 			}
+			
+			var motion = Motion.GetData(0);
+			Vector3 acc = motion.Acceleration;
+			Vector3 vel = motion.AngularVelocity;
+			
+			
+			if(vel.Y > 0.10000f)					
+				Left();
+			
+			if(vel.Y < -0.10000f)
+				Right();
+			
+			if(vel.Y < 0.10000f && vel.Y > -0.10000f )
+				Stop ();
+			
+			//if(spinObstacle.GetPosition1.X+700 < player.GetPos().X)
+				// Reset spinObstacle.Reset(spring.GetPosition.X+200);
 		}
 
-		public void Right()
-			
+		public void Right()	
 		{
-			
 			spinSprite[0].Rotate(0.060f);
 			spinSprite[1].Rotate(0.060f);
 			spinSprite[2].Rotate(0.060f);
-			
-			
 		}
 		
 		public void Stop()
-			
 		{
-			
 			spinSprite[0].Rotate(0.00f);
 			spinSprite[1].Rotate(0.00f);
 			spinSprite[2].Rotate(0.00f);
-			
 		}
 		
 		public void Left()
-			
 		{
-			
 			spinSprite[0].Rotate(-0.060f);
 			spinSprite[1].Rotate(-0.060f);
 			spinSprite[2].Rotate(-0.060f);
-			
-			
 		}
 		
 		public void Reset(float x)

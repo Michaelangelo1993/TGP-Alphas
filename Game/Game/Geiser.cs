@@ -107,6 +107,17 @@ namespace Game
 				spikeSprite.Position = new Vector2(spikeSprite.Position.X-speed, spikeSprite.Position.Y);
 				geiserSprite.Position = geiserSpriteSheet.Position;
 			}
+			
+			Vector2 touchPos = AppMain.GetTouchPosition();
+			
+			if(touchPos.Y <= spikeSprite.Position.Y + 114.0f && touchPos.Y >= spikeSprite.Position.Y - 50.0f
+			   && touchPos.X <= spikeSprite.Position.X + 114.0f && touchPos.X >= spikeSprite.Position.X - 50.0f)				
+			{
+				BreakSpike();
+			}
+			
+			//if(spikeSprite.Position.X+700 < player.GetPos().X)
+				// Reset geiser.Reset(spinObstacle.GetPosition1.X + 200);
 		}
 		
 		private void AnimateGeiser()

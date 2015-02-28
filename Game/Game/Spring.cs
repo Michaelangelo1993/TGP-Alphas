@@ -121,6 +121,9 @@ namespace Game
 			
 			trap.Update(deltaTime, speed);
 			
+			if(springSprite.Position.X+700 < AppMain.GetPlayer().GetPos().X)
+				System.Diagnostics.Debug.WriteLine("hit");
+			
 			if(springReleased)
 			{
 				if(springCurrentHeight < springOriginalHeight)
@@ -145,6 +148,17 @@ namespace Game
 			_max.Y			= springTopSprite.Position.Y + springTopTextureInfo.TextureSizef.Y;
 			_box.Min 		= _min;			
 			_box.Max 		= _max;
+			
+			if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
+			{
+				if(missedSpring)
+				{
+					// Die in lava	
+					
+				}	
+				else if(springReleased)
+					AppMain.GetPlayer().DoJump();
+			}
 		}
 		
 		public void Reset(float x)
