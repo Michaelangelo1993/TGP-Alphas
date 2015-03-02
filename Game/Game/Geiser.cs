@@ -2,6 +2,7 @@ using System;
 
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
+using Sce.PlayStation.Core.Input;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
@@ -111,7 +112,8 @@ namespace Game
 			
 			Vector2 touchPos = AppMain.GetTouchPosition();
 			
-			if(touchPos.Y <= spikeSprite.Position.Y + 114.0f && touchPos.Y >= spikeSprite.Position.Y - 50.0f
+			if(Touch.GetData(0).ToArray().Length > 0 &&
+				touchPos.Y <= spikeSprite.Position.Y + 114.0f && touchPos.Y >= spikeSprite.Position.Y - 50.0f
 			   && touchPos.X <= spikeSprite.Position.X + 114.0f && touchPos.X >= spikeSprite.Position.X - 50.0f)				
 			{
 				BreakSpike();
