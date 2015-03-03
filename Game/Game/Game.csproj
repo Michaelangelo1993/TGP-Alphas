@@ -64,6 +64,7 @@
     <Compile Include="TutorialManager.cs" />
     <Compile Include="ObstacleManager.cs" />
     <Compile Include="Obstacle.cs" />
+    <Compile Include="DoorObs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\dclouds.png" />
@@ -120,5 +121,8 @@
     <Content Include="textures\tutorial\tntPopUp.png" />
     <Content Include="textures\TrapSpriteSheet.png" />
     <Content Include="textures\tutorial\old gamePopUpTutorialsOff.png" />
+    <Content Include="textures\explosion.png" />
+    <Content Include="textures\transrocks.png" />
+    <Content Include="textures\door.png" />
   </ItemGroup>
 </Project>

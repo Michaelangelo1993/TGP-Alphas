@@ -37,6 +37,13 @@ namespace Game
 		
 		private SpriteUV	floor2Sprite;
 		
+		private SpriteUV	floorOverlay;
+		private TextureInfo	floorOTextureInfo;
+		
+		private SpriteUV	floor2Overlay;
+		
+		private float		overHeight = 95.0f;
+		
 		private float		width;
 		private float		height2;
 		
@@ -76,6 +83,17 @@ namespace Game
 			floor2Sprite 			= new SpriteUV(floorTextureInfo);
 			floor2Sprite.Position 	= new Vector2(width, 0.0f);
 			floor2Sprite.Quad.S 	= floorTextureInfo.TextureSizef;
+			
+			floorOverlay	 		= new SpriteUV();			
+			floorOTextureInfo 		= new TextureInfo("/Application/textures/transrocks.png");
+			floorOverlay	 		= new SpriteUV(floorOTextureInfo);
+			floorOverlay.Position 	= new Vector2(0.0f, overHeight);
+			floorOverlay.Quad.S 	= floorOTextureInfo.TextureSizef;
+			
+			floor2Overlay	 		= new SpriteUV();			
+			floor2Overlay	 		= new SpriteUV(floorOTextureInfo);
+			floor2Overlay.Position	= new Vector2(width, overHeight);
+			floor2Overlay.Quad.S 	= floorOTextureInfo.TextureSizef;
 			
 			addToScene(scene);
 
@@ -132,14 +150,23 @@ namespace Game
 		public void addToScene(Scene scene)
 		{
 			//Add to the current scene.
-			scene.AddChild(volcSprite);
+			scene.AddChild (volcSprite);
 			scene.AddChild (smogSprite);
 			scene.AddChild (smogSprite2);
 			scene.AddChild (wallSprite);
 			scene.AddChild (wallSprite2);
 			scene.AddChild (entrSprite);
+			scene.AddChild (floorOverlay);
+			scene.AddChild (floor2Overlay);
 			scene.AddChild (floorSprite);
 			scene.AddChild (floor2Sprite);
+
+		}
+		
+		public void addFloor(Scene scene)
+		{
+//			scene.AddChild (floorOverlay);
+//			scene.AddChild (floor2Overlay);
 		}
 		
 		public void Dispose()
@@ -201,6 +228,15 @@ namespace Game
 				floorSprite.Position = new Vector2(floor2Sprite.Position.X + floorTextureInfo.TextureSizef.X, 0.0f);
 			if(floor2Sprite.Position.X+floorTextureInfo.TextureSizef.X <= volcSprite.Position.X)
 				floor2Sprite.Position = new Vector2(floorSprite.Position.X + floorTextureInfo.TextureSizef.X, 0.0f);
+			
+			floorOverlay.Position = new Vector2(floorOverlay.Position.X-speed/2, floorOverlay.Position.Y);
+			floor2Overlay.Position = new Vector2(floor2Overlay.Position.X-speed/2, floor2Overlay.Position.Y);
+			
+			//Resets the position once off screen
+			if(floorOverlay.Position.X+floorOTextureInfo.TextureSizef.X <= volcSprite.Position.X)
+				floorOverlay.Position = new Vector2(floor2Overlay.Position.X + floorTextureInfo.TextureSizef.X, overHeight);
+			if(floor2Overlay.Position.X+floorTextureInfo.TextureSizef.X <= volcSprite.Position.X)
+				floor2Overlay.Position = new Vector2(floorOverlay.Position.X + floorTextureInfo.TextureSizef.X, overHeight);
 		}
 		
 		public void SetVolcanoPosition(float x, float y) { volcSprite.Position = new Vector2(x,y); }

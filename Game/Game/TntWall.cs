@@ -18,12 +18,16 @@ namespace Game
 		private Bounds2		rockBounds;
 		private SpriteUV 	exploSprite;
 		private TextureInfo	exploTextureInfo;
-		private SpriteUV 	dynoSprite;
-		private TextureInfo	dynoTextureInfo;
+		private SpriteUV 	dynaSprite;
+		private TextureInfo	dynaTextureInfo;
+		
 		private bool		blown = false;
-		private bool		ready;
-		private int 		counter = 20;
-		private bool		beingPushed;
+		private bool		ready, beingPushed;
+		private int 		counter = 0, noOnSpritesheetWidth 	= 5, noOnSpritesheetHeight 	= 5, 
+							heightCount = 0, widthCount = 0;
+		
+		private float		scale = 5.0f;
+		
 		public bool IsReady { get { return ready; }}
 		public bool SetReady { set { ready = value; }}
 		
@@ -34,20 +38,20 @@ namespace Game
 			boxTextureInfo 			= new TextureInfo("/Application/textures/box2.png");
 			pluTextureInfo			= new TextureInfo("/Application/textures/tntplun2.png");
 			rockTextureInfo 		= new TextureInfo("/Application/textures/rock.png");
-			exploTextureInfo 		= new TextureInfo("/Application/textures/explo.png");
-			dynoTextureInfo	 		= new TextureInfo("/Application/textures/dyno2.png");
+			exploTextureInfo 		= new TextureInfo("/Application/textures/explosion.png");
+			dynaTextureInfo	 		= new TextureInfo("/Application/textures/dyno2.png");
 						
 			boxSprite	 			= new SpriteUV(boxTextureInfo);
 			pluSprite 				= new SpriteUV(pluTextureInfo);	
 			rockSprite 				= new SpriteUV(rockTextureInfo);	
 			exploSprite 			= new SpriteUV(exploTextureInfo);
-			dynoSprite 				= new SpriteUV(dynoTextureInfo);
+			dynaSprite 				= new SpriteUV(dynaTextureInfo);
 			
 			boxSprite.Quad.S 		= boxTextureInfo.TextureSizef;
 			boxSprite.Position		= new Vector2(x, y);
 			
-			dynoSprite.Quad.S 		= boxTextureInfo.TextureSizef;
-			dynoSprite.Position 	= new Vector2(x + 120.0f, y);
+			dynaSprite.Quad.S 		= boxTextureInfo.TextureSizef;
+			dynaSprite.Position 	= new Vector2(x + 120.0f, y);
 			
 			pluSprite.Quad.S 		= pluTextureInfo.TextureSizef;
 			pluSprite.Position 		= new Vector2(x, y + 44.0f);
@@ -56,14 +60,16 @@ namespace Game
 			rockSprite.Position 	= new Vector2(x+200.0f, y);
 			rockBounds				= rockSprite.Quad.Bounds2();
 			
-			exploSprite.Quad.S 		= exploTextureInfo.TextureSizef;
-			exploSprite.Position	= new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
+			exploSprite.UV.S 		= new Vector2(1.0f/noOnSpritesheetWidth,1.0f/noOnSpritesheetHeight);		
+			exploSprite.Quad.S 		= new Vector2(130.0f, 130.0f);
+			exploSprite.Position	= new Vector2(dynaSprite.Position.X, dynaSprite.Position.Y);
+			exploSprite.Scale		= new Vector2(scale, scale);
 			exploSprite.Visible 	= false;
 			
 			scene.AddChild(rockSprite);
 			scene.AddChild(pluSprite);
 			scene.AddChild(boxSprite);
-			scene.AddChild(dynoSprite);
+			scene.AddChild(dynaSprite);
 			scene.AddChild(exploSprite);
 			
 			ready 	= true;
@@ -101,14 +107,27 @@ namespace Game
 				else
 				{
 					counter--;
+					
+					if (widthCount == noOnSpritesheetWidth)
+					{
+						heightCount++;
+						widthCount = 0;
+					}
+				
+					if (heightCount == noOnSpritesheetHeight)
+					{
+						heightCount = 0;
+					}
+					widthCount++;
+					exploSprite.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount,(1.0f/noOnSpritesheetHeight)*heightCount);
 				}
 			}
 			
 			boxSprite.Position 	 += new Vector2(-t, 0);
-			dynoSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
+			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			pluSprite.Position	 = new Vector2(boxSprite.Position.X, pluSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
-			exploSprite.Position = new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
+			exploSprite.Position = new Vector2(dynaSprite.Position.X - 230.0f, dynaSprite.Position.Y - 150.0f);
 			
 			Vector2 touchPos = AppMain.GetTouchPosition();
 			
@@ -125,11 +144,11 @@ namespace Game
 		public void blowUpRock()
 		{
 			rockSprite.Visible = false;
-			dynoSprite.Visible = false;
+			dynaSprite.Visible = false;
 			
 			if(!blown)
 			{
-				exploSprite.Position = new Vector2(rockSprite.Position.X-200.0f,rockSprite.Position.Y-80.0f);
+				exploSprite.Position = new Vector2(dynaSprite.Position.X,dynaSprite.Position.Y);
 				exploSprite.Visible = true;
 				
 				blown 	= true;
@@ -156,13 +175,13 @@ namespace Game
 		override public void Reset(float x)
 		{
 			rockSprite.Visible  = true;
-			dynoSprite.Visible  = true;
+			dynaSprite.Visible  = true;
 			
 			boxSprite.Position  = new Vector2(x, boxSprite.Position.Y);
 			pluSprite.Position  = new Vector2(boxSprite.Position.X, boxSprite.Position.Y +44);
-			dynoSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
+			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
-			exploSprite.Position = new Vector2(rockSprite.Position.X - 150.0f, rockSprite.Position.Y);
+			exploSprite.Position = new Vector2(dynaSprite.Position.X, dynaSprite.Position.Y);
 			
 			counter = 20;
 			ready = true;
