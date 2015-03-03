@@ -13,6 +13,7 @@ namespace Game
 		private SpriteUV 	doorSprite2;
 		private TextureInfo	doorTextureInfo;
 		
+		//Gap between doors
 		private float gap = 300.0f;
 		
 		private Boolean beingPushed = false;
@@ -42,9 +43,11 @@ namespace Game
 		
 		public void Update(float deltaTime, float t)
 		{	
+			//Move the doors
 			doorSprite.Position 	 += new Vector2(-t, 0);
 			doorSprite2.Position 	 += new Vector2(-t, 0);
 			
+			//Lower the doors if not being touched
 			if(doorSprite.Position.Y > 100 && !beingPushed)
 			{
 				doorSprite.Position = new Vector2(doorSprite.Position.X, doorSprite.Position.Y-8.0f);
@@ -60,6 +63,8 @@ namespace Game
 		public void Tapped(float y, int door)
 		{
 			beingPushed = true;
+			
+			//Ensure the door doesn't go below the floor
 			if(y >= 150)
 			{
 				if(door == 1)
@@ -92,7 +97,8 @@ namespace Game
 		}
 		
 		public void Reset(Scene scene, float x)
-		{			
+		{	
+			//Reset position
 			doorSprite.Position  += new Vector2(x, 0);
 			doorSprite.Position  += new Vector2(x, 0);
 		}

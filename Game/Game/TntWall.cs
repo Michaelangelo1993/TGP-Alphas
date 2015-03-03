@@ -9,6 +9,8 @@ namespace Game
 {
 	public class TntWall : Obstacle
 	{
+		
+		//Sprites
 		private SpriteUV 	boxSprite;
 		private TextureInfo	boxTextureInfo;
 		private SpriteUV 	pluSprite;
@@ -35,12 +37,14 @@ namespace Game
 		
 		public TntWall (Scene scene, float x, float y)
 		{
+			//Textures
 			boxTextureInfo 			= new TextureInfo("/Application/textures/box2.png");
 			pluTextureInfo			= new TextureInfo("/Application/textures/tntplun2.png");
 			rockTextureInfo 		= new TextureInfo("/Application/textures/rock.png");
 			exploTextureInfo 		= new TextureInfo("/Application/textures/explosion.png");
 			dynaTextureInfo	 		= new TextureInfo("/Application/textures/dyno2.png");
-						
+			
+			//Sprites			
 			boxSprite	 			= new SpriteUV(boxTextureInfo);
 			pluSprite 				= new SpriteUV(pluTextureInfo);	
 			rockSprite 				= new SpriteUV(rockTextureInfo);	
@@ -60,6 +64,7 @@ namespace Game
 			rockSprite.Position 	= new Vector2(x+200.0f, y);
 			rockBounds				= rockSprite.Quad.Bounds2();
 			
+			//Set up the explosion spritesheet&scale
 			exploSprite.UV.S 		= new Vector2(1.0f/noOnSpritesheetWidth,1.0f/noOnSpritesheetHeight);		
 			exploSprite.Quad.S 		= new Vector2(130.0f, 130.0f);
 			exploSprite.Position	= new Vector2(dynaSprite.Position.X, dynaSprite.Position.Y);
@@ -72,6 +77,7 @@ namespace Game
 			scene.AddChild(dynaSprite);
 			scene.AddChild(exploSprite);
 			
+			//Ready and counter initialisation
 			ready 	= true;
 			counter = 20;
 		}
@@ -86,6 +92,7 @@ namespace Game
 		
 		override public void Update(float deltaTime, float t)
 		{	
+			//If the trap is ready and being pushed, blow up the rock
 			if(ready && beingPushed)
 			{
 				pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-1.0f);
@@ -108,6 +115,7 @@ namespace Game
 				{
 					counter--;
 					
+					//Spritesheet scrolling
 					if (widthCount == noOnSpritesheetWidth)
 					{
 						heightCount++;
@@ -122,13 +130,14 @@ namespace Game
 					exploSprite.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount,(1.0f/noOnSpritesheetHeight)*heightCount);
 				}
 			}
-			
+			//Move the sprites
 			boxSprite.Position 	 += new Vector2(-t, 0);
 			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			pluSprite.Position	 = new Vector2(boxSprite.Position.X, pluSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(dynaSprite.Position.X - 230.0f, dynaSprite.Position.Y - 150.0f);
 			
+			//Get touch position
 			Vector2 touchPos = AppMain.GetTouchPosition();
 			
 			if(touchPos.Y <= pluSprite.Position.Y + 114.0f && touchPos.Y >= pluSprite.Position.Y - 50.0f
@@ -148,6 +157,7 @@ namespace Game
 			
 			if(!blown)
 			{
+				//Start the explosion
 				exploSprite.Position = new Vector2(dynaSprite.Position.X,dynaSprite.Position.Y);
 				exploSprite.Visible = true;
 				
@@ -174,6 +184,8 @@ namespace Game
 		
 		override public void Reset(float x)
 		{
+			
+			//Reset functions
 			rockSprite.Visible  = true;
 			dynaSprite.Visible  = true;
 			
