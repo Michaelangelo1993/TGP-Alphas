@@ -24,7 +24,7 @@ namespace Game
 		public Vector2 GetPosition1 { get { return spinSprite[0].Position; }}
 		public Vector2 GetPosition2 { get { return spinSprite[1].Position; }}
 		public Vector2 GetPosition3 { get { return spinSprite[2].Position; }}
-		override public float GetEndPosition() { return (spinSprite[2].Position.X + spinBounds.Point10.X*2); }
+		override public float GetEndPosition() { return (spinSprite[2].Position.X + 100); }
 		
 		//Public functions.
 		public SpinObstacle (Scene scene, Vector2 position)
@@ -40,7 +40,7 @@ namespace Game
 				pivSprite[i]			= new SpriteUV(textureSpinPiv);	
 				pivSprite[i].Quad.S 	= textureSpinPiv.TextureSizef;
 				pivSprite[i].CenterSprite();
-				pivSprite[i].Position = new Vector2(position.X +(i *200.0f),Director.Instance.GL.Context.GetViewport().Height*0.45f);
+				pivSprite[i].Position = new Vector2(position.X +(100 + i *200.0f),Director.Instance.GL.Context.GetViewport().Height*0.45f);
 				
 				spinSprite[i]			= new SpriteUV(textureSpinObstacle);	
 				spinSprite[i].Quad.S 	= textureSpinObstacle.TextureSizef;
@@ -64,19 +64,19 @@ namespace Game
 			textureSpinPiv.Dispose();
 		}
 		
-		override public void Update(float t)
+		override public void Update(float gameSpeed)
 		{			
 			var motionData = Motion.GetData(0);
 			
 			for (int i = 0; i < numberOfObstacles; i++)
 			{
-				pivSprite[i].Position += new Vector2(-t, 0.0f);
+				pivSprite[i].Position += new Vector2(-gameSpeed, 0.0f);
 				spinSprite[i].Position = pivSprite[i].Position;
 				
 				if(motionData.Acceleration.X< 0)
-					Left ();
+					Left (gameSpeed);
 				else if(motionData.Acceleration.X > 0)
-					Right ();
+					Right (gameSpeed);
 				
 				if (spinSprite[i].Angle > 2.12f)
 					spinSprite[i].Angle 	= 2.12f;
@@ -85,18 +85,18 @@ namespace Game
 			}
 		}
 
-		public void Right()	
+		public void Right(float gameSpeed)	
 		{
-			spinSprite[0].Rotate(-0.01f);
-			spinSprite[1].Rotate(0.01f);
-			spinSprite[2].Rotate(-0.01f);
+			spinSprite[0].Rotate(-0.01f * gameSpeed);
+			spinSprite[1].Rotate(0.01f * gameSpeed);
+			spinSprite[2].Rotate(-0.01f * gameSpeed);
 		}
 		
-		public void Left()
+		public void Left(float gameSpeed)
 		{
-			spinSprite[0].Rotate(0.01f);
-			spinSprite[1].Rotate(-0.01f);
-			spinSprite[2].Rotate(0.01f);
+			spinSprite[0].Rotate(0.01f * gameSpeed);
+			spinSprite[1].Rotate(-0.01f * gameSpeed);
+			spinSprite[2].Rotate(0.01f * gameSpeed);
 		}
 		
 		override public void Reset(float x)
@@ -108,7 +108,7 @@ namespace Game
 			
 			for (int i = 0; i < numberOfObstacles; i++)
 			{
-				pivSprite[i].Position = new Vector2(x +(i * 200.0f),Director.Instance.GL.Context.GetViewport().Height*0.45f);
+				pivSprite[i].Position = new Vector2(x + 100 + (i * 200.0f),Director.Instance.GL.Context.GetViewport().Height*0.45f);
 				spinSprite[i].Position = pivSprite[i].Position;
 			}			
 		}

@@ -94,7 +94,7 @@ namespace Game
 				//Check to see whether spike has reached the ground
 				if(spikeSprite.Position.Y > geiserSpriteSheet.Position.Y)
 				{
-					spikeSprite.Position = new Vector2(spikeSprite.Position.X, spikeSprite.Position.Y-10);
+					spikeSprite.Position = new Vector2(spikeSprite.Position.X, spikeSprite.Position.Y-(speed*3));
 				}
 				if(spikeSprite.Position.Y < geiserSpriteSheet.Position.Y+100)
 				{

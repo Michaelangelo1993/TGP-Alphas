@@ -30,7 +30,7 @@ namespace Game
 		{
 			//Initialise Variables
 			_scale 					= 1.00f;
-			_rotationSpeed 			= 0.03f;
+			_rotationSpeed 			= 0.01f;
 			_scaleLimiter			= 0.3f;
 			_tempScale				= 1.0f;
 			_rotateLeft 			= false;
@@ -48,7 +48,7 @@ namespace Game
 			_sprite.Quad.S 			= _textureInfo.TextureSizef;
 			_sprite.Scale			= new Vector2(_scale, _scale);
 			_sprite.CenterSprite();
-			_sprite.Position 		= new Vector2(xPos, _defaultYPos);
+			_sprite.Position 		= new Vector2(xPos + 150, _defaultYPos);
 			
 			_hypotenuse 			= (_textureInfo.TextureSizef.X *_scale);
 			_angle 					= 0.55f;
@@ -58,7 +58,7 @@ namespace Game
 			_sprite.Angle 			= _angle;
 			_scalerValue 			= _tempScale/(_angle*10);
 			
-			_trap = new Trap(scene, new Vector2(xPos - _adjacent, 0.0f));
+			_trap = new Trap(scene, new Vector2(xPos - _adjacent + 150, 0.0f));
 			_trap.SetWidth(_adjacent*2);
 			
 			//Add to the current scene.
@@ -73,7 +73,7 @@ namespace Game
 		override public void Update(float t)
 		{
 			CheckInput();
-			UpdateAngles();
+			UpdateAngles(t);
 			
 			_sprite.Position += new Vector2(-t, 0.0f);
 			
@@ -113,13 +113,13 @@ namespace Game
 				_rotateLeft = false;
 		}
 		
-		private void UpdateAngles()
+		private void UpdateAngles(float gameSpeed)
 		{
 			
 			if(_rotateLeft)
-				_sprite.Rotate(_rotationSpeed);
+				_sprite.Rotate(_rotationSpeed*gameSpeed);
 			else
-				_sprite.Rotate(-_rotationSpeed);
+				_sprite.Rotate(-_rotationSpeed*gameSpeed);
 			
 			//Keep Seasaw from rotating too far left
 			if (_sprite.Angle > 0.55f)
@@ -176,7 +176,7 @@ namespace Game
 		public float GetAngle(){ return _angle; }
 		
 		//Set X position of the seasaw 
-		public void SetXPos(float x) { _sprite.Position = new Vector2(x, _defaultYPos); _trap.SetXPos(x - _adjacent); }
+		public void SetXPos(float x) { _sprite.Position = new Vector2(x + 150, _defaultYPos); _trap.SetXPos(x - _adjacent + 150); }
 		
 		//Get the postion of the seasaw
 		public Vector2 GetPos(){ return _sprite.Position; }

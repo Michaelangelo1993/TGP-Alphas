@@ -17,6 +17,7 @@ namespace Game
 		private static List<Obstacle> deactiveObstacles = new List<Obstacle>();
 		private static List<Obstacle> offScreenObjs = new List<Obstacle>();
 		
+		private int obstaclesDefeated;
 		private float newXPos;
 		private Random rand;
 		
@@ -24,6 +25,7 @@ namespace Game
 		{
 			rand = new Random();
 			newXPos = 1500;
+			obstaclesDefeated = 0;
 			
 			deactiveObstacles.Add(new TntWall(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new Seasaw(scene, -1000.0f, AppMain.GetBackground().GetFloorHeight()));
@@ -37,6 +39,17 @@ namespace Game
 			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 0.0f)));
 			//deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 0.0f));
 			//deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 0.0f));
+			float prevXPos = newXPos;
+			while(activeObstacles.Count <= 3)
+			{// Reset position of selected obstacle and move it to active
+				prevXPos = newXPos;
+				int randomPosition = (rand.Next(0, deactiveObstacles.Count));
+				deactiveObstacles.ElementAt(randomPosition).Reset(newXPos);
+				newXPos = 700 + deactiveObstacles.ElementAt(randomPosition).GetEndPosition();
+				activeObstacles.Add(deactiveObstacles.ElementAt(randomPosition));
+				deactiveObstacles.RemoveAt(randomPosition);
+			}	
+			newXPos = prevXPos;
 		}
 		
 		public void Update(float moveSpeed)
@@ -49,19 +62,18 @@ namespace Game
 				{
 					selected.ForEach(Obstacle => activeObstacles.Remove(Obstacle));
 					selected.ForEach(Obstacle => deactiveObstacles.Add(Obstacle));
+					obstaclesDefeated++;
 				}
-			
 			}
 			
-			if(activeObstacles.Count <= 1)
+			while(activeObstacles.Count <= 3)
 			{// Reset position of selected obstacle and move it to active
 				int randomPosition = (rand.Next(0, deactiveObstacles.Count));
 				deactiveObstacles.ElementAt(randomPosition).Reset(newXPos);
-				newXPos = 300 + deactiveObstacles.ElementAt(randomPosition).GetEndPosition();
+				newXPos = 100 + deactiveObstacles.ElementAt(randomPosition).GetEndPosition();
 				activeObstacles.Add(deactiveObstacles.ElementAt(randomPosition));
 				deactiveObstacles.RemoveAt(randomPosition);
 			}			
-			
 			foreach(Obstacle obj in activeObstacles)
 			{
 				obj.Update(moveSpeed);

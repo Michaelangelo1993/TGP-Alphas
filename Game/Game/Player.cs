@@ -177,7 +177,7 @@ namespace Game
 				
 		public void DoJump()
 		{
-			_jumpingVector 			= new Vector2(_sprite.Position.X + 600.0f, _sprite.Position.Y + 1000.0f);
+			_jumpingVector 			= new Vector2(_sprite.Position.X + 800.0f, _sprite.Position.Y + 1200.0f);
 			_jumpVelocity 			= Normalize(_jumpingVector, _sprite.Position);
 			_jumpVelocity 			= new Vector2(_jumpVelocity.X * _force, _jumpVelocity.Y * _force);
 			_jump 					= true;

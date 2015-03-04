@@ -56,12 +56,9 @@ namespace Game
 			springSprite 			= new SpriteUV(springTextureInfo);
 			springSprite.Quad.S 	= springTextureInfo.TextureSizef;
 			Bounds2 springBounds 	= springSprite.Quad.Bounds2 ();
-			springSprite.Position 	= new Vector2(position.X, position.Y);
 			springWidth 			= springBounds.Point10.X;
 			springOriginalHeight 	= springBounds.Point01.Y;
-			springCurrentHeight 	= springBounds.Point01.Y;
-			
-			trap = new Trap(scene, new Vector2((position.X + 125), (position.Y )));			
+			springCurrentHeight 	= springBounds.Point01.Y;		
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
 			springTopTextureInfo = new TextureInfo("/Application/textures/SpringTop.png");
@@ -71,7 +68,10 @@ namespace Game
 			springTopHeight = springTopBounds.Point01.Y;
 			springTopWidth = springTopBounds.Point10.X;
 			float sizeDifference = (springTopWidth - springWidth)/2;
-			springTopSprite.Position = new Vector2(position.X - sizeDifference, springSprite.Position.Y + springBounds.Point01.Y);
+			
+			springSprite.Position 	= new Vector2(position.X + sizeDifference, position.Y);
+			trap = new Trap(scene, new Vector2((position.X + 125 + sizeDifference), (position.Y )));	
+			springTopSprite.Position = new Vector2(position.X, springSprite.Position.Y + springBounds.Point01.Y);
 			
 			// Add sprites to scene
 			scene.AddChild(springSprite);
@@ -83,15 +83,15 @@ namespace Game
 			
 		}
 		
-		public void WindSpring()
+		public void WindSpring(float gameSpeed)
 		{
 			if(!springReleased)
 			{
 				if(springCurrentHeight > 55)
 				{
 					beingPushed = true;
-					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-3);
-					springCurrentHeight-=3;
+					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-gameSpeed);
+					springCurrentHeight-=gameSpeed;
 					springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
 				}
 				else
@@ -126,20 +126,30 @@ namespace Game
 			
 			if(springReleased)
 			{
-				if(springCurrentHeight < springOriginalHeight)
+				if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
+					AppMain.GetPlayer().DoJump();
+				
+				// Spring can move too fast for collisions, split it up
+				int iterations = (int)FMath.Ceiling(speed/3.0f);
+				float speedPerCycle = speed/iterations;
+				for(int i=0;i<iterations;i++)
 				{
-					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y+15);
-					springCurrentHeight+=15;
-					springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
+					if(springCurrentHeight < springOriginalHeight)
+					{
+						springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y+(speedPerCycle*5));
+						springCurrentHeight+=(speedPerCycle*5);
+						springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
+					}
+					else
+					{
+						springReleased = false;	
+					}
 				}
-				else
-				{
-					springReleased = false;	
-				}
+				
 			}
 			else if(beingPushed)
 			{
-				WindSpring();
+				WindSpring(speed);
 			}
 			
 			_min.X			= springTopSprite.Position.X ;
@@ -160,17 +170,6 @@ namespace Game
 			
 			if(Touch.GetData(0).ToArray().Length <= 0)
 				ReleaseSpring(true);
-			
-			if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
-			{
-				if(missedSpring)
-				{
-					// Die in lava	
-					
-				}	
-				else if(springReleased)
-					AppMain.GetPlayer().DoJump();
-			}
 		}
 		
 		override public void Reset(float x)
@@ -178,8 +177,10 @@ namespace Game
 			springReleased = true;
 			missedSpring = false;
 			beingPushed = false;
-			springSprite.Position = new Vector2(x, springSprite.Position.Y);
-			trap.SetXPos(x + 125);
+			
+			float sizeDifference = (springTopWidth - springWidth)/2;
+			springSprite.Position = new Vector2(x + sizeDifference, springSprite.Position.Y);
+			trap.SetXPos(x + 125 + sizeDifference);
 			springTopSprite.Position = new Vector2(x, springTopSprite.Position.Y);
 		}
 	}

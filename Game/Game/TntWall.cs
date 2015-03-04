@@ -95,7 +95,7 @@ namespace Game
 			//If the trap is ready and being pushed, blow up the rock
 			if(ready && beingPushed)
 			{
-				pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-1.0f);
+				pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-(t/3));
 				
 				if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
 				{
