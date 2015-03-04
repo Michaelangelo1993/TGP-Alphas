@@ -31,8 +31,8 @@ namespace Game
 		public bool IsReady { get { return ready; }}
 		public bool SetReady { set { ready = value; }}
 		
-		private static Vector2		_min, _max;
-		private static Bounds2		_box;
+		private Vector2		_min, _max;
+		private Bounds2		_box;
 				
 		public float GetOriginalHeight { get { return springOriginalHeight; }}
 		public bool BeingPushed { get { return beingPushed; }}
@@ -117,12 +117,12 @@ namespace Game
 			beingPushed = true;
 		}
 		
-		override public void Update(float deltaTime, float speed)
+		override public void Update(float speed)
 		{
 			springSprite.Position = new Vector2(springSprite.Position.X - speed, springSprite.Position.Y);
 			springTopSprite.Position = new Vector2(springTopSprite.Position.X - speed, springTopSprite.Position.Y);
 			
-			trap.Update(deltaTime, speed);
+			trap.Update(speed);
 			
 			if(springReleased)
 			{

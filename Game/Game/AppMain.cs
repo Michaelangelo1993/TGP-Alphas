@@ -25,7 +25,7 @@ namespace Game
 		private static Player 			player;
 				
 		private static int 				frameTime = 0, currentFrameTime = 0;
-		private static float			moveSpeed = 3.0f;
+		private static float			moveSpeed = 3.0f, maxSpeed = 9.0f;
 		private static bool				shakeCamera = false;
 		
 		private static Vector2 oldTouchPos = new Vector2( 0.0f, 0.0f ); // Position of first touch on screen
@@ -33,6 +33,11 @@ namespace Game
 		public static void SetShake(bool shake) { shakeCamera = shake; }
 		public static Player GetPlayer() { return player; }
 		public static Background GetBackground() { return background; }
+		
+		// score
+		private static float score = 0;
+		private static Sce.PlayStation.HighLevel.UI.Label gameSpeedLabel;
+		private static Sce.PlayStation.HighLevel.UI.Label scoreLabel;
 		
 		public static void Main (string[] args)
 		{
@@ -79,6 +84,19 @@ namespace Game
 			
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
+			uiScene.Visible = false;
+			
+			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
+			scoreLabel.SetPosition(10,8);
+			int roundedScore = (int)FMath.Floor(score/100)*100;
+			scoreLabel.Text = "Score: " + roundedScore.ToString("N0");
+			panel.AddChildLast(scoreLabel);
+			
+			gameSpeedLabel = new Sce.PlayStation.HighLevel.UI.Label();
+			gameSpeedLabel.SetPosition(770,8);
+			float speed = FMath.Round(moveSpeed * 10) / 10; // round to 1dp
+			gameSpeedLabel.Text = "Game Speed: " + moveSpeed.ToString("N1");	
+			panel.AddChildLast(gameSpeedLabel);
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -115,13 +133,14 @@ namespace Game
 		}
 		
 		public static void GameUpdate()
-		{
+		{			
 			// Update code here
-			player.Update(0.0f);
+			player.Update();
 			UpdateTouchData();
 			obstacleManager.Update(moveSpeed);
-			background.Update(0.0f, moveSpeed);
+			background.Update(moveSpeed);
 			UpdateCamera();
+			UpdateScore ();
 			
 			// Sets the volcano background to follow the sprite
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
@@ -216,6 +235,19 @@ namespace Game
 			obstacleManager = new ObstacleManager(gameScene);
 			player 			= new Player(gameScene, background.GetFloorHeight());
 			tutorialManager = new TutorialManager(gameScene);
+			uiScene.Visible = true;
+		}
+		
+		public static void UpdateScore()
+		{
+			if(moveSpeed < maxSpeed)
+				moveSpeed += 0.001f;
+			score += 1 * moveSpeed;
+			
+			int roundedScore = (int)FMath.Floor(score/100)*100;
+			scoreLabel.Text = "Score: " + roundedScore.ToString("N0");
+			
+			gameSpeedLabel.Text = "Game Speed: " + moveSpeed.ToString("N1");	
 		}
 	}
 }

@@ -39,7 +39,7 @@ namespace Game
 			scene.AddChild(_sprite);
 		}
 		
-		public void Update(float deltaTime, float speed)
+		public void Update(float speed)
 		{
 			_sprite.Position = new Vector2(_sprite.Position.X - speed, _sprite.Position.Y);	
 			

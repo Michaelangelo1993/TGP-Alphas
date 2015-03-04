@@ -15,7 +15,7 @@ namespace Game
 			
 		}
 				
-		public virtual void Update(float t, float speed)
+		public virtual void Update(float speed)
 		{
 			// Overvide this
 		}

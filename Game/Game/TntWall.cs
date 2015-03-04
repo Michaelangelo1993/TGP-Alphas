@@ -90,7 +90,7 @@ namespace Game
 			exploTextureInfo.Dispose ();
 		}
 		
-		override public void Update(float deltaTime, float t)
+		override public void Update(float t)
 		{	
 			//If the trap is ready and being pushed, blow up the rock
 			if(ready && beingPushed)

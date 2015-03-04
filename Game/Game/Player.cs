@@ -11,22 +11,22 @@ namespace Game
 	public class Player
 	{
 		//Private variables.
-		private static SpriteUV 	_sprite;
-		private static TextureInfo	_textureInfo;
-		private static Vector2		_min, _max, _velocity,
+		private SpriteUV 	_sprite;
+		private TextureInfo	_textureInfo;
+		private Vector2		_min, _max, _velocity,
 									_jumpingVector, _jumpVelocity,
 									_movementVector;
-		private static Bounds2		_box, _bottomBox;
-		private static float 		_scale, _angle, _size,
+		private Bounds2		_box, _bottomBox;
+		private float 		_scale, _angle, _size,
 									_gravity, _force,
 									_speed, _defaultYPos,
 									_floorHeight;
-		private static int 			_frameTime, _animationDelay,
+		private int 			_frameTime, _animationDelay,
 									_noOnSpritesheetWidth,
 									_noOnSpritesheetHeight,
 									_widthCount, _heightCount;
-		private static bool 		_jump;
-		private static bool			_dead;
+		private bool 		_jump;
+		private bool			_dead;
 		
 		public bool IsDead() { return _dead; }
 		
@@ -66,7 +66,6 @@ namespace Game
 			_sprite.Scale			= new Vector2(_scale, _scale);
 			_sprite.Position 		= new Vector2((Director.Instance.GL.Context.GetViewport().Width/2) - 400, _defaultYPos + _floorHeight);
 			_sprite.CenterSprite();
-			
 			//Add to the current scene.
 			scene.AddChild(_sprite);
 		}
@@ -76,7 +75,7 @@ namespace Game
 			_textureInfo.Dispose();
 		}
 		
-		public void Update(float deltaTime)
+		public void Update()
 		{
 			//Move Player
 			AnimatePlayer();

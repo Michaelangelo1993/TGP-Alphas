@@ -81,7 +81,7 @@ namespace Game
 			spikeBroken = true;
 		}
 				
-		override public void Update(float deltaTime, float speed)
+		override public void Update(float speed)
 		{
 			AnimateGeiser();
 			

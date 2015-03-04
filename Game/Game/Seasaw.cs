@@ -11,15 +11,15 @@ namespace Game
 {
 	public class Seasaw : Obstacle
 	{
-		private static SpriteUV 	_sprite;
-		private static TextureInfo	_textureInfo;
-		private static Vector2		_min, _max;
-		private static Bounds2		_box;
-		private static float 		_scale, _angle, _angle2, _rotationSpeed,
+		private SpriteUV 	_sprite;
+		private TextureInfo	_textureInfo;
+		private Vector2		_min, _max;
+		private Bounds2		_box;
+		private float 		_scale, _angle, _angle2, _rotationSpeed,
 									_adjacent, _opposite, _hypotenuse,
 									_floorHeight, _defaultYPos, _tempScale,
 									_scaleLimiter, _scalerValue;
-		private static bool 		_onObstacle, _rotateLeft;
+		private bool 		_onObstacle, _rotateLeft;
 		
 		private Trap			_trap;
 		
@@ -70,14 +70,14 @@ namespace Game
 			_textureInfo.Dispose();
 		}
 		
-		override public void Update(float deltaTime, float t)
+		override public void Update(float t)
 		{
 			CheckInput();
 			UpdateAngles();
 			
 			_sprite.Position += new Vector2(-t, 0.0f);
 			
-			_trap.Update(deltaTime, t);
+			_trap.Update(t);
 			
 			//Storing Bounds2 box data for collisions
 			_min.X			= _sprite.Position.X - (_adjacent *_scale);

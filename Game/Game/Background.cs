@@ -156,10 +156,10 @@ namespace Game
 			scene.AddChild (wallSprite);
 			scene.AddChild (wallSprite2);
 			scene.AddChild (entrSprite);
-			scene.AddChild (floorOverlay);
-			scene.AddChild (floor2Overlay);
 			scene.AddChild (floorSprite);
 			scene.AddChild (floor2Sprite);
+			scene.AddChild (floorOverlay);
+			scene.AddChild (floor2Overlay);
 
 		}
 		
@@ -178,14 +178,14 @@ namespace Game
 			smog2TextureInfo.Dispose ();
 		}
 		
-		public void Update(float deltaTime, float speed)
+		public void Update(float speed)
 		{	
-			UpdateWalls(deltaTime);
-			UpdateFloor(deltaTime, speed);
-			UpdateSmog(deltaTime);
+			UpdateWalls();
+			UpdateFloor(speed);
+			UpdateSmog();
 		}
 		
-		public void UpdateSmog(float deltaTime)
+		public void UpdateSmog()
 		{
 			//Moves the smog overlay so that it's a constant scrolling image
 			smogSprite.Position = new Vector2(smogSprite.Position.X+2.0f, smogSprite.Position.Y);
@@ -199,7 +199,7 @@ namespace Game
 				
 		}
 		
-		public void UpdateWalls(float deltaTime)
+		public void UpdateWalls()
 		{
 			//Moves the wall overlay so that it's a constant scrolling image
 //			wallSprite.Position = new Vector2(wallSprite.Position.X-1.5f, wallSprite.Position.Y);
@@ -218,7 +218,7 @@ namespace Game
 			
 		}
 		
-		public void UpdateFloor(float deltaTime, float speed)
+		public void UpdateFloor(float speed)
 		{
 			floorSprite.Position = new Vector2(floorSprite.Position.X-speed, floorSprite.Position.Y);
 			floor2Sprite.Position = new Vector2(floor2Sprite.Position.X-speed, floor2Sprite.Position.Y);

@@ -64,7 +64,7 @@ namespace Game
 			textureSpinPiv.Dispose();
 		}
 		
-		override public void Update(float deltaTime, float t)
+		override public void Update(float t)
 		{			
 			var motionData = Motion.GetData(0);
 			
