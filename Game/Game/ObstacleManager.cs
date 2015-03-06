@@ -21,6 +21,8 @@ namespace Game
 		private float newXPos;
 		private Random rand;
 		
+		public int GetObstaclesDefeated() { return obstaclesDefeated; }
+		
 		public ObstacleManager (Scene scene)
 		{
 			rand = new Random();
@@ -37,8 +39,9 @@ namespace Game
 			deactiveObstacles.Add(new Spring(scene, new Vector2(-1000.0f, 0.0f)));
 			deactiveObstacles.Add(new SpinObstacle(scene, new Vector2(-1000.0f, 0.0f)));
 			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 0.0f)));
-			//deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 0.0f));
-			//deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 0.0f));
+			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
+			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
+			
 			float prevXPos = newXPos;
 			while(activeObstacles.Count <= 3)
 			{// Reset position of selected obstacle and move it to active

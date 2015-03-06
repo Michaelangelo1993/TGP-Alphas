@@ -42,7 +42,7 @@ namespace Game
 		
 		private SpriteUV	floor2Overlay;
 		
-		private float		overHeight = 95.0f;
+		private float		overHeight = 100.0f;
 		
 		private float		width;
 		private float		height2;
@@ -156,10 +156,10 @@ namespace Game
 			scene.AddChild (wallSprite);
 			scene.AddChild (wallSprite2);
 			scene.AddChild (entrSprite);
-			scene.AddChild (floorSprite);
-			scene.AddChild (floor2Sprite);
 			scene.AddChild (floorOverlay);
 			scene.AddChild (floor2Overlay);
+			scene.AddChild (floorSprite);
+			scene.AddChild (floor2Sprite);
 
 		}
 		
@@ -242,7 +242,7 @@ namespace Game
 		public void SetVolcanoPosition(float x, float y) { volcSprite.Position = new Vector2(x,y); }
 		public Vector2 GetVolcanoPosition() { return volcSprite.Position; }
 		
-		public float GetFloorHeight() { return floorTextureInfo.TextureSizef.Y-5; }
+		public float GetFloorHeight() { return floorTextureInfo.TextureSizef.Y; }
 	}
 }
 

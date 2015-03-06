@@ -240,7 +240,7 @@ namespace Game
 		
 		public static void UpdateScore()
 		{
-			if(moveSpeed < maxSpeed)
+			if(moveSpeed < maxSpeed && obstacleManager.GetObstaclesDefeated() > 5)
 				moveSpeed += 0.001f;
 			score += 1 * moveSpeed;
 			
