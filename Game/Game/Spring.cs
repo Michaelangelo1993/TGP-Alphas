@@ -2,104 +2,190 @@ using System;
 
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
+using Sce.PlayStation.Core.Input;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace Game
 {
-	public class Spring
+	public class Spring : Obstacle
 	{
-		private bool springRelease;
+		private Trap trap;
+		private bool missedSpring;
+		
+		private bool ready;
+		private bool beingPushed;
+		private bool springReleased;
 		private SpriteUV springTopSprite;
 		private TextureInfo springTopTextureInfo;
 		public float springTopHeight;
+		public float springTopWidth;
 		
 		private SpriteUV springSprite;
 		private TextureInfo springTextureInfo;
 		private float springOriginalHeight;
 		private float springCurrentHeight;
+		public float springWidth;
 		
-		private SpriteUV trapSprite;
-		private TextureInfo trapTextureInfo;
-		public float trapWidth;
+		public bool IsReady { get { return ready; }}
+		public bool SetReady { set { ready = value; }}
 		
-		public Vector2 GetPosition { get { return trapSprite.Position; }}
-		public float GetWidth { get { return trapWidth; }}
+		private Vector2		_min, _max;
+		private Bounds2		_box;
+				
+		public float GetOriginalHeight { get { return springOriginalHeight; }}
+		public bool BeingPushed { get { return beingPushed; }}
+		public bool MissedSpring { get { return missedSpring; }}
+		public bool IsReleased { get { return springReleased; }}
+		public Vector2 GetPosition { get { return springSprite.Position; }}
+		public float GetSpringWidth { get { return springWidth; }}
 		public float GetTop { get { return (springTopSprite.Position.Y + springTopHeight); }}
+		public Bounds2 GetBox() { return _box; }
+		
+		override public float GetEndPosition() { return (trap.GetEndPosition()); }
 		
 		public Spring (Scene scene, Vector2 position)
 		{
-			springRelease = false;
-			
-			// Initialise trap texture and sprite, get bounds and set width
-			trapTextureInfo = new TextureInfo("/Application/Trap.png");			
-			trapSprite = new SpriteUV(trapTextureInfo);
-			trapSprite.Position = position;
-			trapSprite.Quad.S = trapTextureInfo.TextureSizef;
-			Bounds2 trapBounds = trapSprite.Quad.Bounds2 ();
-			trapWidth = trapBounds.Point10.X;
+			springReleased = false;
+			missedSpring = false;
+			beingPushed = false;
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
-			springTextureInfo = new TextureInfo("/Application/Spring.png");
-			springSprite = new SpriteUV(springTextureInfo);
-			springSprite.Quad.S = springTextureInfo.TextureSizef;
-			Bounds2 springHeight = springSprite.Quad.Bounds2 ();
-			springSprite.Position = new Vector2(position.X-100, position.Y);
+			springTextureInfo 		= new TextureInfo("/Application/textures/Spring.png");
+			springSprite 			= new SpriteUV(springTextureInfo);
+			springSprite.Quad.S 	= springTextureInfo.TextureSizef;
+			Bounds2 springBounds 	= springSprite.Quad.Bounds2 ();
+			springWidth 			= springBounds.Point10.X;
+			springOriginalHeight 	= springBounds.Point01.Y;
+			springCurrentHeight 	= springBounds.Point01.Y;		
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
-			springTopTextureInfo = new TextureInfo("/Application/SpringTop.png");
+			springTopTextureInfo = new TextureInfo("/Application/textures/SpringTop.png");
 			springTopSprite = new SpriteUV(springTopTextureInfo);
 			springTopSprite.Quad.S = springTopTextureInfo.TextureSizef;
 			Bounds2 springTopBounds = springTopSprite.Quad.Bounds2 ();
 			springTopHeight = springTopBounds.Point01.Y;
-			springTopSprite.Position = new Vector2(position.X-100, springSprite.Position.Y + springHeight.Point01.Y);
-			//springTopSprite. = new Vector2(1f,1f);
+			springTopWidth = springTopBounds.Point10.X;
+			float sizeDifference = (springTopWidth - springWidth)/2;
+			
+			springSprite.Position 	= new Vector2(position.X + sizeDifference, position.Y);
+			trap = new Trap(scene, new Vector2((position.X + 125 + sizeDifference), (position.Y )));	
+			springTopSprite.Position = new Vector2(position.X, springSprite.Position.Y + springBounds.Point01.Y);
 			
 			// Add sprites to scene
 			scene.AddChild(springSprite);
-			scene.AddChild(trapSprite);
 			scene.AddChild(springTopSprite);
 		}
 		
-		public void ReleaseSpring()
+		override public void Dispose()
 		{
-			springRelease = true;
+			
 		}
 		
-		public void WindSpring()
+		public void WindSpring(float gameSpeed)
 		{
-			if(!springRelease)
+			if(!springReleased)
 			{
-				if(springCurrentHeight > 50)
+				if(springCurrentHeight > 55)
 				{
-					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-1);
-					springCurrentHeight--;
-					springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight);
+					beingPushed = true;
+					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-gameSpeed);
+					springCurrentHeight-=gameSpeed;
+					springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
 				}
 				else
 				{
-					springRelease = true;	
+					// uncomment for auto release when fully pushed
+					//springReleased = true;	
 				}
 			}
 		}
 		
-		public void Update()
+		override public void ReleaseSpring(bool b)
+		{ 
+			springReleased = b;
+		}
+		
+		public void MissSpring()
 		{
-			if(springRelease)
-			{
-				if(springCurrentHeight < springOriginalHeight)
+			missedSpring = true;
+		}
+		
+		public void PushSpring()
+		{
+			beingPushed = true;
+		}
+		
+		override public void Update(float speed)
+		{
+			springSprite.Position = new Vector2(springSprite.Position.X - speed, springSprite.Position.Y);
+			springTopSprite.Position = new Vector2(springTopSprite.Position.X - speed, springTopSprite.Position.Y);
+			
+			trap.Update(speed);
+			
+			if(springReleased)
+			{		
+				
+				
+				// Spring can move too fast for collisions, split it up
+				int iterations = (int)FMath.Ceiling(speed/3.0f);
+				float speedPerCycle = speed/iterations;
+				for(int i=0;i<iterations;i++)
 				{
-					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y+1);
-					springCurrentHeight++;
-					springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight);
+					// Update collision box
+					_min.X			= springTopSprite.Position.X ;
+					_min.Y			= springTopSprite.Position.Y ;
+					_max.X			= springTopSprite.Position.X + springTopTextureInfo.TextureSizef.X;
+					_max.Y			= springTopSprite.Position.Y + springTopTextureInfo.TextureSizef.Y;
+					_box.Min 		= _min;			
+					_box.Max 		= _max;
+				
+					// Check for collision with player
+					if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
+						AppMain.GetPlayer().DoJump();
+					
+					// Update spring height
+					if(springCurrentHeight < springOriginalHeight)
+					{
+						springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y+(speedPerCycle*5));
+						springCurrentHeight+=(speedPerCycle*5);
+						springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
+					}
+					else
+						springReleased = false;	
 				}
-				else
-				{
-					springRelease = false;	
-				}
+				
 			}
+			else if(beingPushed)
+			{
+				WindSpring(speed);
+			}
+			
+	
+			Vector2 touchPos = AppMain.GetTouchPosition();
+				
+			if((touchPos.X-100 < springSprite.Position.X) &&
+			   (touchPos.X+125 > springSprite.Position.X + springWidth) &&
+			   (touchPos.Y < springOriginalHeight+100)) // Touching spring
+			{
+				PushSpring();
+			}
+			
+			if(Touch.GetData(0).ToArray().Length <= 0)
+				ReleaseSpring(true);
+		}
+		
+		override public void Reset(float x)
+		{
+			springReleased = true;
+			missedSpring = false;
+			beingPushed = false;
+			
+			float sizeDifference = (springTopWidth - springWidth)/2;
+			springSprite.Position = new Vector2(x + sizeDifference, springSprite.Position.Y);
+			trap.SetXPos(x + 125 + sizeDifference);
+			springTopSprite.Position = new Vector2(x, springTopSprite.Position.Y);
 		}
 	}
 }
-

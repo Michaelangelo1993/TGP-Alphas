@@ -41,6 +41,7 @@
   <ItemGroup>
     <Folder Include="shaders\" />
     <Folder Include="textures\" />
+    <Folder Include="textures\tutorial\" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Texture.fcg" />
@@ -51,11 +52,56 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMain.cs" />
+    <Compile Include="TntWall.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Spring.cs" />
+    <Compile Include="Seasaw.cs" />
+    <Compile Include="Trap.cs" />
+    <Compile Include="SpinObstacle.cs" />
+    <Compile Include="Geiser.cs" />
+    <Compile Include="ScreenManager.cs" />
+    <Compile Include="TutorialManager.cs" />
+    <Compile Include="ObstacleManager.cs" />
+    <Compile Include="Obstacle.cs" />
+    <Compile Include="DoorObs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Spring.png" />
-    <Content Include="SpringTop.png" />
-    <Content Include="Trap.png" />
+    <Content Include="textures\rock.png" />
+    <Content Include="textures\volc2.png" />
+    <Content Include="textures\dclouds2.png" />
+    <Content Include="textures\brownwall2.png" />
+    <Content Include="textures\Seasaw.png" />
+    <Content Include="textures\stick.png" />
+    <Content Include="textures\Spring.png" />
+    <Content Include="textures\SpringTop.png" />
+    <Content Include="textures\firebeam.png" />
+    <Content Include="textures\piv.png" />
+    <Content Include="music\157172__danipenet__distant-world.mp3" />
+    <Content Include="textures\geiserSpriteSheet.png" />
+    <Content Include="textures\stalagmite.png" />
+    <Content Include="music\Calm Before The Storm - PaulRHJT.mp3" />
+    <Content Include="textures\box2.png" />
+    <Content Include="textures\dyno2.png" />
+    <Content Include="textures\cavestart3.png" />
+    <Content Include="textures\tntplun2.png" />
+    <Content Include="textures\geiser.png" />
+    <Content Include="textures\gameOver.png" />
+    <Content Include="textures\menu.png" />
+    <Content Include="textures\splash.png" />
+    <Content Include="textures\game.png" />
+    <Content Include="textures\tutorial\gamePopUpTutorialsOff.png" />
+    <Content Include="textures\tutorial\gamePopUpTutorialsOn.png" />
+    <Content Include="textures\tutorial\geiserPopUp.png" />
+    <Content Include="textures\tutorial\seaSawPopUp.png" />
+    <Content Include="textures\tutorial\spinningPopUp.png" />
+    <Content Include="textures\tutorial\springPopUp.png" />
+    <Content Include="textures\tutorial\tntPopUp.png" />
+    <Content Include="textures\TrapSpriteSheet.png" />
+    <Content Include="textures\tutorial\old gamePopUpTutorialsOff.png" />
+    <Content Include="textures\explosion.png" />
+    <Content Include="textures\transrocks.png" />
+    <Content Include="textures\door.png" />
+    <Content Include="textures\floor.png" />
   </ItemGroup>
 </Project>
