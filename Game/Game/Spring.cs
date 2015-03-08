@@ -125,15 +125,27 @@ namespace Game
 			trap.Update(speed);
 			
 			if(springReleased)
-			{
-				if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
-					AppMain.GetPlayer().DoJump();
+			{		
+				
 				
 				// Spring can move too fast for collisions, split it up
 				int iterations = (int)FMath.Ceiling(speed/3.0f);
 				float speedPerCycle = speed/iterations;
 				for(int i=0;i<iterations;i++)
 				{
+					// Update collision box
+					_min.X			= springTopSprite.Position.X ;
+					_min.Y			= springTopSprite.Position.Y ;
+					_max.X			= springTopSprite.Position.X + springTopTextureInfo.TextureSizef.X;
+					_max.Y			= springTopSprite.Position.Y + springTopTextureInfo.TextureSizef.Y;
+					_box.Min 		= _min;			
+					_box.Max 		= _max;
+				
+					// Check for collision with player
+					if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
+						AppMain.GetPlayer().DoJump();
+					
+					// Update spring height
 					if(springCurrentHeight < springOriginalHeight)
 					{
 						springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y+(speedPerCycle*5));
@@ -141,9 +153,7 @@ namespace Game
 						springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
 					}
 					else
-					{
 						springReleased = false;	
-					}
 				}
 				
 			}
@@ -152,13 +162,7 @@ namespace Game
 				WindSpring(speed);
 			}
 			
-			_min.X			= springTopSprite.Position.X ;
-			_min.Y			= springTopSprite.Position.Y ;
-			_max.X			= springTopSprite.Position.X + springTopTextureInfo.TextureSizef.X;
-			_max.Y			= springTopSprite.Position.Y + springTopTextureInfo.TextureSizef.Y;
-			_box.Min 		= _min;			
-			_box.Max 		= _max;
-			
+	
 			Vector2 touchPos = AppMain.GetTouchPosition();
 				
 			if((touchPos.X-100 < springSprite.Position.X) &&
