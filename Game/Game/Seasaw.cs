@@ -159,7 +159,7 @@ namespace Game
 				if (_tempScale < 0)
 					_tempScale = -_tempScale;
 				
-				float tempScale = 0.45f + (_scaleLimiter * _tempScale);
+				float tempScale =(_scaleLimiter * _tempScale);
 				
 				return ((_sprite.Position.Y+((_textureInfo.TextureSizef.Y *_scale)*tempScale))- opposite) + (115/2);
 			}
