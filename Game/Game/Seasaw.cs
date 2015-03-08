@@ -81,17 +81,14 @@ namespace Game
 			
 			_min.X			= _sprite.Position.X - 200;
 			_min.Y			= _sprite.Position.Y - 200;
-			_max.X			= _sprite.Position.X + 200;
+			_max.X			= _sprite.Position.X - 190;
 			_max.Y			= _sprite.Position.Y + 200;
 			_box.Min 		= _min;			
 			_box.Max 		= _max;
 			
 			if(AppMain.GetPlayer().GetBox().Overlaps(_box))
-			{
-				System.Diagnostics.Debug.WriteLine("hit");
 				if (_angle > 0.3f)
 					_onObstacle = true;
-			}
 			
 			if(_onObstacle)
 			{

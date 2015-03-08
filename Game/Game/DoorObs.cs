@@ -18,7 +18,8 @@ namespace Game
 		float door1Count = 60.0f;
 		float door2Count = 60.0f;
 		
-		private Boolean beingPushed = false;
+		private Boolean beingPushed1 = false;
+		private Boolean beingPushed2 = false;
 		
 		override public float GetEndPosition() { return (doorSprite2.Position.X + 64); }
 		
@@ -34,7 +35,6 @@ namespace Game
 			
 			doorSprite2.Quad.S 		= doorTextureInfo.TextureSizef;
 			doorSprite2.Position	= new Vector2(x + gap, y);
-			
 			
 			scene.AddChild(doorSprite);
 			scene.AddChild(doorSprite2);
@@ -53,29 +53,34 @@ namespace Game
 				touchPos.Y <= doorSprite.Position.Y + 306.0f && touchPos.Y >= doorSprite.Position.Y - 50.0f
 			   && touchPos.X <= doorSprite.Position.X + 114.0f && touchPos.X >= doorSprite.Position.X - 50.0f)				
 			{
-				Tapped(touchPos.Y, 1);
+				beingPushed1 = true;
 			}
 			else if(Touch.GetData(0).ToArray().Length > 0 &&
-				touchPos.Y <= doorSprite2.Position.Y + 306.0f && touchPos.Y >= doorSprite2.Position.Y - 50.0f
-			   && touchPos.X <= doorSprite2.Position.X + 114.0f && touchPos.X >= doorSprite2.Position.X - 50.0f)				
+				touchPos.Y <= doorSprite2.Position.Y + 306.0f &&
+			    touchPos.Y >= doorSprite2.Position.Y - 50.0f &&
+			    touchPos.X <= doorSprite2.Position.X + 114.0f &&
+			    touchPos.X >= doorSprite2.Position.X - 50.0f)				
 			{
-				Tapped(touchPos.Y, 2);
+				beingPushed2 = true;
 			}
-			else
+			else if (Touch.GetData(0).ToArray().Length <= 0)
 				ReleaseDoor();
+			
+			if(beingPushed1 || beingPushed2)
+				Tapped(touchPos.Y);
 			
 			//Move the doors
 			doorSprite.Position 	 += new Vector2(-gameSpeed, 0);
 			doorSprite2.Position 	 += new Vector2(-gameSpeed, 0);
 			
 			//Lower the doors if not being touched
-			if(doorSprite.Position.Y > 100 && !beingPushed)
+			if(doorSprite.Position.Y > 100 && !beingPushed1)
 				if(door1Count <= 0)
 					doorSprite.Position = new Vector2(doorSprite.Position.X, doorSprite.Position.Y-gameSpeed*3);
 				else
 					door1Count-=gameSpeed/3;
 			
-			if(doorSprite2.Position.Y > 100 && !beingPushed)
+			if(doorSprite2.Position.Y > 100 && !beingPushed2)
 				if(door2Count <= 0)
 					doorSprite2.Position = new Vector2(doorSprite2.Position.X, doorSprite2.Position.Y-gameSpeed*3);
 				else
@@ -83,19 +88,17 @@ namespace Game
 		}
 		
 		
-		public void Tapped(float y, int door)
+		public void Tapped(float y)
 		{
-			beingPushed = true;
-			
 			//Ensure the door doesn't go below the floor
 			if(y >= 150)
 			{
-				if(door == 1)
+				if(beingPushed1)
 				{
 					door1Count = 60;
 					doorSprite.Position = new Vector2(doorSprite.Position.X, y - 50.0f);
 				}
-				else if(door == 2)
+				else if(beingPushed2)
 				{
 					door2Count = 60;
 					doorSprite2.Position = new Vector2(doorSprite2.Position.X, y - 50.0f);
@@ -107,12 +110,12 @@ namespace Game
 				doorSprite.Position = new Vector2(doorSprite.Position.X, 100.0f);
 				doorSprite2.Position = new Vector2(doorSprite2.Position.X, 100.0f);
 			}
-			//doorSprite.Position = new Vector2(doorSprite.Position.X, doorSprite.Position.Y+8.0f);
 		}
 		
 		public void ReleaseDoor()
 		{
-			beingPushed = false;
+			beingPushed1 = false;
+			beingPushed2 = false;
 		}
 		
 		override public void Reset(float x)
