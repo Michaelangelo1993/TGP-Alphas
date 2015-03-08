@@ -23,7 +23,9 @@ namespace Game
 		public float springTopWidth;
 		
 		private SpriteUV springSprite;
+		private SpriteUV springSprite2;
 		private TextureInfo springTextureInfo;
+		private TextureInfo spring2TextureInfo;
 		private float springOriginalHeight;
 		private float springCurrentHeight;
 		public float springWidth;
@@ -53,12 +55,19 @@ namespace Game
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
 			springTextureInfo 		= new TextureInfo("/Application/textures/Spring.png");
+			spring2TextureInfo		= new TextureInfo("/Application/textures/Spring.png");
+			
 			springSprite 			= new SpriteUV(springTextureInfo);
+			springSprite2			= new SpriteUV(spring2TextureInfo);
+			
 			springSprite.Quad.S 	= springTextureInfo.TextureSizef;
+			springSprite2.Quad.S 	= spring2TextureInfo.TextureSizef;
+			
 			Bounds2 springBounds 	= springSprite.Quad.Bounds2 ();
 			springWidth 			= springBounds.Point10.X;
 			springOriginalHeight 	= springBounds.Point01.Y;
-			springCurrentHeight 	= springBounds.Point01.Y;		
+			springCurrentHeight 	= springBounds.Point01.Y;	
+			
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
 			springTopTextureInfo = new TextureInfo("/Application/textures/SpringTop.png");
@@ -67,14 +76,19 @@ namespace Game
 			Bounds2 springTopBounds = springTopSprite.Quad.Bounds2 ();
 			springTopHeight = springTopBounds.Point01.Y;
 			springTopWidth = springTopBounds.Point10.X;
-			float sizeDifference = (springTopWidth - springWidth)/2;
+			float sizeDifference = 12; // Spring width is 100, spring top is 76, half it for x offset
 			
-			springSprite.Position 	= new Vector2(position.X + sizeDifference, position.Y);
+			springSprite.Position 	= new Vector2(position.X, position.Y);
+			springSprite2.Position  = springSprite.Position + new Vector2(58.0f, 48.0f); // Offset second spring for 3d effect
+			
 			trap = new Trap(scene, new Vector2((position.X + 125 + sizeDifference), 60));	
-			springTopSprite.Position = new Vector2(position.X, springSprite.Position.Y + springBounds.Point01.Y);
+			springTopSprite.Position = new Vector2(position.X + sizeDifference, springSprite.Position.Y + springBounds.Point01.Y - 20);
+			
 			
 			// Add sprites to scene
+			
 			scene.AddChild(springSprite);
+			scene.AddChild(springSprite2);
 			scene.AddChild(springTopSprite);
 		}
 		
@@ -87,12 +101,13 @@ namespace Game
 		{
 			if(!springReleased)
 			{
-				if(springCurrentHeight > 55)
+				if(springCurrentHeight > 10)
 				{
 					beingPushed = true;
-					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-gameSpeed);
-					springCurrentHeight-=gameSpeed;
+					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-2*gameSpeed);
+					springCurrentHeight-=2*gameSpeed;
 					springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
+					springSprite2.Scale = new Vector2(springSprite2.Scale.X, springCurrentHeight/springOriginalHeight);
 				}
 				else
 				{
@@ -118,16 +133,15 @@ namespace Game
 		}
 		
 		override public void Update(float speed)
-		{
+		{			
 			springSprite.Position = new Vector2(springSprite.Position.X - speed, springSprite.Position.Y);
+			springSprite2.Position = new Vector2(springSprite2.Position.X - speed, springSprite2.Position.Y);
 			springTopSprite.Position = new Vector2(springTopSprite.Position.X - speed, springTopSprite.Position.Y);
 			
 			trap.Update(speed);
 			
 			if(springReleased)
 			{		
-				
-				
 				// Spring can move too fast for collisions, split it up
 				int iterations = (int)FMath.Ceiling(speed/3.0f);
 				float speedPerCycle = speed/iterations;
@@ -151,6 +165,7 @@ namespace Game
 						springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y+(speedPerCycle*5));
 						springCurrentHeight+=(speedPerCycle*5);
 						springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
+						springSprite2.Scale = new Vector2(springSprite2.Scale.X, springCurrentHeight/springOriginalHeight);
 					}
 					else
 						springReleased = false;	
@@ -166,8 +181,8 @@ namespace Game
 			Vector2 touchPos = AppMain.GetTouchPosition();
 				
 			if((touchPos.X-100 < springSprite.Position.X) &&
-			   (touchPos.X+125 > springSprite.Position.X + springWidth) &&
-			   (touchPos.Y < springOriginalHeight+100)) // Touching spring
+			   (touchPos.X+125 > springSprite2.Position.X + springWidth) &&
+			   (touchPos.Y < springOriginalHeight+200)) // Touching spring
 			{
 				PushSpring();
 			}
@@ -183,9 +198,10 @@ namespace Game
 			beingPushed = false;
 			
 			float sizeDifference = (springTopWidth - springWidth)/2;
-			springSprite.Position = new Vector2(x + sizeDifference, springSprite.Position.Y);
+			springSprite.Position = new Vector2(x, springSprite.Position.Y);
+			springSprite2.Position = springSprite.Position + new Vector2(58.0f, 48.0f);
 			trap.SetXPos(x + 125 + sizeDifference);
-			springTopSprite.Position = new Vector2(x, springTopSprite.Position.Y);
+			springTopSprite.Position = new Vector2(x + sizeDifference, springTopSprite.Position.Y);
 		}
 	}
 }
