@@ -58,8 +58,8 @@ namespace Game
 			_sprite.Angle 			= _angle;
 			_scalerValue 			= _tempScale/(_angle*10);
 			
-			_trap = new Trap(scene, new Vector2(xPos - _adjacent + 150, 0.0f));
-			_trap.SetWidth(_adjacent*2);
+			_trap = new Trap(scene, new Vector2(xPos - _adjacent + 150, 60.0f));
+			//_trap.SetWidth(_adjacent*2);
 			
 			//Add to the current scene.
 			scene.AddChild(_sprite);

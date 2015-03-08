@@ -70,7 +70,7 @@ namespace Game
 			float sizeDifference = (springTopWidth - springWidth)/2;
 			
 			springSprite.Position 	= new Vector2(position.X + sizeDifference, position.Y);
-			trap = new Trap(scene, new Vector2((position.X + 125 + sizeDifference), (position.Y )));	
+			trap = new Trap(scene, new Vector2((position.X + 125 + sizeDifference), 60));	
 			springTopSprite.Position = new Vector2(position.X, springSprite.Position.Y + springBounds.Point01.Y);
 			
 			// Add sprites to scene

@@ -97,11 +97,11 @@
     <Content Include="textures\tutorial\spinningPopUp.png" />
     <Content Include="textures\tutorial\springPopUp.png" />
     <Content Include="textures\tutorial\tntPopUp.png" />
-    <Content Include="textures\TrapSpriteSheet.png" />
     <Content Include="textures\tutorial\old gamePopUpTutorialsOff.png" />
     <Content Include="textures\explosion.png" />
     <Content Include="textures\transrocks.png" />
     <Content Include="textures\door.png" />
     <Content Include="textures\floor.png" />
+    <Content Include="textures\TrapSpriteSheet.png" />
   </ItemGroup>
 </Project>
