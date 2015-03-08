@@ -48,17 +48,17 @@ namespace Game
 			_sprite.Quad.S 			= _textureInfo.TextureSizef;
 			_sprite.Scale			= new Vector2(_scale, _scale);
 			_sprite.CenterSprite();
-			_sprite.Position 		= new Vector2(xPos + 150, _defaultYPos);
+			_sprite.Position 		= new Vector2(xPos + 180, _defaultYPos);
 			
 			_hypotenuse 			= (_textureInfo.TextureSizef.X *_scale);
-			_angle 					= 0.55f;
+			_angle 					= -0.32f;
 			_angle2					= (FMath.PI/2)-_angle;	
 			_opposite 				= FMath.Cos(_angle2) * _hypotenuse;
 			_adjacent 				= FMath.Tan(_angle) * _opposite;
 			_sprite.Angle 			= _angle;
 			_scalerValue 			= _tempScale/(_angle*10);
 			
-			_trap = new Trap(scene, new Vector2(xPos - _adjacent + 150, 60.0f));
+			_trap = new Trap(scene, new Vector2(xPos, 60.0f));
 			//_trap.SetWidth(_adjacent*2);
 			
 			//Add to the current scene.
@@ -79,17 +79,19 @@ namespace Game
 			
 			_trap.Update(t);
 			
-			//Storing Bounds2 box data for collisions
-			_min.X			= _sprite.Position.X - (_adjacent *_scale);
-			_min.Y			= _sprite.Position.Y - (_opposite *_scale);
-			_max.X			= _sprite.Position.X - (_adjacent *_scale);
-			_max.Y			= _sprite.Position.Y + (_opposite *_scale);
+			_min.X			= _sprite.Position.X - 200;
+			_min.Y			= _sprite.Position.Y - 200;
+			_max.X			= _sprite.Position.X + 200;
+			_max.Y			= _sprite.Position.Y + 200;
 			_box.Min 		= _min;			
 			_box.Max 		= _max;
 			
 			if(AppMain.GetPlayer().GetBox().Overlaps(_box))
-				if (_angle > 0.5f)
+			{
+				System.Diagnostics.Debug.WriteLine("hit");
+				if (_angle > 0.3f)
 					_onObstacle = true;
+			}
 			
 			if(_onObstacle)
 			{
@@ -107,7 +109,7 @@ namespace Game
 		{
 			var motionData = Motion.GetData(0);
 			
-			if(motionData.Acceleration.X< 0)
+			if(motionData.Acceleration.X<= 0)
 				_rotateLeft = true;
 			else
 				_rotateLeft = false;
@@ -122,15 +124,15 @@ namespace Game
 				_sprite.Rotate(-_rotationSpeed*gameSpeed);
 			
 			//Keep Seasaw from rotating too far left
-			if (_sprite.Angle > 0.55f)
+			if (_sprite.Angle > 0.32f)
 			{
-				_sprite.Angle 	= 0.55f;
+				_sprite.Angle 	= 0.32f;
 				_rotateLeft 	= false;
 			}
 			
 			//Keep Seasaw from rotating too far Right
-			if (_sprite.Angle < -0.55f)
-				_sprite.Angle = -0.55f;
+			if (_sprite.Angle < -0.32f)
+				_sprite.Angle = -0.32f;
 			
 			//Update the angle variables
 			_angle 	= _sprite.Angle;
@@ -168,7 +170,7 @@ namespace Game
 		}
 		
 		//Get and Set if the player is on the seasaw
-		public void SetIsOn() { if (_angle > 0.5f) _onObstacle = true; }
+		public void SetIsOn() { if (_angle > 0.3f) _onObstacle = true; }
 		public bool IsOn(){ return _onObstacle; }
 		
 		//Get and set the rotation of the player
@@ -176,7 +178,7 @@ namespace Game
 		public float GetAngle(){ return _angle; }
 		
 		//Set X position of the seasaw 
-		public void SetXPos(float x) { _sprite.Position = new Vector2(x + 150, _defaultYPos); _trap.SetXPos(x - _adjacent + 150); }
+		public void SetXPos(float x) { _sprite.Position = new Vector2(x + 180, _defaultYPos); _trap.SetXPos(x); }
 		
 		//Get the postion of the seasaw
 		public Vector2 GetPos(){ return _sprite.Position; }
