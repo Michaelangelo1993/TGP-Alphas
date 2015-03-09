@@ -7,12 +7,16 @@ using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
+
+
 namespace Game
 {
 	public class Spring : Obstacle
 	{
 		private Trap trap;
+		private Pit pit;
 		private bool missedSpring;
+		private Random rand;
 		
 		private bool ready;
 		private bool beingPushed;
@@ -45,10 +49,15 @@ namespace Game
 		public float GetTop { get { return (springTopSprite.Position.Y + springTopHeight); }}
 		public Bounds2 GetBox() { return _box; }
 		
+		
+		override public void ReleaseSpring(bool b) { springReleased = b; }
+		public void MissSpring() { missedSpring = true; }
+		public void PushSpring() { beingPushed = true; }
 		override public float GetEndPosition() { return (trap.GetEndPosition()); }
 		
 		public Spring (Scene scene, Vector2 position)
 		{
+			rand = new Random();
 			springReleased = false;
 			missedSpring = false;
 			beingPushed = false;
@@ -82,11 +91,11 @@ namespace Game
 			springSprite2.Position  = springSprite.Position + new Vector2(58.0f, 48.0f); // Offset second spring for 3d effect
 			
 			trap = new Trap(scene, new Vector2((position.X + 125 + sizeDifference), 60));	
+			pit = new Pit(scene, new Vector2((position.X + 125 + sizeDifference), 60));	
+			
 			springTopSprite.Position = new Vector2(position.X + sizeDifference, springSprite.Position.Y + springBounds.Point01.Y - 20);
 			
-			
 			// Add sprites to scene
-			
 			scene.AddChild(springSprite);
 			scene.AddChild(springSprite2);
 			scene.AddChild(springTopSprite);
@@ -94,42 +103,20 @@ namespace Game
 		
 		override public void Dispose()
 		{
-			
+			springTextureInfo.Dispose();
+			spring2TextureInfo.Dispose();
 		}
 		
 		public void WindSpring(float gameSpeed)
 		{
-			if(!springReleased)
+			if(!springReleased && springCurrentHeight > 10)
 			{
-				if(springCurrentHeight > 10)
-				{
-					beingPushed = true;
-					springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-2*gameSpeed);
-					springCurrentHeight-=2*gameSpeed;
-					springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
-					springSprite2.Scale = new Vector2(springSprite2.Scale.X, springCurrentHeight/springOriginalHeight);
-				}
-				else
-				{
-					// uncomment for auto release when fully pushed
-					//springReleased = true;	
-				}
+				beingPushed = true;
+				springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-2*gameSpeed);
+				springCurrentHeight-=2*gameSpeed;
+				springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
+				springSprite2.Scale = new Vector2(springSprite2.Scale.X, springCurrentHeight/springOriginalHeight);
 			}
-		}
-		
-		override public void ReleaseSpring(bool b)
-		{ 
-			springReleased = b;
-		}
-		
-		public void MissSpring()
-		{
-			missedSpring = true;
-		}
-		
-		public void PushSpring()
-		{
-			beingPushed = true;
 		}
 		
 		override public void Update(float speed)
@@ -139,12 +126,14 @@ namespace Game
 			springTopSprite.Position = new Vector2(springTopSprite.Position.X - speed, springTopSprite.Position.Y);
 			
 			trap.Update(speed);
+			pit.Update(speed);
 			
 			if(springReleased)
 			{		
 				// Spring can move too fast for collisions, split it up
 				int iterations = (int)FMath.Ceiling(speed/3.0f);
 				float speedPerCycle = speed/iterations;
+				
 				for(int i=0;i<iterations;i++)
 				{
 					// Update collision box
@@ -173,10 +162,7 @@ namespace Game
 				
 			}
 			else if(beingPushed)
-			{
 				WindSpring(speed);
-			}
-			
 	
 			Vector2 touchPos = AppMain.GetTouchPosition();
 				
@@ -193,6 +179,21 @@ namespace Game
 		
 		override public void Reset(float x)
 		{
+			int randomNum = (rand.Next(0, 2));
+			
+			if(randomNum == 0)
+			{
+				// Magma
+				trap.Visible(true);
+				pit.Visible(false);				
+			}
+			else
+			{
+				// Magma
+				trap.Visible(false);
+				pit.Visible(true);					
+			}
+			
 			springReleased = true;
 			missedSpring = false;
 			beingPushed = false;
@@ -201,6 +202,7 @@ namespace Game
 			springSprite.Position = new Vector2(x, springSprite.Position.Y);
 			springSprite2.Position = springSprite.Position + new Vector2(58.0f, 48.0f);
 			trap.SetXPos(x + 125 + sizeDifference);
+			pit.SetXPos(x + 125 + sizeDifference);
 			springTopSprite.Position = new Vector2(x + sizeDifference, springTopSprite.Position.Y);
 		}
 	}

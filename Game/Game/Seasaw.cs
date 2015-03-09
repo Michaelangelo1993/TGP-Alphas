@@ -22,6 +22,8 @@ namespace Game
 		private bool 		_onObstacle, _rotateLeft;
 		
 		private Trap			_trap;
+		private Pit 			_pit;
+		private Random rand;
 		
 		
 		override public float GetEndPosition() { return (_sprite.Position.X + 150); }
@@ -29,6 +31,8 @@ namespace Game
 		public Seasaw (Scene scene, float xPos, float floorHeight)
 		{
 			//Initialise Variables
+			rand = new Random();
+			
 			_scale 					= 1.00f;
 			_rotationSpeed 			= 0.01f;
 			_scaleLimiter			= 0.3f;
@@ -36,7 +40,7 @@ namespace Game
 			_rotateLeft 			= false;
 			_onObstacle 			= false;
 			_floorHeight			= floorHeight;
-			_defaultYPos			= floorHeight + 70.0f;
+			_defaultYPos			= floorHeight + 45.0f;
 			
 
 			//SpriteSheet Info
@@ -59,7 +63,7 @@ namespace Game
 			_scalerValue 			= _tempScale/(_angle*10);
 			
 			_trap = new Trap(scene, new Vector2(xPos, 60.0f));
-			//_trap.SetWidth(_adjacent*2);
+			_pit = new Pit(scene, new Vector2(xPos, 60));	
 			
 			//Add to the current scene.
 			scene.AddChild(_sprite);
@@ -78,6 +82,7 @@ namespace Game
 			_sprite.Position += new Vector2(-t, 0.0f);
 			
 			_trap.Update(t);
+			_pit.Update(t);
 			
 			_min.X			= _sprite.Position.X - 200;
 			_min.Y			= _sprite.Position.Y - 200;
@@ -175,7 +180,27 @@ namespace Game
 		public float GetAngle(){ return _angle; }
 		
 		//Set X position of the seasaw 
-		public void SetXPos(float x) { _sprite.Position = new Vector2(x + 180, _defaultYPos); _trap.SetXPos(x); }
+		public void SetXPos(float x)
+		{
+			int randomNum = (rand.Next(0, 2));
+			
+			if(randomNum == 0)
+			{
+				// Magma
+				_trap.Visible(true);
+				_pit.Visible(false);				
+			}
+			else
+			{
+				// Magma
+				_trap.Visible(false);
+				_pit.Visible(true);					
+			}
+			
+			_sprite.Position = new Vector2(x + 180, _defaultYPos);
+			_trap.SetXPos(x);
+			_pit.SetXPos(x);
+		}
 		
 		//Get the postion of the seasaw
 		public Vector2 GetPos(){ return _sprite.Position; }

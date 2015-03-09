@@ -80,6 +80,7 @@ namespace Game
 		
 		public void SetWidth(float width) { _sprite.Quad.S = new Vector2(width, _textureInfo.TextureSizef.Y); }
 		public void SetXPos(float x) { _sprite.Position = new Vector2(x, _sprite.Position.Y); }
+		public void Visible(bool visible) { _sprite.Visible = visible; }
 	}
 }
 
