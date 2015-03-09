@@ -229,8 +229,8 @@ namespace Game
 			if(floor2Sprite.Position.X+floorTextureInfo.TextureSizef.X <= volcSprite.Position.X)
 				floor2Sprite.Position = new Vector2(floorSprite.Position.X + floorTextureInfo.TextureSizef.X, 0.0f);
 			
-			floorOverlay.Position = new Vector2(floorOverlay.Position.X-speed/2, floorOverlay.Position.Y);
-			floor2Overlay.Position = new Vector2(floor2Overlay.Position.X-speed/2, floor2Overlay.Position.Y);
+			floorOverlay.Position = new Vector2(floorOverlay.Position.X-speed, floorOverlay.Position.Y);
+			floor2Overlay.Position = new Vector2(floor2Overlay.Position.X-speed, floor2Overlay.Position.Y);
 			
 			//Resets the position once off screen
 			if(floorOverlay.Position.X+floorOTextureInfo.TextureSizef.X <= volcSprite.Position.X)

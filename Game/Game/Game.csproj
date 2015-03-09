@@ -65,6 +65,7 @@
     <Compile Include="ObstacleManager.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="DoorObs.cs" />
+    <Compile Include="Pit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\rock.png" />
@@ -97,11 +98,12 @@
     <Content Include="textures\tutorial\spinningPopUp.png" />
     <Content Include="textures\tutorial\springPopUp.png" />
     <Content Include="textures\tutorial\tntPopUp.png" />
-    <Content Include="textures\TrapSpriteSheet.png" />
     <Content Include="textures\tutorial\old gamePopUpTutorialsOff.png" />
     <Content Include="textures\explosion.png" />
     <Content Include="textures\transrocks.png" />
     <Content Include="textures\door.png" />
     <Content Include="textures\floor.png" />
+    <Content Include="textures\TrapSpriteSheet.png" />
+    <Content Include="textures\Pit.png" />
   </ItemGroup>
 </Project>
