@@ -84,9 +84,9 @@ namespace Game
 			_trap.Update(t);
 			_pit.Update(t);
 			
-			_min.X			= _sprite.Position.X - 200;
+			_min.X			= _sprite.Position.X - 160;
 			_min.Y			= _sprite.Position.Y - 200;
-			_max.X			= _sprite.Position.X - 190;
+			_max.X			= _sprite.Position.X - 170;
 			_max.Y			= _sprite.Position.Y + 200;
 			_box.Min 		= _min;			
 			_box.Max 		= _max;

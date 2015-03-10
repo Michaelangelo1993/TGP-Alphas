@@ -24,7 +24,7 @@ namespace Game
 		private static Background		background;
 		private static Player 			player;
 				
-		private static int 				frameTime = 0, currentFrameTime = 0;
+		private static int 				frameTime = 0, currentFrameTime = 0, scoreFrameTime = 0;
 		private static float			moveSpeed = 3.0f, maxSpeed = 9.0f;
 		private static bool				shakeCamera = false;
 		
@@ -136,17 +136,27 @@ namespace Game
 		{			
 			// Update code here
 			player.Update();
-			UpdateTouchData();
-			obstacleManager.Update(moveSpeed);
-			background.Update(moveSpeed);
-			UpdateCamera();
-			UpdateScore ();
+			if (!player.HasBeenKilled())
+			{
+				UpdateTouchData();
+				obstacleManager.Update(moveSpeed);
+				background.Update(moveSpeed);
+				UpdateCamera();
+				UpdateScore ();
+			}
 			
 			// Sets the volcano background to follow the sprite
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
 			
 			if(player.IsDead())
-				screenManager.ChangeScreenTo(Screens.GameOver);	
+				screenManager.ChangeScreenTo(Screens.GameOver);
+			
+			GamePadData data = GamePad.GetData(0);
+			if (Input2.GamePad0.Cross.Down)
+				player.KillByFire();
+			if (Input2.GamePad0.Circle.Down)
+				player.IsntDead();
+			
 		}
 		
 		public static void UpdateCamera()
@@ -234,20 +244,27 @@ namespace Game
 			background 		= new Background(gameScene);
 			obstacleManager = new ObstacleManager(gameScene);
 			player 			= new Player(gameScene, background.GetFloorHeight());
+			background.addUnderFloor(gameScene);
 			tutorialManager = new TutorialManager(gameScene);
 			uiScene.Visible = true;
 		}
 		
 		public static void UpdateScore()
 		{
-			if(moveSpeed < maxSpeed && obstacleManager.GetObstaclesDefeated() > 5)
+			if(moveSpeed < maxSpeed)
 				moveSpeed += 0.001f;
-			score += 1 * moveSpeed;
 			
-			int roundedScore = (int)FMath.Floor(score/100)*100;
+			if(scoreFrameTime == 50)
+				score += 1;
+			else if (scoreFrameTime > 50)
+				scoreFrameTime = 0;
+			
+			scoreFrameTime++;
+			
+			int roundedScore = (int)score;
 			scoreLabel.Text = "Score: " + roundedScore.ToString("N0");
 			
-			gameSpeedLabel.Text = "Game Speed: " + moveSpeed.ToString("N1");	
+			gameSpeedLabel.Text = "Game Speed: " + moveSpeed.ToString("N1");		
 		}
 	}
 }

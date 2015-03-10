@@ -105,5 +105,8 @@
     <Content Include="textures\floor.png" />
     <Content Include="textures\TrapSpriteSheet.png" />
     <Content Include="textures\Pit.png" />
+    <Content Include="textures\stick2.png" />
+    <Content Include="textures\underFloor.png" />
+    <Content Include="textures\deathSpriteFire.png" />
   </ItemGroup>
 </Project>

@@ -26,7 +26,7 @@ namespace Game
 		private bool		blown = false;
 		private bool		ready, beingPushed;
 		private int 		counter = 0, noOnSpritesheetWidth 	= 5, noOnSpritesheetHeight 	= 5, 
-							heightCount = 0, widthCount = 0;
+							heightCount, widthCount = 0;
 		
 		private float		scale = 5.0f;
 		
@@ -37,6 +37,8 @@ namespace Game
 		
 		public TntWall (Scene scene, float x, float y)
 		{
+			heightCount = noOnSpritesheetHeight - 1;
+				
 			//Textures
 			boxTextureInfo 			= new TextureInfo("/Application/textures/box2.png");
 			pluTextureInfo			= new TextureInfo("/Application/textures/tntplun2.png");
@@ -118,13 +120,13 @@ namespace Game
 					//Spritesheet scrolling
 					if (widthCount == noOnSpritesheetWidth)
 					{
-						heightCount++;
+						heightCount--;
 						widthCount = 0;
 					}
 				
-					if (heightCount == noOnSpritesheetHeight)
+					if (heightCount < 0)
 					{
-						heightCount = 0;
+						heightCount = noOnSpritesheetHeight - 1;
 					}
 					widthCount++;
 					exploSprite.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount,(1.0f/noOnSpritesheetHeight)*heightCount);
