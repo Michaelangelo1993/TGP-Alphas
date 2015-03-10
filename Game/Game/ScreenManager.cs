@@ -14,7 +14,8 @@ namespace Game
 		Splash,
 		Menu,
 		Game,
-		GameOver
+		GameOver,
+		HighScores
 	}
 	
 	public class ScreenManager
@@ -73,6 +74,7 @@ namespace Game
 			_nextScreen = nextScreen;
 			_transitioning = true;
 			_fading = true;
+			AppMain.SetUISystem("null");
 		}
 		
 		private void UpdateSprite(Scene scene)
@@ -80,7 +82,7 @@ namespace Game
 			_fading = false;
 			_screen = _nextScreen;
 			scene.RemoveChild(_bgSprite, false);
-			
+						
 			switch(_screen)
 			{
 			case Screens.Splash:
@@ -103,6 +105,7 @@ namespace Game
 				_bgSprite.Scale = new Vector2(960.0f, 544.0f);
 				_bgSprite.Color.A = 0.0f;
 				scene.AddChild(_bgSprite);
+				AppMain.SetUISystem("game");
 				break;
 			case Screens.GameOver:
 				_bgTextureInfo = new TextureInfo("/Application/textures/gameOver.png");
@@ -110,6 +113,15 @@ namespace Game
 				_bgSprite.Scale = new Vector2(960.0f, 544.0f);
 				_bgSprite.Color.A = 0.0f;
 				scene.AddChild(_bgSprite);
+				AppMain.SetUISystem("highscores");
+				break;
+			case Screens.HighScores:
+				_bgTextureInfo = new TextureInfo("/Application/textures/highscores.png");
+				_bgSprite = new SpriteUV(_bgTextureInfo);
+				_bgSprite.Scale = new Vector2(960.0f, 544.0f);
+				_bgSprite.Color.A = 0.0f;
+				scene.AddChild(_bgSprite);
+				AppMain.SetUISystem("highscores");
 				break;
 			}			
 		}

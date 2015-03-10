@@ -66,6 +66,7 @@
     <Compile Include="Obstacle.cs" />
     <Compile Include="DoorObs.cs" />
     <Compile Include="Pit.cs" />
+    <Compile Include="HighScoreManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\rock.png" />
@@ -105,5 +106,6 @@
     <Content Include="textures\floor.png" />
     <Content Include="textures\TrapSpriteSheet.png" />
     <Content Include="textures\Pit.png" />
+    <Content Include="textures\highscores.png" />
   </ItemGroup>
 </Project>

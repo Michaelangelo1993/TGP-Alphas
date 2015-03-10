@@ -16,11 +16,13 @@ namespace Game
 	{
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene 	gameScene;
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
+		private static Sce.PlayStation.HighLevel.UI.Scene 				highscoresScene;
 		
 		// Member Variables go here
 		private static ScreenManager	screenManager;
 		private static TutorialManager  tutorialManager;
 		private static ObstacleManager  obstacleManager;
+		private static HighScoreManager highscoresManager;
 		private static Background		background;
 		private static Player 			player;
 				
@@ -38,6 +40,7 @@ namespace Game
 		private static float score = 0;
 		private static Sce.PlayStation.HighLevel.UI.Label gameSpeedLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label scoreLabel;
+		private static Sce.PlayStation.HighLevel.UI.Label highscoresLabel;
 		
 		public static void Main (string[] args)
 		{
@@ -81,11 +84,25 @@ namespace Game
 			Panel panel  = new Panel();
 			panel.Width  = Director.Instance.GL.Context.GetViewport().Width;
 			panel.Height = Director.Instance.GL.Context.GetViewport().Height;
-			
 			uiScene.RootWidget.AddChildLast(panel);
-			UISystem.SetScene(uiScene);
-			uiScene.Visible = false;
 			
+			//Set the highscores scene.
+			highscoresManager		= new HighScoreManager(gameScene);
+			highscoresScene			= new Sce.PlayStation.HighLevel.UI.Scene();
+			Panel highscoresPanel	= new Panel();
+			highscoresPanel.Width  	= Director.Instance.GL.Context.GetViewport().Width;
+			highscoresPanel.Height 	= Director.Instance.GL.Context.GetViewport().Height;
+			highscoresScene.RootWidget.AddChildLast(highscoresPanel);
+			
+			// Setup highscores label
+			highscoresLabel = new Sce.PlayStation.HighLevel.UI.Label();
+			highscoresLabel.Height = 200.0f;
+			highscoresLabel.Text = "Retrieving Data";
+			highscoresPanel.AddChildLast(highscoresLabel);
+			highscoresScene.RootWidget.AddChildLast(highscoresPanel);
+			
+			
+			// Setup ui scene labels		
 			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
 			scoreLabel.SetPosition(10,8);
 			int roundedScore = (int)FMath.Floor(score/100)*100;
@@ -109,7 +126,8 @@ namespace Game
 			{
 				screenManager.Update(gameScene);
 				
-				if(!screenManager.IsTransitioning())	// Transition Finished, load stuff
+				// Transition Finished, load relevant data
+				if(!screenManager.IsTransitioning())
 					if(screenManager.GetScreen() == Screens.Game)
 						SetupGame();
 			}
@@ -119,14 +137,15 @@ namespace Game
 				
 				switch(screenManager.GetScreen())
 				{
-				case Screens.Splash:
-					screenManager.ChangeScreenTo(Screens.Menu);
+					case Screens.Splash:
+						screenManager.ChangeScreenTo(Screens.Menu);
 					break;
-				case Screens.Game:
-					if(!tutorialManager.HasPopUp())
-						GameUpdate ();
-					else
-						UpdateTouchData();
+					
+					case Screens.Game:
+						if(!tutorialManager.HasPopUp())
+							GameUpdate ();
+						else
+							UpdateTouchData();
 					break;
 				}
 			}			
@@ -196,20 +215,38 @@ namespace Game
 			playerPos = new Vector2(playerPos.X + 115/2 -150,0.0f);
 			playerPos += touchPos;
 			return playerPos;
-			
 		}
 		
 		public static void UpdateTouchData()
 		{
+			Vector2 touchPos = Input2.Touch00.Pos;
+			var touches = Touch.GetData(0).ToArray();
+			
 			switch(screenManager.GetScreen())
 			{
-				case Screens.Menu:
-					if(Touch.GetData (0).Count > 0)
-						screenManager.ChangeScreenTo(Screens.Game);				
-					break;
-				case Screens.Game:
-					var touches = Touch.GetData(0).ToArray();
+				// If currently on high scores screen, check if tapped back to menu
+				case Screens.HighScores:
+					// Tapped bottom left quadrant :: Clear High Scores
+					if(Touch.GetData (0).Count > 0 && touchPos.Y < 0 && touchPos.X < 0)
+					{
+						highscoresManager.EmptyHighScores();
+						highscoresLabel.Text = highscoresManager.GetHighScores();
+					}
+					// Tapped bottom right quadrant :: Back to Menu
+					else if(Touch.GetData (0).Count > 0 && touchPos.Y < 0 && touchPos.X > 0)
+						screenManager.ChangeScreenTo(Screens.Menu);
+				break;
 				
+				// If currently on menu screen, check if tapped play or highscores
+				case Screens.Menu:
+					if(touches.Length > 0 && touchPos.Y < 0 && touchPos.X < 0)
+						screenManager.ChangeScreenTo(Screens.Game);	
+					else if(touches.Length > 0 && touchPos.Y < 0 && touchPos.X > 0)
+						screenManager.ChangeScreenTo(Screens.HighScores);	
+					break;
+				
+				// If currently on game screen, check if popup active
+				case Screens.Game:
 					if(tutorialManager.HasPopUp())
 					{
 						// If tutorial manager is not ready but screen isnt touched, set ready, else if ready + tapped, close popup
@@ -217,8 +254,6 @@ namespace Game
 							tutorialManager.SetReady();
 						else if(tutorialManager.IsReady() && tutorialManager.HasPopUp() && touches.Length > 0)
 						{
-							Vector2 touchPos = Input2.Touch00.Pos;
-						
 							if(touchPos.Y < 0)
 								tutorialManager.DisableTutorials(gameScene);
 							else
@@ -235,7 +270,6 @@ namespace Game
 			obstacleManager = new ObstacleManager(gameScene);
 			player 			= new Player(gameScene, background.GetFloorHeight());
 			tutorialManager = new TutorialManager(gameScene);
-			uiScene.Visible = true;
 		}
 		
 		public static void UpdateScore()
@@ -248,6 +282,21 @@ namespace Game
 			scoreLabel.Text = "Score: " + roundedScore.ToString("N0");
 			
 			gameSpeedLabel.Text = "Game Speed: " + moveSpeed.ToString("N1");	
+		}
+		
+		public static void SetUISystem(string scene)
+		{
+			if(scene == "game")
+				UISystem.SetScene(uiScene);
+			else if(scene == "highscores")
+			{
+				UISystem.SetScene(highscoresScene);
+				highscoresLabel.Text = highscoresManager.GetHighScores();
+				highscoresLabel.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - 55,
+											Director.Instance.GL.Context.GetViewport().Height/2 - highscoresLabel.Height /2 + 100);
+			}
+			else
+				UISystem.SetScene(null);
 		}
 	}
 }
