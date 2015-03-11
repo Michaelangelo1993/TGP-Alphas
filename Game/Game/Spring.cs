@@ -16,6 +16,7 @@ namespace Game
 		private Trap trap;
 		private Pit pit;
 		private bool missedSpring;
+		private bool magmaTrap;
 		private Random rand;
 		
 		private bool ready;
@@ -61,6 +62,7 @@ namespace Game
 			springReleased = false;
 			missedSpring = false;
 			beingPushed = false;
+			magmaTrap = true;
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
 			springTextureInfo 		= new TextureInfo("/Application/textures/Spring.png");
@@ -146,7 +148,10 @@ namespace Game
 				
 					// Check for collision with player
 					if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
+					{
+						missedSpring = false;
 						AppMain.GetPlayer().DoJump();
+					}
 					
 					// Update spring height
 					if(springCurrentHeight < springOriginalHeight)
@@ -175,6 +180,9 @@ namespace Game
 			
 			if(Touch.GetData(0).ToArray().Length <= 0)
 				ReleaseSpring(true);
+			
+			if(magmaTrap && missedSpring && AppMain.GetPlayer().GetPos().X > springSprite2.Position.X + springTopWidth*1.1)
+					AppMain.GetPlayer().KillByFire();
 		}
 		
 		override public void Reset(float x)
@@ -185,17 +193,19 @@ namespace Game
 			{
 				// Magma
 				trap.Visible(true);
-				pit.Visible(false);				
+				pit.Visible(false);
+				magmaTrap = true;
 			}
 			else
 			{
 				// Magma
 				trap.Visible(false);
-				pit.Visible(true);					
+				pit.Visible(true);	
+				magmaTrap = false;
 			}
 			
 			springReleased = true;
-			missedSpring = false;
+			missedSpring = true;
 			beingPushed = false;
 			
 			float sizeDifference = (springTopWidth - springWidth)/2;
