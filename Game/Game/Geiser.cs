@@ -17,7 +17,7 @@ namespace Game
 		private TextureInfo geiserSheetTextureInfo, geiserTextureInfo;
 		public float geiserPos, sizeX, sizeY;
 		
-		private static int 			frameTime, animationDelay,
+		private int 			frameTime, animationDelay,
 									noOnSpritesheetWidth,
 									widthCount;
 		
@@ -59,11 +59,13 @@ namespace Game
 			geiserSprite.Scale = new Vector2(117.0f,240.0f);
 			
 			//Spike sprite initialise
-			spikeTextureInfo = new TextureInfo("/Application/textures/stalagmite.png");
-			spikeSprite = new SpriteUV(spikeTextureInfo);
-			spikeSprite.Quad.S = spikeTextureInfo.TextureSizef;
-			spikeBounds = spikeSprite.Quad.Bounds2();
+			spikeTextureInfo 	 = new TextureInfo("/Application/textures/stalactite.png");
+			spikeSprite			 = new SpriteUV(spikeTextureInfo);
+			spikeSprite.UV.S 	 = new Vector2(0.5f,1.0f);
+			spikeSprite.Quad.S	 = new Vector2(58, 78);
+			spikeBounds 		 = spikeSprite.Quad.Bounds2();
 			spikeSprite.Position = new Vector2(position.X + 6 + spikeBounds.Point10.X/2, geiserSpriteSheet.Position.Y+475);
+			spikeSprite.Scale 	 = new Vector2(1.0f,1.0f);
 			
 			// Add sprites to scene
 			scene.AddChild(geiserSpriteSheet);
@@ -79,6 +81,8 @@ namespace Game
 		public void BreakSpike()
 		{
 			spikeBroken = true;
+			spikeSprite.UV.T = new Vector2(0.5f, 0.0f);
+			spikeSprite.Scale = new Vector2(1.0f,1.0f);
 		}
 				
 		override public void Update(float speed)
@@ -118,9 +122,6 @@ namespace Game
 			{
 				BreakSpike();
 			}
-			
-			//if(spikeSprite.Position.X+700 < player.GetPos().X)
-				// Reset geiser.Reset(spinObstacle.GetPosition1.X + 200);
 		}
 		
 		private void AnimateGeiser()
@@ -158,11 +159,15 @@ namespace Game
 		override public void Reset(float x)
 		{
 			spikeBroken = false;
+			
 			geiserSpriteSheet.Position = new Vector2(x, geiserSpriteSheet.Position.Y);
 			spikeSprite.Position = new Vector2(geiserSpriteSheet.Position.X + 6 + spikeBounds.Point10.X/2, 475);
 			geiserSprite.Position = geiserSpriteSheet.Position;
 			geiserSpriteSheet.Visible = true;
 			geiserOn = true;
+			
+			spikeSprite.UV.T = new Vector2(0.0f, 0.0f);
+			spikeSprite.Scale = new Vector2(1.0f,1.0f);
 		}
 	}
 }

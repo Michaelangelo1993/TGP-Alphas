@@ -9,7 +9,6 @@ namespace Game
 {
 	public class TntWall : Obstacle
 	{
-		
 		//Sprites
 		private SpriteUV 	boxSprite;
 		private TextureInfo	boxTextureInfo;
@@ -24,9 +23,10 @@ namespace Game
 		private TextureInfo	dynaTextureInfo;
 		
 		private bool		blown = false;
-		private bool		ready, beingPushed;
+		private bool		ready, beingPushed, enlarged;
 		private int 		counter = 0, noOnSpritesheetWidth 	= 5, noOnSpritesheetHeight 	= 5, 
 							heightCount = 0, widthCount = 0;
+		private Random 		rand;
 		
 		private float		scale = 5.0f;
 		
@@ -34,6 +34,8 @@ namespace Game
 		public bool SetReady { set { ready = value; }}
 		
 		override public float GetEndPosition() { return (rockSprite.Position.X + 128); }
+		public void Tapped() { beingPushed = true; }
+		override public void ReleasePlunger() { beingPushed = false; }
 		
 		public TntWall (Scene scene, float x, float y)
 		{
@@ -80,6 +82,10 @@ namespace Game
 			//Ready and counter initialisation
 			ready 	= true;
 			counter = 20;
+			enlarged = false;
+			
+			// Random TNT Boss Mode
+			rand = new Random();
 		}
 				
 		override public void Dispose()
@@ -95,12 +101,28 @@ namespace Game
 			//If the trap is ready and being pushed, blow up the rock
 			if(ready && beingPushed)
 			{
-				pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-(t/3));
-				
-				if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
+				// If enlarged, scale sprite back whilst moving sprite down 
+				if(enlarged)
 				{
-					blowUpRock ();
-					ready = false;
+					pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-(t/3));
+					if(pluSprite.Scale.Y > 1)
+						pluSprite.Scale = new Vector2(1, pluSprite.Scale.Y-t/60);
+					
+					if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
+					{
+						blowUpRock ();
+						ready = false;
+					}
+				}
+				else
+				{
+					pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-(t/3));
+					
+					if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
+					{
+						blowUpRock ();
+						ready = false;
+					}
 				}
 			}
 			
@@ -123,9 +145,8 @@ namespace Game
 					}
 				
 					if (heightCount == noOnSpritesheetHeight)
-					{
 						heightCount = 0;
-					}
+					
 					widthCount++;
 					exploSprite.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount,(1.0f/noOnSpritesheetHeight)*heightCount);
 				}
@@ -133,17 +154,28 @@ namespace Game
 			//Move the sprites
 			boxSprite.Position 	 += new Vector2(-t, 0);
 			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
-			pluSprite.Position	 = new Vector2(boxSprite.Position.X, pluSprite.Position.Y);
+			pluSprite.Position	 = new Vector2(pluSprite.Position.X - t, pluSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(dynaSprite.Position.X - 230.0f, dynaSprite.Position.Y - 150.0f);
 			
 			//Get touch position
 			Vector2 touchPos = AppMain.GetTouchPosition();
 			
-			if(touchPos.Y <= pluSprite.Position.Y + 114.0f && touchPos.Y >= pluSprite.Position.Y - 50.0f
-			   && touchPos.X <= pluSprite.Position.X + 114.0f && touchPos.X >= pluSprite.Position.X - 50.0f)				
+			if(enlarged)
 			{
-				beingPushed = true;
+				if(touchPos.Y <= pluSprite.Position.Y + 242.0f && touchPos.Y >= pluSprite.Position.Y - 50.0f
+				   && touchPos.X <= pluSprite.Position.X + 114.0f && touchPos.X >= pluSprite.Position.X - 50.0f)				
+				{
+					beingPushed = true;
+				}
+			}
+			else
+			{
+				if(touchPos.Y <= pluSprite.Position.Y + 114.0f && touchPos.Y >= pluSprite.Position.Y - 50.0f
+				   && touchPos.X <= pluSprite.Position.X + 114.0f && touchPos.X >= pluSprite.Position.X - 50.0f)				
+				{
+					beingPushed = true;
+				}
 			}
 			
 			if(Touch.GetData(0).ToArray().Length <= 0)
@@ -167,23 +199,9 @@ namespace Game
 			}
 		}
 		
-		public void Tapped()
-		{
-			beingPushed = true;
-		}
-		
-		override public void ReleasePlunger()
-		{
-			beingPushed = false;
-		}
-		
-		public Vector2 GetPosition()
-		{
-			return pluSprite.Position;
-		}
-		
 		override public void Reset(float x)
 		{
+			int randomNum = (rand.Next(0, 10));
 			
 			//Reset functions
 			rockSprite.Visible  = true;
@@ -194,6 +212,18 @@ namespace Game
 			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(dynaSprite.Position.X, dynaSprite.Position.Y);
+			
+			// 30% chance to have triple size plunger
+			if(randomNum > 2)
+			{
+				enlarged = false;
+				pluSprite.Scale = new Vector2(1,1);
+			}
+			else
+			{
+				enlarged = true;
+				pluSprite.Scale = new Vector2(1,3);
+			}
 			
 			counter = 20;
 			ready = true;

@@ -81,7 +81,6 @@
     <Content Include="textures\piv.png" />
     <Content Include="music\157172__danipenet__distant-world.mp3" />
     <Content Include="textures\geiserSpriteSheet.png" />
-    <Content Include="textures\stalagmite.png" />
     <Content Include="music\Calm Before The Storm - PaulRHJT.mp3" />
     <Content Include="textures\box2.png" />
     <Content Include="textures\dyno2.png" />
@@ -107,5 +106,6 @@
     <Content Include="textures\TrapSpriteSheet.png" />
     <Content Include="textures\Pit.png" />
     <Content Include="textures\highscores.png" />
+    <Content Include="textures\stalactite.png" />
   </ItemGroup>
 </Project>
