@@ -41,8 +41,11 @@ namespace Game
 			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 0.0f)));
 			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
+			deactiveObstacles.Add(new BrokenBridge(scene,new Vector2(-1000.0f, 60.0f)));
+			deactiveObstacles.Add(new BrokenBridge(scene,new Vector2(-1000.0f, 60.0f)));
 			
 			float prevXPos = newXPos;
+			
 			while(activeObstacles.Count <= 3)
 			{// Reset position of selected obstacle and move it to active
 				prevXPos = newXPos;
@@ -60,7 +63,7 @@ namespace Game
 			if(activeObstacles.Count > 0)
 			{	
 				// check for offscreen obstacles and move them to deactive list
-				var selected = activeObstacles.Where (Obstacle => Obstacle.GetEndPosition() + 80 < AppMain.GetPlayer().GetPos ().X).ToList();
+				var selected = activeObstacles.Where (Obstacle => Obstacle.GetEndPosition() + 180 < AppMain.GetPlayer().GetPos ().X).ToList();
 				if(selected.Count > 0)
 				{
 					selected.ForEach(Obstacle => activeObstacles.Remove(Obstacle));
@@ -78,17 +81,13 @@ namespace Game
 				deactiveObstacles.RemoveAt(randomPosition);
 			}			
 			foreach(Obstacle obj in activeObstacles)
-			{
 				obj.Update(moveSpeed);
-			}
 		}
 		
 		public void CleanUp()
 		{
 			foreach(Obstacle obj in deactiveObstacles)
-			{
 				obj.Dispose();
-			}
 		}
 	}
 }

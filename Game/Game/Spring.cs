@@ -111,11 +111,12 @@ namespace Game
 		{
 			if(!springReleased && springCurrentHeight > 10)
 			{
+				float yPos = AppMain.GetTouchPosition().Y;
 				beingPushed = true;
-				springTopSprite.Position = new Vector2(springTopSprite.Position.X, springTopSprite.Position.Y-2*gameSpeed);
-				springCurrentHeight-=2*gameSpeed;
+				springCurrentHeight = yPos - springSprite.Position.Y;
 				springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
 				springSprite2.Scale = new Vector2(springSprite2.Scale.X, springCurrentHeight/springOriginalHeight);
+				springTopSprite.Position = new Vector2(springTopSprite.Position.X, springSprite.Position.Y + springCurrentHeight - 20);
 			}
 		}
 		
@@ -159,7 +160,6 @@ namespace Game
 					else
 						springReleased = false;	
 				}
-				
 			}
 			else if(beingPushed)
 				WindSpring(speed);
@@ -168,7 +168,7 @@ namespace Game
 				
 			if((touchPos.X-100 < springSprite.Position.X) &&
 			   (touchPos.X+125 > springSprite2.Position.X + springWidth) &&
-			   (touchPos.Y < springOriginalHeight+200)) // Touching spring
+			   (touchPos.Y-(springTopHeight/5) > springTopSprite.Position.Y)) // Touching spring
 			{
 				PushSpring();
 			}

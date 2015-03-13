@@ -67,6 +67,7 @@
     <Compile Include="DoorObs.cs" />
     <Compile Include="Pit.cs" />
     <Compile Include="HighScoreManager.cs" />
+    <Compile Include="BrokenBridge.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\rock.png" />
@@ -107,5 +108,7 @@
     <Content Include="textures\Pit.png" />
     <Content Include="textures\highscores.png" />
     <Content Include="textures\stalactite.png" />
+    <Content Include="textures\plank5.png" />
+    <Content Include="textures\ropedone.png" />
   </ItemGroup>
 </Project>
