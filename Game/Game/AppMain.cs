@@ -57,12 +57,6 @@ namespace Game
 				Director.Instance.PostSwap();
 			}
 			
-			//Clean up after ourselves.
-			//Dispose code goes here
-			background.Dispose();
-			obstacleManager.CleanUp();
-			player.Dispose();
-			
 			Director.Terminate ();
 		}
 
@@ -149,7 +143,10 @@ namespace Game
 			background.SetVolcanoPosition((player.GetPos().X + 400)-(Director.Instance.GL.Context.GetViewport().Width/2), 0.0f);
 			
 			if(player.IsDead())
+			{
 				screenManager.ChangeScreenTo(Screens.GameOver);
+				DestroyGame();
+			}
 			
 			GamePadData data = GamePad.GetData(0);
 			if (Input2.GamePad0.Cross.Down)
@@ -247,6 +244,15 @@ namespace Game
 			background.addUnderFloor(gameScene);
 			tutorialManager = new TutorialManager(gameScene);
 			uiScene.Visible = true;
+		}
+		
+		public static void DestroyGame()
+		{
+			background.Dispose(gameScene);
+			obstacleManager.CleanUp(gameScene);
+			player.Dispose(gameScene);
+			tutorialManager.Dispose(gameScene);
+			uiScene.Visible = false;
 		}
 		
 		public static void UpdateScore()

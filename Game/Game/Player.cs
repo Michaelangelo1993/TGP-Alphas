@@ -100,9 +100,12 @@ namespace Game
 			_fireDeathSprite.Visible = false;
 		}
 		
-		public void Dispose()
+		public void Dispose(Scene scene)
 		{
+			scene.RemoveChild(_sprite, true);
+			scene.RemoveChild(_fireDeathSprite, true);
 			_textureInfo.Dispose();
+			_fireDeathTextureInfo.Dispose();
 		}
 		
 		public void Update()
@@ -235,36 +238,37 @@ namespace Game
 				_dead = true;
 				_counter = _noOnFDSpritesheetWidth * _noOnFDSpritesheetHeight;
 			}
-			else
+			
+			
+			
+			if(_frameTime == _animationDelay)
 			{
-				if(_frameTime == _animationDelay)
-				{
-					if(_counter == 9)
-						_sprite.Visible = false;
-					
-					_counter--;
-					
-					//Spritesheet scrolling
-					if (_fDwidthCount == _noOnFDSpritesheetWidth)
-					{
-						_fDheightCount--;
-						_fDwidthCount = 0;
-					}
+				if(_counter == 9)
+					_sprite.Visible = false;
 				
-					if (_fDheightCount < 0)
-					{
-						_fDheightCount = _noOnFDSpritesheetHeight - 1;
-					}
-					
-					_fireDeathSprite.UV.T = new Vector2((1.0f/_noOnFDSpritesheetWidth)*_fDwidthCount,(1.0f/_noOnFDSpritesheetHeight)*_fDheightCount);
-					_fDwidthCount++;
-					
-					_frameTime = 0;
+				_counter--;
+				
+				//Spritesheet scrolling
+				if (_fDwidthCount == _noOnFDSpritesheetWidth)
+				{
+					_fDheightCount--;
+					_fDwidthCount = 0;
+				}
+			
+				if (_fDheightCount < 0)
+				{
+					_fDheightCount = _noOnFDSpritesheetHeight - 1;
 				}
 				
-				_frameTime++;
+				_fireDeathSprite.UV.T = new Vector2((1.0f/_noOnFDSpritesheetWidth)*_fDwidthCount,(1.0f/_noOnFDSpritesheetHeight)*_fDheightCount);
+				_fDwidthCount++;
+				
+				_frameTime = 0;
 			}
+			
+			_frameTime++;
 		}
+		
 		
 		//Get and set the size of the player
 		public void SetScale(float scale)

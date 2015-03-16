@@ -83,11 +83,15 @@ namespace Game
 			}
 		}
 		
-		public void CleanUp()
+		public void CleanUp(Scene scene)
 		{
 			foreach(Obstacle obj in deactiveObstacles)
 			{
-				obj.Dispose();
+				obj.Dispose(scene);
+			}
+			foreach(Obstacle obj in activeObstacles)
+			{
+				obj.Dispose(scene);
 			}
 		}
 	}

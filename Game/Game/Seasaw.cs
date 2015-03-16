@@ -69,8 +69,11 @@ namespace Game
 			scene.AddChild(_sprite);
 		}
 		
-		override public void Dispose()
+		override public void Dispose(Scene scene)
 		{
+			_trap.Dispose(scene);
+			_pit.Dispose(scene);
+			scene.RemoveChild(_sprite, true);
 			_textureInfo.Dispose();
 		}
 		

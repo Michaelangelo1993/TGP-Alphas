@@ -50,6 +50,12 @@ namespace Game
 			scene.AddChild(_popUpSprite);
 		}
 		
+		public void Dispose(Scene scene)
+		{
+			scene.RemoveChild(_popUpSprite, true);
+			_popUpTextureInfo.Dispose();
+		}
+		
 		public void ClosePopUp(Scene scene)
 		{
 			_ready = false;
@@ -62,6 +68,7 @@ namespace Game
 				switch(_popUp)
 				{
 					case PopUp.HowToPlay:
+						_popUpTextureInfo.Dispose();
 						_popUpTextureInfo = new TextureInfo("/Application/textures/tutorial/springPopUp.png");
 						_popUpSprite = new SpriteUV(_popUpTextureInfo);
 						_popUpSprite.Scale = new Vector2(800.0f, 500.0f);
@@ -70,6 +77,7 @@ namespace Game
 						_popUp = PopUp.Spring;
 						break;
 					case PopUp.Spring:
+						_popUpTextureInfo.Dispose();
 						_popUpTextureInfo = new TextureInfo("/Application/textures/tutorial/seaSawPopUp.png");
 						_popUpSprite = new SpriteUV(_popUpTextureInfo);
 						_popUpSprite.Scale = new Vector2(800.0f, 500.0f);
@@ -78,6 +86,7 @@ namespace Game
 						_popUp = PopUp.Seasaw;
 						break;
 					case PopUp.Seasaw:
+						_popUpTextureInfo.Dispose();
 						_popUpTextureInfo = new TextureInfo("/Application/textures/tutorial/spinningPopUp.png");
 						_popUpSprite = new SpriteUV(_popUpTextureInfo);
 						_popUpSprite.Scale = new Vector2(800.0f, 500.0f);
@@ -86,6 +95,7 @@ namespace Game
 						_popUp = PopUp.Spinning;
 						break;
 					case PopUp.Spinning:
+						_popUpTextureInfo.Dispose();
 						_popUpTextureInfo = new TextureInfo("/Application/textures/tutorial/geiserPopUp.png");
 						_popUpSprite = new SpriteUV(_popUpTextureInfo);
 						_popUpSprite.Scale = new Vector2(800.0f, 500.0f);
@@ -94,6 +104,7 @@ namespace Game
 						_popUp = PopUp.Geiser;
 						break;
 					case PopUp.Geiser:
+						_popUpTextureInfo.Dispose();
 						_popUpTextureInfo = new TextureInfo("/Application/textures/tutorial/tntPopUp.png");
 						_popUpSprite = new SpriteUV(_popUpTextureInfo);
 						_popUpSprite.Scale = new Vector2(800.0f, 500.0f);

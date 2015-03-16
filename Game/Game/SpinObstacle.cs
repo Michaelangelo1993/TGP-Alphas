@@ -58,8 +58,14 @@ namespace Game
 			spinSprite[2].Angle = 2.12f;
 		}
 		
-		override public void Dispose()
+		override public void Dispose(Scene scene)
 		{
+			for (int i = 0; i < numberOfObstacles; i++)
+			{
+				//scene.RemoveChild(pivSprite[i], true);
+				scene.RemoveChild(spinSprite[i], true);
+			}
+			
 			textureSpinObstacle.Dispose();
 			textureSpinPiv.Dispose();
 		}

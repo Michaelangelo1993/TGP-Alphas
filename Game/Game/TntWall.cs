@@ -25,7 +25,7 @@ namespace Game
 		
 		private bool		blown = false;
 		private bool		ready, beingPushed;
-		private int 		counter = 0, noOnSpritesheetWidth 	= 5, noOnSpritesheetHeight 	= 5, 
+		private int 		counter = 0, noOnSpritesheetWidth = 5, noOnSpritesheetHeight 	= 5, 
 							heightCount, widthCount = 0;
 		
 		private float		scale = 5.0f;
@@ -84,12 +84,18 @@ namespace Game
 			counter = 20;
 		}
 				
-		override public void Dispose()
+		override public void Dispose(Scene scene)
 		{
+			scene.RemoveChild(rockSprite, true);
+			scene.RemoveChild(pluSprite, true);
+			scene.RemoveChild(boxSprite, true);
+			scene.RemoveChild(dynaSprite, true);
+			scene.RemoveChild(exploSprite, true);
 			boxTextureInfo.Dispose();
 			pluTextureInfo.Dispose();
-			rockTextureInfo.Dispose ();
-			exploTextureInfo.Dispose ();
+			rockTextureInfo.Dispose();
+			exploTextureInfo.Dispose();
+			dynaTextureInfo.Dispose();
 		}
 		
 		override public void Update(float t)

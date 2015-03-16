@@ -182,13 +182,28 @@ namespace Game
 			scene.AddChild(underFloor2Sprite);
 		}
 		
-		public void Dispose()
+		public void Dispose(Scene scene)
 		{
+			scene.RemoveChild (volcSprite, true);
+			scene.RemoveChild (smogSprite, true);
+			scene.RemoveChild (smogSprite2, true);
+			scene.RemoveChild (wallSprite, true);
+			scene.RemoveChild (wallSprite2, true);
+			scene.RemoveChild (entrSprite, true);
+			scene.RemoveChild (floorOverlay, true);
+			scene.RemoveChild (floor2Overlay, true);
+			scene.RemoveChild (floorSprite, true);
+			scene.RemoveChild (floor2Sprite, true);
+			scene.RemoveChild(underFloorSprite, true);
+			scene.RemoveChild(underFloor2Sprite, true);
 			volcTextureInfo.Dispose();
+			wallTextureInfo.Dispose();
+			wall2TextureInfo.Dispose();
 			smogTextureInfo.Dispose();
-			wallTextureInfo.Dispose ();
-			wall2TextureInfo.Dispose ();
-			smog2TextureInfo.Dispose ();
+			smog2TextureInfo.Dispose();
+			underFloorTextureInfo.Dispose();
+			floorTextureInfo.Dispose();
+			floorOTextureInfo.Dispose();
 		}
 		
 		public void Update(float speed)
