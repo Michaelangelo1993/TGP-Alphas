@@ -15,7 +15,7 @@ namespace Game
 		//Private variables.
 		private 			Trap 		trap;
 		private 			SpriteUV 	ropeSprite1, ropeSprite2, ropeSprite3, ropeSprite4, plankSprite;
-		private 			TextureInfo	textureRope1, textureRope2, textureRope3, textureRope4, texturePlank;
+		private 			TextureInfo	textureRope, texturePlank;
 		private 			Bounds2		plankBounds;
 		private				bool		touching, missedBridge;
 		
@@ -46,24 +46,21 @@ namespace Game
 			ropeTLOffset					= 	plankBounds.Point01 + new Vector2(55, -5);
 			ropeTROffset					= 	plankBounds.Point11 + new Vector2(-25, -5);			
 			
-			textureRope1     				=	new TextureInfo("/Application/textures/ropedone.png");
-			ropeSprite1						= 	new SpriteUV(textureRope1);
-			ropeSprite1.Quad.S 				= 	textureRope1.TextureSizef;
+			textureRope     				=	new TextureInfo("/Application/textures/ropedone.png");
+			ropeSprite1						= 	new SpriteUV(textureRope);
+			ropeSprite1.Quad.S 				= 	textureRope.TextureSizef;
 			ropeSprite1.Position 			=   position + ropeBLOffset;
 			
-			textureRope2     				=	new TextureInfo("/Application/textures/ropedone.png");
-			ropeSprite2						= 	new SpriteUV(textureRope2);
-			ropeSprite2.Quad.S 				= 	textureRope2.TextureSizef;
+			ropeSprite2						= 	new SpriteUV(textureRope);
+			ropeSprite2.Quad.S 				= 	textureRope.TextureSizef;
 			ropeSprite2.Position 			=   position + ropeTLOffset;
 			
-			textureRope3     				=	new TextureInfo("/Application/textures/ropedone.png");
-			ropeSprite3						= 	new SpriteUV(textureRope3);
-			ropeSprite3.Quad.S 				= 	textureRope3.TextureSizef;
+			ropeSprite3						= 	new SpriteUV(textureRope);
+			ropeSprite3.Quad.S 				= 	textureRope.TextureSizef;
 			ropeSprite3.Position 			=   position + ropeTROffset;
 			
-			textureRope4     				=	new TextureInfo("/Application/textures/ropedone.png");
-			ropeSprite4						= 	new SpriteUV(textureRope4);
-			ropeSprite4.Quad.S 				= 	textureRope4.TextureSizef;
+			ropeSprite4						= 	new SpriteUV(textureRope);
+			ropeSprite4.Quad.S 				= 	textureRope.TextureSizef;
 			ropeSprite4.Position 			=   position + ropeBROffset;
 			
 			scene.AddChild(plankSprite);
@@ -73,12 +70,15 @@ namespace Game
 			scene.AddChild(ropeSprite4);
 		}
 		
-		override public void Dispose()
+		override public void Dispose(Scene scene)
 		{
-			textureRope1.Dispose();
-			textureRope2.Dispose();
-			textureRope3.Dispose();
-			textureRope4.Dispose();
+			trap.Dispose(scene);
+			scene.RemoveChild(plankSprite, true);
+			scene.RemoveChild(ropeSprite1, true);
+			scene.RemoveChild(ropeSprite2, true);
+			scene.RemoveChild(ropeSprite3, true);
+			scene.RemoveChild(ropeSprite4, true);
+			textureRope.Dispose();
 			texturePlank.Dispose();
 		}
 		

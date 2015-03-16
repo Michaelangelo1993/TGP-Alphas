@@ -73,9 +73,14 @@ namespace Game
 			scene.AddChild(geiserSprite);
 		}
 		
-		override public void Dispose()
+		override public void Dispose(Scene scene)
 		{
-			
+			scene.RemoveChild(geiserSpriteSheet, true);
+			scene.RemoveChild(spikeSprite, true);
+			scene.RemoveChild(geiserSprite, true);
+			geiserSheetTextureInfo.Dispose();
+			geiserTextureInfo.Dispose();
+			spikeTextureInfo.Dispose();
 		}
 		
 		public void BreakSpike()

@@ -33,12 +33,12 @@ namespace Game
 			deactiveObstacles.Add(new Seasaw(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new Spring(scene, new Vector2(-1000.0f, 60.0f)));
 			deactiveObstacles.Add(new SpinObstacle(scene, new Vector2(-1000.0f, 0.0f)));
-			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 0.0f)));
+			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 60.0f)));
 			deactiveObstacles.Add(new TntWall(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new Seasaw(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new Spring(scene, new Vector2(-1000.0f, 60.0f)));
 			deactiveObstacles.Add(new SpinObstacle(scene, new Vector2(-1000.0f, 0.0f)));
-			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 0.0f)));
+			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 60.0f)));
 			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new BrokenBridge(scene,new Vector2(-1000.0f, 60.0f)));
@@ -84,10 +84,16 @@ namespace Game
 				obj.Update(moveSpeed);
 		}
 		
-		public void CleanUp()
+		public void CleanUp(Scene scene)
 		{
 			foreach(Obstacle obj in deactiveObstacles)
-				obj.Dispose();
+			{
+				obj.Dispose(scene);
+			}
+			foreach(Obstacle obj in activeObstacles)
+			{
+				obj.Dispose(scene);
+			}
 		}
 	}
 }

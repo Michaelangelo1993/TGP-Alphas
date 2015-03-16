@@ -32,14 +32,16 @@ namespace Game
 		private TextureInfo	smog2TextureInfo;
 		
 		//floor
+		private SpriteUV	underFloorSprite;
+		private TextureInfo underFloorTextureInfo;
+		private SpriteUV	underFloor2Sprite;
+		
 		private SpriteUV	floorSprite;
 		private TextureInfo floorTextureInfo;
-		
 		private SpriteUV	floor2Sprite;
 		
 		private SpriteUV	floorOverlay;
 		private TextureInfo	floorOTextureInfo;
-		
 		private SpriteUV	floor2Overlay;
 		
 		private float		overHeight = 100.0f;
@@ -73,15 +75,26 @@ namespace Game
 					
 			entrSprite.Position 	= new Vector2(width*0.5f, 0.0f);
 			
+			underFloorSprite 			= new SpriteUV();			
+			underFloorTextureInfo 		= new TextureInfo("/Application/textures/underFloor.png");
+			underFloorSprite 			= new SpriteUV(underFloorTextureInfo);
+			underFloorSprite.Position 	= new Vector2(0.0f, 0.0f);
+			underFloorSprite.Quad.S 	= underFloorTextureInfo.TextureSizef;
+			
+			underFloor2Sprite 			= new SpriteUV();			
+			underFloor2Sprite 			= new SpriteUV(underFloorTextureInfo);
+			underFloor2Sprite.Position 	= new Vector2(width, 0.0f);
+			underFloor2Sprite.Quad.S 	= underFloorTextureInfo.TextureSizef;
+			
 			floorSprite 			= new SpriteUV();			
 			floorTextureInfo 		= new TextureInfo("/Application/textures/floor.png");
 			floorSprite 			= new SpriteUV(floorTextureInfo);
-			floorSprite.Position 	= new Vector2(0.0f, 0.0f);
+			floorSprite.Position 	= new Vector2(0.0f, underFloorTextureInfo.TextureSizef.Y);
 			floorSprite.Quad.S 		= floorTextureInfo.TextureSizef;
 			
 			floor2Sprite 			= new SpriteUV();			
 			floor2Sprite 			= new SpriteUV(floorTextureInfo);
-			floor2Sprite.Position 	= new Vector2(width, 0.0f);
+			floor2Sprite.Position 	= new Vector2(width, underFloorTextureInfo.TextureSizef.Y);
 			floor2Sprite.Quad.S 	= floorTextureInfo.TextureSizef;
 			
 			floorOverlay	 		= new SpriteUV();			
@@ -163,19 +176,34 @@ namespace Game
 
 		}
 		
-		public void addFloor(Scene scene)
+		public void addUnderFloor(Scene scene)
 		{
-//			scene.AddChild (floorOverlay);
-//			scene.AddChild (floor2Overlay);
+			scene.AddChild(underFloorSprite);
+			scene.AddChild(underFloor2Sprite);
 		}
 		
-		public void Dispose()
+		public void Dispose(Scene scene)
 		{
+			scene.RemoveChild (volcSprite, true);
+			scene.RemoveChild (smogSprite, true);
+			scene.RemoveChild (smogSprite2, true);
+			scene.RemoveChild (wallSprite, true);
+			scene.RemoveChild (wallSprite2, true);
+			scene.RemoveChild (entrSprite, true);
+			scene.RemoveChild (floorOverlay, true);
+			scene.RemoveChild (floor2Overlay, true);
+			scene.RemoveChild (floorSprite, true);
+			scene.RemoveChild (floor2Sprite, true);
+			scene.RemoveChild(underFloorSprite, true);
+			scene.RemoveChild(underFloor2Sprite, true);
 			volcTextureInfo.Dispose();
+			wallTextureInfo.Dispose();
+			wall2TextureInfo.Dispose();
 			smogTextureInfo.Dispose();
-			wallTextureInfo.Dispose ();
-			wall2TextureInfo.Dispose ();
-			smog2TextureInfo.Dispose ();
+			smog2TextureInfo.Dispose();
+			underFloorTextureInfo.Dispose();
+			floorTextureInfo.Dispose();
+			floorOTextureInfo.Dispose();
 		}
 		
 		public void Update(float speed)
@@ -220,14 +248,20 @@ namespace Game
 		
 		public void UpdateFloor(float speed)
 		{
+			underFloorSprite.Position = new Vector2(underFloorSprite.Position.X-speed, underFloorSprite.Position.Y);
+			underFloor2Sprite.Position = new Vector2(underFloor2Sprite.Position.X-speed, underFloor2Sprite.Position.Y);
 			floorSprite.Position = new Vector2(floorSprite.Position.X-speed, floorSprite.Position.Y);
 			floor2Sprite.Position = new Vector2(floor2Sprite.Position.X-speed, floor2Sprite.Position.Y);
 			
 			//Resets the position once off screen
+			if(underFloorSprite.Position.X+floorTextureInfo.TextureSizef.X <= volcSprite.Position.X)
+				underFloorSprite.Position = new Vector2(underFloor2Sprite.Position.X + underFloorTextureInfo.TextureSizef.X, 0.0f);
+			if(underFloor2Sprite.Position.X+underFloorTextureInfo.TextureSizef.X <= volcSprite.Position.X)
+				underFloor2Sprite.Position = new Vector2(underFloorSprite.Position.X + underFloorTextureInfo.TextureSizef.X, 0.0f);
 			if(floorSprite.Position.X+floorTextureInfo.TextureSizef.X <= volcSprite.Position.X)
-				floorSprite.Position = new Vector2(floor2Sprite.Position.X + floorTextureInfo.TextureSizef.X, 0.0f);
+				floorSprite.Position = new Vector2(floor2Sprite.Position.X + floorTextureInfo.TextureSizef.X, floorSprite.Position.Y);
 			if(floor2Sprite.Position.X+floorTextureInfo.TextureSizef.X <= volcSprite.Position.X)
-				floor2Sprite.Position = new Vector2(floorSprite.Position.X + floorTextureInfo.TextureSizef.X, 0.0f);
+				floor2Sprite.Position = new Vector2(floorSprite.Position.X + floorTextureInfo.TextureSizef.X, floor2Sprite.Position.Y);
 			
 			floorOverlay.Position = new Vector2(floorOverlay.Position.X-speed, floorOverlay.Position.Y);
 			floor2Overlay.Position = new Vector2(floor2Overlay.Position.X-speed, floor2Overlay.Position.Y);
@@ -242,7 +276,7 @@ namespace Game
 		public void SetVolcanoPosition(float x, float y) { volcSprite.Position = new Vector2(x,y); }
 		public Vector2 GetVolcanoPosition() { return volcSprite.Position; }
 		
-		public float GetFloorHeight() { return floorTextureInfo.TextureSizef.Y; }
+		public float GetFloorHeight() { return floorSprite.Position.Y + floorTextureInfo.TextureSizef.Y; }
 	}
 }
 

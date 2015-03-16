@@ -50,7 +50,7 @@ namespace Game
                     {
                         using (StreamWriter sw = File.AppendText(_filePath))
                         {
-                            for (int k = 0; k < _scores.length; k++)
+                            for (int k = 0; k < _scores.Length; k++)
                                 sw.WriteLine(_scores[k]);
                         }
                     }

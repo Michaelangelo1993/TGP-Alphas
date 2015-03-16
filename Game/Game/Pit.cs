@@ -31,6 +31,12 @@ namespace Game
 			scene.AddChild(_sprite);
 		}
 		
+		public void Dispose(Scene scene)
+		{
+			scene.RemoveChild(_sprite, true);
+			_textureInfo.Dispose();
+		}
+		
 		public void Update(float speed)
 		{
 			_sprite.Position = new Vector2(_sprite.Position.X - speed, _sprite.Position.Y);	

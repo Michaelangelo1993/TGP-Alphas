@@ -24,8 +24,8 @@ namespace Game
 		
 		private bool		blown = false;
 		private bool		ready, beingPushed, enlarged;
-		private int 		counter = 0, noOnSpritesheetWidth 	= 5, noOnSpritesheetHeight 	= 5, 
-							heightCount = 0, widthCount = 0;
+		private int 		counter = 0, noOnSpritesheetWidth = 5, noOnSpritesheetHeight 	= 5, 
+							heightCount, widthCount = 0;
 		private Random 		rand;
 		
 		private float		scale = 5.0f;
@@ -39,6 +39,8 @@ namespace Game
 		
 		public TntWall (Scene scene, float x, float y)
 		{
+			heightCount = noOnSpritesheetHeight - 1;
+			
 			//Textures
 			boxTextureInfo 			= new TextureInfo("/Application/textures/box2.png");
 			pluTextureInfo			= new TextureInfo("/Application/textures/tntplun2.png");
@@ -88,12 +90,18 @@ namespace Game
 			rand = new Random();
 		}
 				
-		override public void Dispose()
+		override public void Dispose(Scene scene)
 		{
+			scene.RemoveChild(rockSprite, true);
+			scene.RemoveChild(pluSprite, true);
+			scene.RemoveChild(boxSprite, true);
+			scene.RemoveChild(dynaSprite, true);
+			scene.RemoveChild(exploSprite, true);
 			boxTextureInfo.Dispose();
 			pluTextureInfo.Dispose();
-			rockTextureInfo.Dispose ();
-			exploTextureInfo.Dispose ();
+			rockTextureInfo.Dispose();
+			exploTextureInfo.Dispose();
+			dynaTextureInfo.Dispose();
 		}
 		
 		override public void Update(float t)
@@ -140,13 +148,14 @@ namespace Game
 					//Spritesheet scrolling
 					if (widthCount == noOnSpritesheetWidth)
 					{
-						heightCount++;
+						heightCount--;
 						widthCount = 0;
 					}
 				
-					if (heightCount == noOnSpritesheetHeight)
-						heightCount = 0;
-					
+					if (heightCount < 0)
+					{
+						heightCount = noOnSpritesheetHeight - 1;
+					}
 					widthCount++;
 					exploSprite.UV.T = new Vector2((1.0f/noOnSpritesheetWidth)*widthCount,(1.0f/noOnSpritesheetHeight)*heightCount);
 				}

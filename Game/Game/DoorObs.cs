@@ -40,8 +40,10 @@ namespace Game
 			scene.AddChild(doorSprite2);
 		}
 				
-		override public void Dispose()
+		override public void Dispose(Scene scene)
 		{
+			scene.RemoveChild(doorSprite, true);
+			scene.RemoveChild(doorSprite2, true);
 			doorTextureInfo.Dispose();
 		}
 		

@@ -11,24 +11,33 @@ namespace Game
 	public class Player
 	{
 		//Private variables.
-		private SpriteUV 	_sprite;
-		private TextureInfo	_textureInfo;
-		private Vector2		_min, _max, _velocity,
-									_jumpingVector, _jumpVelocity,
-									_movementVector;
-		private Bounds2		_box, _bottomBox;
-		private float 		_scale, _angle, _size,
-									_gravity, _force,
-									_speed, _defaultYPos,
-									_floorHeight;
-		private int 			_frameTime, _animationDelay,
-									_noOnSpritesheetWidth,
-									_noOnSpritesheetHeight,
-									_widthCount, _heightCount;
-		private bool 		_jump;
-		private bool			_dead;
+		private SpriteUV 	_sprite, _fireDeathSprite;
 		
-		public bool IsDead() { return _dead; }
+		private TextureInfo	_textureInfo, _fireDeathTextureInfo;
+		
+		private Vector2		_min, _max, _velocity,
+							_jumpingVector, _jumpVelocity,
+							_movementVector;
+		
+		private Bounds2		_box, _bottomBox, _deathBox;
+		private float 		_scale, _angle, _size,
+							_gravity, _force,
+							_speed, _defaultYPos,
+							_floorHeight;
+		
+		private int 		_frameTime, _animationDelay,
+							_noOnSpritesheetWidth,
+							_noOnSpritesheetHeight,
+							_noOnFDSpritesheetWidth,
+							_noOnFDSpritesheetHeight,
+							_widthCount, _heightCount,
+							_fDwidthCount, _fDheightCount,
+							_counter;
+		
+		private bool 		_jump, _dead, _killed,
+							_killedByFire;
+		
+		
 		
 		//Public functions.
 		public Player (Scene scene, float floorHeight)
@@ -36,8 +45,6 @@ namespace Game
 			//Initialise Variables
 			_frameTime 				= 0;
 			_animationDelay 		= 3;
-			_widthCount 			= 0;
-			_heightCount 			= 0;	
 			_speed 					= 3.0f;
 			_size 					= 115.0f;
 			_scale 					= 1.00f;
@@ -51,12 +58,23 @@ namespace Game
 			_jumpVelocity 			= new Vector2(0.0f, 0.0f);
 			_jump  					= false;
 			_dead					= false;
+			_killed					= false;
+			_killedByFire			= false;
 			
 			//SpriteSheet Info
-			_textureInfo  			= new TextureInfo("/Application/textures/stick.png");
+			_textureInfo  			= new TextureInfo("/Application/textures/stick2.png");
 			_noOnSpritesheetWidth 	= 4;
 			_noOnSpritesheetHeight 	= 2;
 			_defaultYPos			= ((_textureInfo.TextureSizef.Y/_noOnSpritesheetHeight)*_scale)*0.5f;
+			_widthCount 			= 0;
+			_heightCount 			= _noOnSpritesheetHeight - 1;
+			
+			_fireDeathTextureInfo  		= new TextureInfo("/Application/textures/deathSpriteFire.png");
+			_noOnFDSpritesheetWidth 	= 4;
+			_noOnFDSpritesheetHeight 	= 4;
+			_counter 					= _noOnFDSpritesheetWidth * _noOnFDSpritesheetHeight;
+			_fDwidthCount 				= 0;
+			_fDheightCount 				= _noOnFDSpritesheetHeight - 1;
 			
 			//Create Sprite
 			_sprite	 				= new SpriteUV();
@@ -66,37 +84,60 @@ namespace Game
 			_sprite.Scale			= new Vector2(_scale, _scale);
 			_sprite.Position 		= new Vector2((Director.Instance.GL.Context.GetViewport().Width/2) - 400, _defaultYPos + _floorHeight);
 			_sprite.CenterSprite();
+			
+			_fireDeathSprite	 		= new SpriteUV();
+			_fireDeathSprite 			= new SpriteUV(_fireDeathTextureInfo);
+			_fireDeathSprite.UV.S 		= new Vector2(1.0f/_noOnFDSpritesheetWidth,1.0f/_noOnFDSpritesheetHeight);
+			_fireDeathSprite.Quad.S 	= new Vector2(_size, _size);
+			_fireDeathSprite.Scale		= new Vector2(1.5f, 1.5f);
+			_fireDeathSprite.Position 	= _sprite.Position;
+			_fireDeathSprite.CenterSprite();
+			
 			//Add to the current scene.
 			scene.AddChild(_sprite);
+			scene.AddChild(_fireDeathSprite);
+			
+			_fireDeathSprite.Visible = false;
 		}
 		
-		public void Dispose()
+		public void Dispose(Scene scene)
 		{
+			scene.RemoveChild(_sprite, true);
+			scene.RemoveChild(_fireDeathSprite, true);
 			_textureInfo.Dispose();
+			_fireDeathTextureInfo.Dispose();
 		}
 		
 		public void Update()
 		{
-			//Move Player
-			AnimatePlayer();
-			Move ();
-			CheckJump();
-			
-			//Stop player from falling through the ground
-			if (_sprite.Position.Y < _defaultYPos + _floorHeight)
+			if(!_killed)
 			{
-				_sprite.Position = new Vector2(_sprite.Position.X, _defaultYPos + _floorHeight);
-				_jump 			 = false;
+				//Move Player
+				AnimatePlayer();
+				Move ();
+				CheckJump();
+				
+				//Stop player from falling through the ground
+				if (_sprite.Position.Y < _defaultYPos + _floorHeight)
+				{
+					_sprite.Position = new Vector2(_sprite.Position.X, _defaultYPos + _floorHeight);
+					_jump 			 = false;
+				}
+				
+				//Rotate Player
+				if(_sprite.Angle > _angle)
+					_sprite.Rotate(-0.05f);
+				else if(_sprite.Angle < _angle)
+					_sprite.Rotate(0.05f);
+				
+				//Reset rotation;
+				_angle = 0.0f;
 			}
-			
-			//Rotate Player
-			if(_sprite.Angle > _angle)
-				_sprite.Rotate(-0.05f);
-			else if(_sprite.Angle < _angle)
-				_sprite.Rotate(0.05f);
-			
-			//Reset rotation;
-			_angle = 0.0f;
+			else
+			{
+				if(_killedByFire)
+					KillPlayerByFire();
+			}
 			
 			//Storing Bounds2 box data for collisions
 			_min.X					= _sprite.Position.X;
@@ -112,6 +153,7 @@ namespace Game
 			_max.Y					= _sprite.Position.Y - ((_size*_scale)*0.5f);
 			_bottomBox.Min 			= _min;			
 			_bottomBox.Max 			= _max;
+			
 		}
 		
 		private void AnimatePlayer()
@@ -122,19 +164,19 @@ namespace Game
 				{
 					if (_widthCount == _noOnSpritesheetWidth)
 					{
-						_heightCount++;
+						_heightCount--;
 						_widthCount = 0;
 					}
 					
-					if (_heightCount == _noOnSpritesheetHeight)
+					if (_heightCount < 0)
 					{
 						//_widthCount++;
-						_heightCount = 0;
+						_heightCount = _noOnSpritesheetHeight - 1;
 					}
 					
 					_sprite.UV.T = new Vector2((1.0f/_noOnSpritesheetWidth)*_widthCount,(1.0f/_noOnSpritesheetHeight)*_heightCount);
 					_widthCount++;
-					//_heightCount++;
+					//_heightCount--;
 					_frameTime = 0;
 				}
 				
@@ -177,11 +219,56 @@ namespace Game
 				
 		public void DoJump()
 		{
-			_jumpingVector 			= new Vector2(_sprite.Position.X + 800.0f, _sprite.Position.Y + 1200.0f);
-			_jumpVelocity 			= Normalize(_jumpingVector, _sprite.Position);
-			_jumpVelocity 			= new Vector2(_jumpVelocity.X * _force, _jumpVelocity.Y * _force);
-			_jump 					= true;
+			if(!_dead)
+			{
+				_jumpingVector 			= new Vector2(_sprite.Position.X + 800.0f, _sprite.Position.Y + 1200.0f);
+				_jumpVelocity 			= Normalize(_jumpingVector, _sprite.Position);
+				_jumpVelocity 			= new Vector2(_jumpVelocity.X * _force, _jumpVelocity.Y * _force);
+				_jump 					= true;
+			}
 		}
+		
+		private void KillPlayerByFire()
+		{
+			_fireDeathSprite.Position = _sprite.Position;
+			
+			if(_counter == 0)
+			{
+				_fireDeathSprite.Visible = false;
+				_dead = true;
+				_counter = _noOnFDSpritesheetWidth * _noOnFDSpritesheetHeight;
+			}
+			
+			
+			
+			if(_frameTime == _animationDelay)
+			{
+				if(_counter == 9)
+					_sprite.Visible = false;
+				
+				_counter--;
+				
+				//Spritesheet scrolling
+				if (_fDwidthCount == _noOnFDSpritesheetWidth)
+				{
+					_fDheightCount--;
+					_fDwidthCount = 0;
+				}
+			
+				if (_fDheightCount < 0)
+				{
+					_fDheightCount = _noOnFDSpritesheetHeight - 1;
+				}
+				
+				_fireDeathSprite.UV.T = new Vector2((1.0f/_noOnFDSpritesheetWidth)*_fDwidthCount,(1.0f/_noOnFDSpritesheetHeight)*_fDheightCount);
+				_fDwidthCount++;
+				
+				_frameTime = 0;
+			}
+			
+			_frameTime++;
+		}
+		
 		
 		//Get and set the size of the player
 		public void SetScale(float scale)
@@ -221,6 +308,15 @@ namespace Game
 		//Get the collision box of the player
 		public Bounds2 GetBox() { return _box; }
 		public Bounds2 GetBottomBox() { return _bottomBox; }
+		
+		//Set if the player was killed by fire
+		public void KillByFire() { _killed = true; _killedByFire = true; _fireDeathSprite.Visible = true; _frameTime = 0; _animationDelay = 2; }
+		
+		//Return if the player is dead
+		public bool IsDead() { return _dead; }
+		public bool HasBeenKilled() { return _killed; }
+		
+		public void IsntDead() { _killed = false; _sprite.Visible = true; }
 	}
 }
 

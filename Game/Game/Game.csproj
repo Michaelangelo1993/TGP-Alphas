@@ -110,5 +110,9 @@
     <Content Include="textures\stalactite.png" />
     <Content Include="textures\plank5.png" />
     <Content Include="textures\ropedone.png" />
+    <Content Include="textures\stick2.png" />
+    <Content Include="textures\underFloor.png" />
+    <Content Include="textures\deathSpriteFire.png" />
+    <Content Include="textures\stalagmite.png" />
   </ItemGroup>
 </Project>

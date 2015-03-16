@@ -20,7 +20,7 @@ namespace Game
 			// Overvide this
 		}
 		
-		public virtual void Dispose()
+		public virtual void Dispose(Scene scene)
 		{
 			// Overvide this
 		}

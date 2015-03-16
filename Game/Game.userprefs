@@ -1,13 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Game\Trap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\BrokenBridge.cs">
     <Files>
-      <File FileName="Game\AppMain.cs" Line="222" Column="19" />
-      <File FileName="Game\Player.cs" Line="66" Column="31" />
-      <File FileName="Game\Background.cs" Line="73" Column="57" />
-      <File FileName="Game\TntWall.cs" Line="160" Column="24" />
-      <File FileName="Game\Spring.cs" Line="152" Column="26" />
-      <File FileName="Game\Trap.cs" Line="28" Column="73" />
+      <File FileName="Game\AppMain.cs" Line="29" Column="82" />
+      <File FileName="Game\Player.cs" Line="323" Column="1" />
+      <File FileName="Game\Background.cs" Line="284" Column="1" />
+      <File FileName="Game\TntWall.cs" Line="104" Column="3" />
+      <File FileName="Game\Spring.cs" Line="111" Column="4" />
+      <File FileName="Game\Trap.cs" Line="54" Column="4" />
+      <File FileName="Game\HighScoreManager.cs" Line="58" Column="12" />
+      <File FileName="Game\BrokenBridge.cs" Line="79" Column="39" />
+      <File FileName="Game\DoorObs.cs" Line="48" Column="4" />
+      <File FileName="Game\Geiser.cs" Line="84" Column="4" />
+      <File FileName="Game\Obstacle.cs" Line="26" Column="4" />
+      <File FileName="Game\ObstacleManager.cs" Line="97" Column="4" />
+      <File FileName="Game\Pit.cs" Line="38" Column="4" />
+      <File FileName="Game\Seasaw.cs" Line="79" Column="3" />
+      <File FileName="Game\SpinObstacle.cs" Line="71" Column="4" />
+      <File FileName="Game\TutorialManager.cs" Line="154" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

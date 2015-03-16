@@ -16,6 +16,7 @@ namespace Game
 		private Trap trap;
 		private Pit pit;
 		private bool missedSpring;
+		private bool magmaTrap;
 		private Random rand;
 		
 		private bool ready;
@@ -29,7 +30,6 @@ namespace Game
 		private SpriteUV springSprite;
 		private SpriteUV springSprite2;
 		private TextureInfo springTextureInfo;
-		private TextureInfo spring2TextureInfo;
 		private float springOriginalHeight;
 		private float springCurrentHeight;
 		public float springWidth;
@@ -61,16 +61,16 @@ namespace Game
 			springReleased = false;
 			missedSpring = false;
 			beingPushed = false;
+			magmaTrap = true;
 			
 			// Initialise spring texture and sprite, get bounds and set position minus height offset
 			springTextureInfo 		= new TextureInfo("/Application/textures/Spring.png");
-			spring2TextureInfo		= new TextureInfo("/Application/textures/Spring.png");
 			
 			springSprite 			= new SpriteUV(springTextureInfo);
-			springSprite2			= new SpriteUV(spring2TextureInfo);
+			springSprite2			= new SpriteUV(springTextureInfo);
 			
 			springSprite.Quad.S 	= springTextureInfo.TextureSizef;
-			springSprite2.Quad.S 	= spring2TextureInfo.TextureSizef;
+			springSprite2.Quad.S 	= springTextureInfo.TextureSizef;
 			
 			Bounds2 springBounds 	= springSprite.Quad.Bounds2 ();
 			springWidth 			= springBounds.Point10.X;
@@ -101,10 +101,15 @@ namespace Game
 			scene.AddChild(springTopSprite);
 		}
 		
-		override public void Dispose()
-		{
+		override public void Dispose(Scene scene)
+		{	
+			trap.Dispose(scene);
+			pit.Dispose(scene);
+			scene.RemoveChild(springSprite, true);
+			scene.RemoveChild(springSprite2, true);
+			scene.RemoveChild(springTopSprite, true);
 			springTextureInfo.Dispose();
-			spring2TextureInfo.Dispose();
+			springTopTextureInfo.Dispose();
 		}
 		
 		public void WindSpring(float gameSpeed)
@@ -175,6 +180,9 @@ namespace Game
 			
 			if(Touch.GetData(0).ToArray().Length <= 0)
 				ReleaseSpring(true);
+			
+			if(magmaTrap && missedSpring && AppMain.GetPlayer().GetPos().X > springSprite2.Position.X + springTopWidth*1.5)
+					AppMain.GetPlayer().KillByFire();
 		}
 		
 		override public void Reset(float x)
@@ -185,13 +193,15 @@ namespace Game
 			{
 				// Magma
 				trap.Visible(true);
-				pit.Visible(false);				
+				pit.Visible(false);
+				magmaTrap = true;
 			}
 			else
 			{
 				// Magma
 				trap.Visible(false);
-				pit.Visible(true);					
+				pit.Visible(true);
+				magmaTrap = false;
 			}
 			
 			springReleased = true;
