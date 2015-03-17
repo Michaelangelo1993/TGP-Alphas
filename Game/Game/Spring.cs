@@ -205,7 +205,7 @@ namespace Game
 			}
 			
 			springReleased = true;
-			missedSpring = false;
+			missedSpring = true;
 			beingPushed = false;
 			
 			float sizeDifference = (springTopWidth - springWidth)/2;

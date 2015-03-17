@@ -238,9 +238,6 @@ namespace Game
 				_dead = true;
 				_counter = _noOnFDSpritesheetWidth * _noOnFDSpritesheetHeight;
 			}
-			
-			
-			
 			if(_frameTime == _animationDelay)
 			{
 				if(_counter == 9)

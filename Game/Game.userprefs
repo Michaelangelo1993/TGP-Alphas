@@ -1,12 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Game\BrokenBridge.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game\Spring.cs">
     <Files>
       <File FileName="Game\AppMain.cs" Line="29" Column="82" />
-      <File FileName="Game\Player.cs" Line="323" Column="1" />
+      <File FileName="Game\Player.cs" Line="238" Column="4" />
       <File FileName="Game\Background.cs" Line="284" Column="1" />
       <File FileName="Game\TntWall.cs" Line="104" Column="3" />
-      <File FileName="Game\Spring.cs" Line="111" Column="4" />
+      <File FileName="Game\Spring.cs" Line="208" Column="23" />
       <File FileName="Game\Trap.cs" Line="54" Column="4" />
       <File FileName="Game\HighScoreManager.cs" Line="58" Column="12" />
       <File FileName="Game\BrokenBridge.cs" Line="79" Column="39" />
@@ -21,7 +21,9 @@
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="A:\Documents\GitHub\TGP-Alphas\Game\Game\Player.cs" line="231" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
