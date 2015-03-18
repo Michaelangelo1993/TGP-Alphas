@@ -152,7 +152,10 @@ namespace Game
 				
 					// Check for collision with player
 					if(AppMain.GetPlayer().GetBottomBox().Overlaps(_box))
+					{
+						missedSpring = false;						
 						AppMain.GetPlayer().DoJump();
+					}
 					
 					// Update spring height
 					if(springCurrentHeight < springOriginalHeight)
