@@ -87,6 +87,20 @@ namespace Game
 					doorSprite2.Position = new Vector2(doorSprite2.Position.X, doorSprite2.Position.Y-gameSpeed*3);
 				else
 					door2Count-=gameSpeed/3;
+			
+			// Deaths
+			if(doorSprite.Position.Y < AppMain.GetPlayer().GetPos().Y+50 &&
+			   doorSprite.Position.X < AppMain.GetPlayer().GetPos().X+50 &&
+			   doorSprite.Position.X > AppMain.GetPlayer().GetPos().X-50)
+			{
+				AppMain.GetPlayer().KillByFire();
+			}
+			else if(doorSprite2.Position.Y < AppMain.GetPlayer().GetPos().Y+50 &&
+			   doorSprite2.Position.X < AppMain.GetPlayer().GetPos().X+50 &&
+			   doorSprite2.Position.X > AppMain.GetPlayer().GetPos().X-50)
+			{
+				AppMain.GetPlayer().KillByFire();
+			}
 		}
 		
 		

@@ -186,6 +186,10 @@ namespace Game
 			
 			if(magmaTrap && missedSpring && AppMain.GetPlayer().GetPos().X > springSprite2.Position.X + springTopWidth*1.5)
 					AppMain.GetPlayer().KillByFire();
+			
+			
+			if(!magmaTrap && missedSpring && AppMain.GetPlayer().GetPos().X > springSprite2.Position.X + springTopWidth*1.5)
+					AppMain.GetPlayer().KillByFire();
 		}
 		
 		override public void Reset(float x)

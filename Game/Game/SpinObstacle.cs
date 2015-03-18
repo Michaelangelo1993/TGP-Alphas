@@ -89,6 +89,23 @@ namespace Game
 				else if (spinSprite[i].Angle < 1.02f)
 					spinSprite[i].Angle 	= 1.02f;
 			}
+			
+			
+			// check death
+			foreach(SpriteUV s in spinSprite)
+			{
+				// Check player within object bounds
+				if(AppMain.GetPlayer().GetPos().X > s.Position.X - 100 &&
+				   AppMain.GetPlayer().GetPos().X < s.Position.X + 100)
+				{
+					// Left side of obstacle
+					if(AppMain.GetPlayer().GetPos().X < (s.Position.X-50) && s.Angle <= 1.02)
+						AppMain.GetPlayer().KillByFire();
+					// Right side of obstacle
+					else if(AppMain.GetPlayer().GetPos().X > (s.Position.X+50) && s.Angle >= 2.12)
+						AppMain.GetPlayer().KillByFire();
+				}
+			}
 		}
 
 		public void Right(float gameSpeed)	
