@@ -281,9 +281,7 @@ namespace Game
 			background.Dispose(gameScene);
 			obstacleManager.CleanUp(gameScene);
 			player.Dispose(gameScene);
-			background.addUnderFloor(gameScene);
 			tutorialManager.Dispose(gameScene);
-			uiScene.Visible = false;
 		}
 		
 		public static void UpdateScore()
