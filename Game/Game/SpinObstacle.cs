@@ -6,6 +6,7 @@ using Sce.PlayStation.Core.Graphics;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
+using Sce.PlayStation.Core.Audio;
 
 namespace Game
 {
@@ -18,6 +19,9 @@ namespace Game
 		private 	Bounds2		spinBounds;
 		private 	TextureInfo	textureSpinObstacle;
 		private 	TextureInfo	textureSpinPiv;
+		
+		private  Sound		soundDeath;
+		private  SoundPlayer 	deathPlayer;
 		
 		private int 	 numberOfObstacles = 3;
 		
@@ -99,11 +103,17 @@ namespace Game
 				   AppMain.GetPlayer().GetPos().X < s.Position.X + 100)
 				{
 					// Left side of obstacle
-					if(AppMain.GetPlayer().GetPos().X < (s.Position.X-50) && s.Angle <= 1.02)
+					if(AppMain.GetPlayer().GetPos().X < (s.Position.X-70) && s.Angle >= 2.12)
+					{
 						AppMain.GetPlayer().KillByFire();
+						deathPlayer.Play ();
+					}
 					// Right side of obstacle
-					else if(AppMain.GetPlayer().GetPos().X > (s.Position.X+50) && s.Angle >= 2.12)
+					else if(AppMain.GetPlayer().GetPos().X > (s.Position.X+70) && s.Angle <= 1.02)
+					{
 						AppMain.GetPlayer().KillByFire();
+						deathPlayer.Play ();
+					}
 				}
 			}
 		}

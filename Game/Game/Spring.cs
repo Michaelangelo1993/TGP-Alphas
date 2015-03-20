@@ -6,6 +6,7 @@ using Sce.PlayStation.Core.Input;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
+using Sce.PlayStation.Core.Audio;
 
 
 
@@ -39,6 +40,9 @@ namespace Game
 		
 		private Vector2		_min, _max;
 		private Bounds2		_box;
+		
+		private static Sound		soundJump;
+		private static SoundPlayer 	jumpPlayer;
 				
 		public float GetOriginalHeight { get { return springOriginalHeight; }}
 		public bool BeingPushed { get { return beingPushed; }}
@@ -94,6 +98,9 @@ namespace Game
 			pit = new Pit(scene, new Vector2((position.X + 125 + sizeDifference), 60));	
 			
 			springTopSprite.Position = new Vector2(position.X + sizeDifference, springSprite.Position.Y + springBounds.Point01.Y - 20);
+			
+			soundJump = new Sound("/Application/sounds/jump.wav");
+			jumpPlayer = soundJump.CreatePlayer();
 			
 			// Add sprites to scene
 			scene.AddChild(springSprite);
@@ -165,6 +172,10 @@ namespace Game
 						springSprite.Scale = new Vector2(springSprite.Scale.X, springCurrentHeight/springOriginalHeight);
 						springSprite2.Scale = new Vector2(springSprite2.Scale.X, springCurrentHeight/springOriginalHeight);
 					}
+					
+					if(springCurrentHeight <=55)
+			  			jumpPlayer.Play();
+					
 					else
 						springReleased = false;	
 				}

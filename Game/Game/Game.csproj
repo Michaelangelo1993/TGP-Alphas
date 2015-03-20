@@ -42,6 +42,7 @@
     <Folder Include="shaders\" />
     <Folder Include="textures\" />
     <Folder Include="textures\tutorial\" />
+    <Folder Include="sounds\" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Texture.fcg" />
@@ -68,6 +69,7 @@
     <Compile Include="Pit.cs" />
     <Compile Include="HighScoreManager.cs" />
     <Compile Include="BrokenBridge.cs" />
+    <Compile Include="Meteor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\rock.png" />
@@ -114,5 +116,23 @@
     <Content Include="textures\underFloor.png" />
     <Content Include="textures\deathSpriteFire.png" />
     <Content Include="textures\stalagmite.png" />
+    <Content Include="textures\meteorLine.png" />
+    <Content Include="textures\meteorSprite.png" />
+    <Content Include="sounds\bang.mp3" />
+    <Content Include="sounds\bang2.wav" />
+    <Content Include="sounds\bgm.wav" />
+    <Content Include="sounds\chaching.wav" />
+    <Content Include="sounds\click.wav" />
+    <Content Include="sounds\crank.wav" />
+    <Content Include="sounds\death.mp3" />
+    <Content Include="sounds\die.wav" />
+    <Content Include="sounds\jump.wav" />
+    <Content Include="sounds\nextlevel.wav" />
+    <Content Include="sounds\shoot.wav" />
+    <Content Include="sounds\shoot2.wav" />
+    <Content Include="sounds\shoot3.mp3" />
+    <Content Include="sounds\stone.wav" />
+    <Content Include="sounds\walk.wav" />
+    <Content Include="sounds\walking.mp3" />
   </ItemGroup>
 </Project>

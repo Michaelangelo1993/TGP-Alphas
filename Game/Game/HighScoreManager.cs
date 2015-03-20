@@ -28,17 +28,17 @@ namespace Game
 			_scores = ReadHighScores();
 		}
 		
-		public void SaveScore(string score)
+		public void SaveScore(int newScore)
 		{
             EmptyHighScores();
-			int newScore = Convert.ToInt32(score);
+			string score = newScore.ToString ();
 			
 			for(int i = 0; i < _scores.Length; i++)
 			{
 				if(newScore > Convert.ToInt32(_scores[i]))
 				{
 					// Shuffle scores down
-                    for (int j = _scores.Length; j > i; j--)
+                    for (int j = _scores.Length-1; j > i; j--)
 						_scores[j] = _scores[j-1];
 					
 					// Set the new score in its place
@@ -79,7 +79,21 @@ namespace Game
 				// Empty stored scores, and write to file
 				for(int i = 0; i < _scores.Length; i++)
 				{
-					_scores[i] = "< Empty >";
+					sw.WriteLine(_scores[i]);
+				} 
+            }
+		}
+		
+		public void ClearHighScores()
+		{
+			File.Delete(_filePath);
+			
+			using(StreamWriter sw = File.AppendText(_filePath))
+			{
+				// Empty stored scores, and write to file
+				for(int i = 0; i < _scores.Length; i++)
+				{
+					_scores[i] = "0";
 					sw.WriteLine(_scores[i]);
 				} 
             }

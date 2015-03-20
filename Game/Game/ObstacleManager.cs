@@ -34,11 +34,13 @@ namespace Game
 			deactiveObstacles.Add(new Spring(scene, new Vector2(-1000.0f, 60.0f)));
 			deactiveObstacles.Add(new SpinObstacle(scene, new Vector2(-1000.0f, 0.0f)));
 			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 60.0f)));
+			deactiveObstacles.Add(new Meteor(scene, new Vector2(-1500.0f, 544.0f)));
 			deactiveObstacles.Add(new TntWall(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new Seasaw(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new Spring(scene, new Vector2(-1000.0f, 60.0f)));
 			deactiveObstacles.Add(new SpinObstacle(scene, new Vector2(-1000.0f, 0.0f)));
 			deactiveObstacles.Add(new Geiser(scene, new Vector2(-1000.0f, 60.0f)));
+			deactiveObstacles.Add(new Meteor(scene, new Vector2(-1500.0f, 544.0f)));
 			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new DoorObs(scene, -1000.0f, 100.0f));
 			deactiveObstacles.Add(new BrokenBridge(scene,new Vector2(-1000.0f, 60.0f)));

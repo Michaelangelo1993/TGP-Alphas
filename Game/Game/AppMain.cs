@@ -9,6 +9,7 @@ using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
+using Sce.PlayStation.Core.Audio;
 	
 namespace Game
 {
@@ -25,6 +26,7 @@ namespace Game
 		private static HighScoreManager highscoresManager;
 		private static Background		background;
 		private static Player 			player;
+		private static BgmPlayer 		mp3Player;
 				
 		private static int 				frameTime = 0, currentFrameTime = 0, scoreFrameTime = 0;
 		private static float			moveSpeed = 3.0f, maxSpeed = 9.0f;
@@ -112,6 +114,9 @@ namespace Game
 			gameSpeedLabel.Text = "Game Speed: " + moveSpeed.ToString("N1");	
 			panel.AddChildLast(gameSpeedLabel);
 			
+			Bgm bgmMusic = new Bgm("/Application/music/157172__danipenet__distant-world.mp3");
+			mp3Player = bgmMusic.CreatePlayer();
+			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 			screenManager = new ScreenManager(gameScene);
@@ -126,7 +131,13 @@ namespace Game
 				// Transition Finished, load relevant data
 				if(!screenManager.IsTransitioning())
 					if(screenManager.GetScreen() == Screens.Game)
+				{
 						SetupGame();
+						mp3Player.Play();
+				}
+					else if(screenManager.GetScreen() == Screens.GameOver)
+						gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
+			                           		new Vector2((Director.Instance.GL.Context.GetViewport().Width*0.5f), Director.Instance.GL.Context.GetViewport().Height*0.5f));
 			}
 			else
 			{
@@ -168,6 +179,7 @@ namespace Game
 			{
 				screenManager.ChangeScreenTo(Screens.GameOver);
 				DestroyGame();
+				highscoresManager.SaveScore((int)score);
 			}	
 		}
 		
@@ -232,7 +244,7 @@ namespace Game
 					// Tapped bottom left quadrant :: Clear High Scores
 					if(Touch.GetData (0).Count > 0 && touchPos.Y < 0 && touchPos.X < 0)
 					{
-						highscoresManager.EmptyHighScores();
+						highscoresManager.ClearHighScores();
 						highscoresLabel.Text = highscoresManager.GetHighScores();
 					}
 					// Tapped bottom right quadrant :: Back to Menu
