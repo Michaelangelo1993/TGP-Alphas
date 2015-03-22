@@ -22,6 +22,9 @@ namespace Game
 		private SpriteUV 	dynaSprite;
 		private TextureInfo	dynaTextureInfo;
 		
+		private SpriteUV	plungerHandleSprite;
+		private TextureInfo plungerHandleTextureInfo;
+		
 		private bool		blown = false;
 		private bool		ready, beingPushed, enlarged;
 		private int 		counter = 0, noOnSpritesheetWidth = 5, noOnSpritesheetHeight 	= 5, 
@@ -42,11 +45,12 @@ namespace Game
 			heightCount = noOnSpritesheetHeight - 1;
 			
 			//Textures
-			boxTextureInfo 			= new TextureInfo("/Application/textures/box2.png");
-			pluTextureInfo			= new TextureInfo("/Application/textures/tntplun2.png");
-			rockTextureInfo 		= new TextureInfo("/Application/textures/rock.png");
-			exploTextureInfo 		= new TextureInfo("/Application/textures/explosion.png");
-			dynaTextureInfo	 		= new TextureInfo("/Application/textures/dyno2.png");
+			boxTextureInfo 			 = new TextureInfo("/Application/textures/box2.png");
+			pluTextureInfo			 = new TextureInfo("/Application/textures/tntplun2.png");
+			rockTextureInfo 		 = new TextureInfo("/Application/textures/rock.png");
+			exploTextureInfo 		 = new TextureInfo("/Application/textures/explosion.png");
+			dynaTextureInfo	 		 = new TextureInfo("/Application/textures/dyno2.png");
+			plungerHandleTextureInfo = new TextureInfo("/Application/textures/plungerHandle.png");
 			
 			//Sprites			
 			boxSprite	 			= new SpriteUV(boxTextureInfo);
@@ -54,6 +58,7 @@ namespace Game
 			rockSprite 				= new SpriteUV(rockTextureInfo);	
 			exploSprite 			= new SpriteUV(exploTextureInfo);
 			dynaSprite 				= new SpriteUV(dynaTextureInfo);
+			plungerHandleSprite		= new SpriteUV(plungerHandleTextureInfo);
 			
 			boxSprite.Quad.S 		= boxTextureInfo.TextureSizef;
 			boxSprite.Position		= new Vector2(x, y);
@@ -63,6 +68,9 @@ namespace Game
 			
 			pluSprite.Quad.S 		= pluTextureInfo.TextureSizef;
 			pluSprite.Position 		= new Vector2(x, y + 44.0f);
+			
+			plungerHandleSprite.Quad.S 		= plungerHandleTextureInfo.TextureSizef;
+			plungerHandleSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y + pluSprite.Quad.Point01.Y);
 			
 			rockSprite.Quad.S 		= rockTextureInfo.TextureSizef;
 			rockSprite.Position 	= new Vector2(x+200.0f, y);
@@ -80,6 +88,7 @@ namespace Game
 			scene.AddChild(boxSprite);
 			scene.AddChild(dynaSprite);
 			scene.AddChild(exploSprite);
+			scene.AddChild(plungerHandleSprite);
 			
 			//Ready and counter initialisation
 			ready 	= true;
@@ -97,8 +106,10 @@ namespace Game
 			scene.RemoveChild(boxSprite, true);
 			scene.RemoveChild(dynaSprite, true);
 			scene.RemoveChild(exploSprite, true);
+			scene.RemoveChild(plungerHandleSprite, true);
 			boxTextureInfo.Dispose();
 			pluTextureInfo.Dispose();
+			plungerHandleTextureInfo.Dispose();
 			rockTextureInfo.Dispose();
 			exploTextureInfo.Dispose();
 			dynaTextureInfo.Dispose();
@@ -109,28 +120,19 @@ namespace Game
 			//If the trap is ready and being pushed, blow up the rock
 			if(ready && beingPushed)
 			{
-				// If enlarged, scale sprite back whilst moving sprite down 
-				if(enlarged)
-				{
-					pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-(t/3));
-					if(pluSprite.Scale.Y > 1)
-						pluSprite.Scale = new Vector2(1, pluSprite.Scale.Y-t/60);
-					
-					if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
-					{
-						blowUpRock ();
-						ready = false;
-					}
+				float yPos = AppMain.GetTouchPosition().Y;
+				
+				if(yPos + 13 < plungerHandleSprite.Position.Y)
+				{ // 13 is handle height
+					plungerHandleSprite.Position = new Vector2(plungerHandleSprite.Position.X, yPos + 13);
+					pluSprite.Scale = new Vector2(1,(plungerHandleSprite.Position.Y - pluSprite.Position.Y) / 51); // 51 = plunger height (required incase enlarged)
 				}
-				else
+				
+				if(plungerHandleSprite.Position.Y <= boxSprite.Position.Y + 74.0f) // 64 = box height, add 10 for spacing
 				{
-					pluSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y-(t/3));
-					
-					if(pluSprite.Position.Y <= boxSprite.Position.Y + 10.0f)
-					{
-						blowUpRock ();
-						ready = false;
-					}
+					plungerHandleSprite.Position = new Vector2(plungerHandleSprite.Position.X, boxSprite.Position.Y + 74.0f);
+					blowUpRock ();
+					ready = false;
 				}
 			}
 			
@@ -164,6 +166,7 @@ namespace Game
 			boxSprite.Position 	 += new Vector2(-t, 0);
 			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			pluSprite.Position	 = new Vector2(pluSprite.Position.X - t, pluSprite.Position.Y);
+			plungerHandleSprite.Position = new Vector2(pluSprite.Position.X, plungerHandleSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(dynaSprite.Position.X - 230.0f, dynaSprite.Position.Y - 150.0f);
 			
@@ -224,17 +227,20 @@ namespace Game
 			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(dynaSprite.Position.X, dynaSprite.Position.Y);
+			plungerHandleSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y + pluSprite.Quad.Point01.Y);
 			
 			// 30% chance to have triple size plunger
 			if(randomNum > 2)
 			{
 				enlarged = false;
 				pluSprite.Scale = new Vector2(1,1);
+				plungerHandleSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y + pluSprite.Quad.Point01.Y);
 			}
 			else
 			{
 				enlarged = true;
 				pluSprite.Scale = new Vector2(1,3);
+				plungerHandleSprite.Position = new Vector2(pluSprite.Position.X, pluSprite.Position.Y + pluSprite.Quad.Point01.Y*3);
 			}
 			
 			counter = 20;

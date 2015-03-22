@@ -135,5 +135,6 @@
     <Content Include="sounds\death.wav" />
     <Content Include="sounds\shoot3.wav" />
     <Content Include="sounds\walking.wav" />
+    <Content Include="textures\plungerHandle.png" />
   </ItemGroup>
 </Project>
