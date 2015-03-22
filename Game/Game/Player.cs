@@ -266,6 +266,17 @@ namespace Game
 			_frameTime++;
 		}
 		
+			//Set if the player was killed by fire
+		public void KillByFire() 
+		{
+			_killed = true;
+			_killedByFire = true;
+			_fireDeathSprite.Visible = true;
+			_frameTime = 0;
+			_animationDelay = 2;
+			
+			AppMain.GetSoundManager().PlayDeath();
+		}		
 		
 		//Get and set the size of the player
 		public void SetScale(float scale)
@@ -305,9 +316,6 @@ namespace Game
 		//Get the collision box of the player
 		public Bounds2 GetBox() { return _box; }
 		public Bounds2 GetBottomBox() { return _bottomBox; }
-		
-		//Set if the player was killed by fire
-		public void KillByFire() { _killed = true; _killedByFire = true; _fireDeathSprite.Visible = true; _frameTime = 0; _animationDelay = 2; }
 		
 		//Return if the player is dead
 		public bool IsDead() { return _dead; }

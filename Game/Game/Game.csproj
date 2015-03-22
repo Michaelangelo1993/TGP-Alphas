@@ -70,6 +70,7 @@
     <Compile Include="HighScoreManager.cs" />
     <Compile Include="BrokenBridge.cs" />
     <Compile Include="Meteor.cs" />
+    <Compile Include="SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\rock.png" />
@@ -118,21 +119,21 @@
     <Content Include="textures\stalagmite.png" />
     <Content Include="textures\meteorLine.png" />
     <Content Include="textures\meteorSprite.png" />
-    <Content Include="sounds\bang.mp3" />
     <Content Include="sounds\bang2.wav" />
     <Content Include="sounds\bgm.wav" />
     <Content Include="sounds\chaching.wav" />
     <Content Include="sounds\click.wav" />
     <Content Include="sounds\crank.wav" />
-    <Content Include="sounds\death.mp3" />
     <Content Include="sounds\die.wav" />
     <Content Include="sounds\jump.wav" />
     <Content Include="sounds\nextlevel.wav" />
     <Content Include="sounds\shoot.wav" />
     <Content Include="sounds\shoot2.wav" />
-    <Content Include="sounds\shoot3.mp3" />
     <Content Include="sounds\stone.wav" />
     <Content Include="sounds\walk.wav" />
-    <Content Include="sounds\walking.mp3" />
+    <Content Include="sounds\bang.wav" />
+    <Content Include="sounds\death.wav" />
+    <Content Include="sounds\shoot3.wav" />
+    <Content Include="sounds\walking.wav" />
   </ItemGroup>
 </Project>

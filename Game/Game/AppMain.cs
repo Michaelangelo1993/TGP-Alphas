@@ -9,7 +9,6 @@ using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
-using Sce.PlayStation.Core.Audio;
 	
 namespace Game
 {
@@ -24,9 +23,9 @@ namespace Game
 		private static TutorialManager  tutorialManager;
 		private static ObstacleManager  obstacleManager;
 		private static HighScoreManager highscoresManager;
+		private static SoundManager		soundManager;
 		private static Background		background;
 		private static Player 			player;
-		private static BgmPlayer 		mp3Player;
 				
 		private static int 				frameTime = 0, currentFrameTime = 0, scoreFrameTime = 0;
 		private static float			moveSpeed = 3.0f, maxSpeed = 9.0f;
@@ -36,6 +35,7 @@ namespace Game
 		private static Vector2 newTouchPos = new Vector2( 0.0f, 0.0f ); // Position of last touch on screen
 		public static void SetShake(bool shake) { shakeCamera = shake; }
 		public static Player GetPlayer() { return player; }
+		public static SoundManager GetSoundManager() { return soundManager; }
 		public static Background GetBackground() { return background; }
 		
 		// score
@@ -100,7 +100,6 @@ namespace Game
 			highscoresPanel.AddChildLast(highscoresLabel);
 			highscoresScene.RootWidget.AddChildLast(highscoresPanel);
 			
-			
 			// Setup ui scene labels		
 			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
 			scoreLabel.SetPosition(10,8);
@@ -114,8 +113,7 @@ namespace Game
 			gameSpeedLabel.Text = "Game Speed: " + moveSpeed.ToString("N1");	
 			panel.AddChildLast(gameSpeedLabel);
 			
-			Bgm bgmMusic = new Bgm("/Application/music/157172__danipenet__distant-world.mp3");
-			mp3Player = bgmMusic.CreatePlayer();
+			soundManager = new SoundManager();
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -133,7 +131,7 @@ namespace Game
 					if(screenManager.GetScreen() == Screens.Game)
 				{
 						SetupGame();
-						mp3Player.Play();
+						soundManager.PlayBGM();
 				}
 					else if(screenManager.GetScreen() == Screens.GameOver)
 						gameScene.Camera2D.SetViewY(new Vector2(0.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f),
