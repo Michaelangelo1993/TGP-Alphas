@@ -189,6 +189,9 @@ namespace Game
 			
 			if(Touch.GetData(0).ToArray().Length <= 0)
 				ReleasePlunger();
+			
+			if(!blown && AppMain.GetPlayer().GetPos().X > rockSprite.Position.X)
+				AppMain.GetPlayer().KillByFire();
 		}
 		
 		public void blowUpRock()

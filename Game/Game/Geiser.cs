@@ -127,6 +127,9 @@ namespace Game
 			{
 				BreakSpike();
 			}
+			
+			if(geiserOn && AppMain.GetPlayer().GetPos().X > geiserSprite.Position.X)
+				AppMain.GetPlayer().KillByFire();
 		}
 		
 		private void AnimateGeiser()

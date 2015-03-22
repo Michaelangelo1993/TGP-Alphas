@@ -104,6 +104,9 @@ namespace Game
 				AppMain.GetPlayer().SetAngle(_angle);
 				AppMain.GetPlayer().SetYPos(GetNewPlayerYPos(AppMain.GetPlayer().GetPos()));
 			}
+			
+			if(!_onObstacle && AppMain.GetPlayer().GetPos().X > _sprite.Position.X && AppMain.GetPlayer().GetPos().X < GetEndPosition())
+				AppMain.GetPlayer().KillByFire();
 		}
 		
 		override public void Reset(float x)

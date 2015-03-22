@@ -125,6 +125,12 @@ namespace Game
 			{
 				missedBridge = false;
 			}
+			else if(missedBridge && AppMain.GetPlayer().GetPos().Y-115/2 < plankSprite.Position.Y && 
+			        AppMain.GetPlayer().GetPos().X > plankSprite.Position.X + 30 &&
+			   	    AppMain.GetPlayer().GetPos().X < plankSprite.Position.X + ropeBROffset.X + 50)
+			{
+				AppMain.GetPlayer().KillByFire();
+			}
 		}
 		
 		private void MoveObjectsLeft(float gameSpeed)
