@@ -12,6 +12,8 @@ namespace Game
 		//Sprites
 		private SpriteUV 	boxSprite;
 		private TextureInfo	boxTextureInfo;
+		private SpriteUV 	boxFrontSprite;
+		private TextureInfo	boxFrontTextureInfo;
 		private SpriteUV 	pluSprite;
 		private TextureInfo	pluTextureInfo;
 		private SpriteUV 	rockSprite;
@@ -51,9 +53,11 @@ namespace Game
 			exploTextureInfo 		 = new TextureInfo("/Application/textures/explosion.png");
 			dynaTextureInfo	 		 = new TextureInfo("/Application/textures/dyno2.png");
 			plungerHandleTextureInfo = new TextureInfo("/Application/textures/plungerHandle.png");
+			boxFrontTextureInfo 	= new TextureInfo("/Application/textures/boxFront.png");
 			
 			//Sprites			
 			boxSprite	 			= new SpriteUV(boxTextureInfo);
+			boxFrontSprite			= new SpriteUV(boxFrontTextureInfo);
 			pluSprite 				= new SpriteUV(pluTextureInfo);	
 			rockSprite 				= new SpriteUV(rockTextureInfo);	
 			exploSprite 			= new SpriteUV(exploTextureInfo);
@@ -62,6 +66,9 @@ namespace Game
 			
 			boxSprite.Quad.S 		= boxTextureInfo.TextureSizef;
 			boxSprite.Position		= new Vector2(x, y);
+			
+			boxFrontSprite.Quad.S 	= boxFrontTextureInfo.TextureSizef;
+			boxFrontSprite.Position	= new Vector2(x, y);
 			
 			dynaSprite.Quad.S 		= boxTextureInfo.TextureSizef;
 			dynaSprite.Position 	= new Vector2(x + 120.0f, y);
@@ -84,8 +91,9 @@ namespace Game
 			exploSprite.Visible 	= false;
 			
 			scene.AddChild(rockSprite);
-			scene.AddChild(pluSprite);
 			scene.AddChild(boxSprite);
+			scene.AddChild(pluSprite);
+			scene.AddChild(boxFrontSprite);
 			scene.AddChild(dynaSprite);
 			scene.AddChild(exploSprite);
 			scene.AddChild(plungerHandleSprite);
@@ -164,6 +172,7 @@ namespace Game
 			}
 			//Move the sprites
 			boxSprite.Position 	 += new Vector2(-t, 0);
+			boxFrontSprite.Position = new Vector2(boxSprite.Position.X, boxSprite.Position.Y);
 			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			pluSprite.Position	 = new Vector2(pluSprite.Position.X - t, pluSprite.Position.Y);
 			plungerHandleSprite.Position = new Vector2(pluSprite.Position.X, plungerHandleSprite.Position.Y);
@@ -223,7 +232,8 @@ namespace Game
 			dynaSprite.Visible  = true;
 			
 			boxSprite.Position  = new Vector2(x, boxSprite.Position.Y);
-			pluSprite.Position  = new Vector2(boxSprite.Position.X, boxSprite.Position.Y +44);
+			boxFrontSprite.Position  = new Vector2(x, boxSprite.Position.Y);
+			pluSprite.Position  = new Vector2(boxSprite.Position.X + 5.0f, boxSprite.Position.Y +50.0f);
 			dynaSprite.Position  = new Vector2(boxSprite.Position.X + 120.0f, boxSprite.Position.Y);
 			rockSprite.Position  = new Vector2(boxSprite.Position.X + 200.0f, boxSprite.Position.Y); 
 			exploSprite.Position = new Vector2(dynaSprite.Position.X, dynaSprite.Position.Y);

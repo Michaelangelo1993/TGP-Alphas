@@ -76,13 +76,13 @@ namespace Game
 			doorSprite2.Position 	 += new Vector2(-gameSpeed, 0);
 			
 			//Lower the doors if not being touched
-			if(doorSprite.Position.Y > 100 && !beingPushed1)
+			if(doorSprite.Position.Y > 60 && !beingPushed1)
 				if(door1Count <= 0)
 					doorSprite.Position = new Vector2(doorSprite.Position.X, doorSprite.Position.Y-gameSpeed*3);
 				else
 					door1Count-=gameSpeed/3;
 			
-			if(doorSprite2.Position.Y > 100 && !beingPushed2)
+			if(doorSprite2.Position.Y > 60 && !beingPushed2)
 				if(door2Count <= 0)
 					doorSprite2.Position = new Vector2(doorSprite2.Position.X, doorSprite2.Position.Y-gameSpeed*3);
 				else
@@ -123,8 +123,8 @@ namespace Game
 				
 			else
 			{
-				doorSprite.Position = new Vector2(doorSprite.Position.X, 100.0f);
-				doorSprite2.Position = new Vector2(doorSprite2.Position.X, 100.0f);
+				doorSprite.Position = new Vector2(doorSprite.Position.X, 60.0f);
+				doorSprite2.Position = new Vector2(doorSprite2.Position.X, 60.0f);
 			}
 		}
 		

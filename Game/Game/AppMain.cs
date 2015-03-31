@@ -320,8 +320,8 @@ namespace Game
 			{
 				UISystem.SetScene(highscoresScene);
 				highscoresLabel.Text = highscoresManager.GetHighScores();
-				highscoresLabel.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - 55,
-											Director.Instance.GL.Context.GetViewport().Height/2 - highscoresLabel.Height /2 + 100);
+				highscoresLabel.SetPosition(Director.Instance.GL.Context.GetViewport().Width/2 - 15.0f,
+											Director.Instance.GL.Context.GetViewport().Height/2 + 5.0f);
 			}
 			else
 				UISystem.SetScene(null);
