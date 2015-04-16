@@ -26,6 +26,9 @@ namespace Game
 		private static SoundManager		soundManager;
 		private static Background		background;
 		private static Player 			player;
+		
+		private static TextureInfo		rTextureInfo;
+		private static SpriteUV			rSprite;
 				
 		private static int 				frameTime = 0, currentFrameTime = 0, scoreFrameTime = 0;
 		private static float			moveSpeed = 3.0f, maxSpeed = 9.0f;
@@ -115,6 +118,15 @@ namespace Game
 			
 			soundManager = new SoundManager();
 			
+			//Create Sprite
+			rTextureInfo  			= new TextureInfo("/Application/textures/reset.png");
+			rSprite	 				= new SpriteUV();
+			rSprite 				= new SpriteUV(rTextureInfo);
+			rSprite.Quad.S 			= rTextureInfo.TextureSizef;
+			rSprite.Scale 			= new Vector2(1.0f, 1.0f);
+			rSprite.Position 		= new Vector2(0.0f, 0.0f);
+			rSprite.CenterSprite();
+			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 			screenManager = new ScreenManager(gameScene);
@@ -153,6 +165,22 @@ namespace Game
 						else
 							UpdateTouchData();
 					break;
+						
+					case Screens.GameOver:
+						Vector2 touchPos = Input2.Touch00.Pos;
+						
+						if(touchPos.X >=0)
+							touchPos = new Vector2((touchPos.X * 450) + 450, (touchPos.Y * 272)+272);	
+						else
+							touchPos = new Vector2(((touchPos.X+1) * 450), ((touchPos.Y+1) * 272));
+						Bounds2 touchBox = new Bounds2(touchPos,touchPos);
+						if(touchBox.Overlaps(rSprite.GetlContentLocalBounds()))
+						{
+							screenManager.ChangeScreenTo(Screens.Menu);
+							gameScene.RemoveChild(rSprite, false);
+						}
+					
+					break;
 				}
 			}			
 		}
@@ -176,6 +204,7 @@ namespace Game
 			if(player.IsDead())
 			{
 				screenManager.ChangeScreenTo(Screens.GameOver);
+				gameScene.AddChild(rSprite);
 				DestroyGame();
 				highscoresManager.SaveScore((int)score);
 			}	

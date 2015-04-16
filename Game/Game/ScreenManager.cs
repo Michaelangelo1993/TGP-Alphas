@@ -44,6 +44,8 @@ namespace Game
 			_bgSprite.Scale = new Vector2(960.0f, 544.0f);
 			_bgSprite.Color.A = 0.0f;
 			
+			
+			
 			scene.AddChild(_bgSprite);
 		}
 		

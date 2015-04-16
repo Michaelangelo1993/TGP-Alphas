@@ -137,5 +137,6 @@
     <Content Include="sounds\walking.wav" />
     <Content Include="textures\plungerHandle.png" />
     <Content Include="textures\boxFront.png" />
+    <Content Include="textures\reset.png" />
   </ItemGroup>
 </Project>
