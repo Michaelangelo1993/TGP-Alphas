@@ -44,6 +44,10 @@ namespace Game
 		private TextureInfo	floorOTextureInfo;
 		private SpriteUV	floor2Overlay;
 		
+		private SpriteUV	floorLavaOverlay;
+		private TextureInfo	floorLavaTextureInfo;
+		private SpriteUV	floorLava2Overlay;
+		
 		private float		overHeight = 100.0f;
 		
 		private float		width;
@@ -51,9 +55,17 @@ namespace Game
 		
 		private static Scene tScene;
 		
+		private int 		_frameTime, _animationDelay,
+							_noOnSpritesheetWidth,
+							_noOnSpritesheetHeight,
+							_widthCount, _heightCount;
+		
 		//Public functions.
 		public Background (Scene scene)
 		{
+			_frameTime 				= 0;
+			_animationDelay 		= 4;
+			
 			initVolcano ();
 			initwalls ();
 			initSmogs ();
@@ -107,6 +119,26 @@ namespace Game
 			floor2Overlay	 		= new SpriteUV(floorOTextureInfo);
 			floor2Overlay.Position	= new Vector2(width, overHeight);
 			floor2Overlay.Quad.S 	= floorOTextureInfo.TextureSizef;
+			
+			//SpriteSheet Info
+			floorLavaTextureInfo  	= new TextureInfo("/Application/textures/underLavaSS.png");
+			_noOnSpritesheetWidth 	= 1;
+			_noOnSpritesheetHeight 	= 6;
+			_widthCount 			= 0;
+			_heightCount 			= _noOnSpritesheetHeight - 1;
+			
+			//Create Sprite
+			floorLavaOverlay			= new SpriteUV();
+			floorLavaOverlay 			= new SpriteUV(floorLavaTextureInfo);
+			floorLavaOverlay.UV.S 		= new Vector2(1.0f/_noOnSpritesheetWidth,1.0f/_noOnSpritesheetHeight);
+			floorLavaOverlay.Quad.S 	= new Vector2(floorLavaTextureInfo.TextureSizef.X, floorLavaTextureInfo.TextureSizef.Y/_noOnSpritesheetHeight);
+			floorLavaOverlay.Position 	= new Vector2(0.0f, 0.0f);
+			
+			floorLava2Overlay			= new SpriteUV();
+			floorLava2Overlay 			= new SpriteUV(floorLavaTextureInfo);
+			floorLava2Overlay.UV.S 		= new Vector2(1.0f/_noOnSpritesheetWidth,1.0f/_noOnSpritesheetHeight);
+			floorLava2Overlay.Quad.S 	= new Vector2(floorLavaTextureInfo.TextureSizef.X, floorLavaTextureInfo.TextureSizef.Y/_noOnSpritesheetHeight);
+			floorLava2Overlay.Position 	= new Vector2(width,  0.0f);
 			
 			addToScene(scene);
 
@@ -180,6 +212,8 @@ namespace Game
 		{
 			scene.AddChild(underFloorSprite);
 			scene.AddChild(underFloor2Sprite);
+			scene.AddChild(floorLavaOverlay);
+			scene.AddChild(floorLava2Overlay);
 		}
 		
 		public void Dispose(Scene scene)
@@ -196,6 +230,8 @@ namespace Game
 			scene.RemoveChild (floor2Sprite, true);
 			scene.RemoveChild(underFloorSprite, true);
 			scene.RemoveChild(underFloor2Sprite, true);
+			scene.RemoveChild(floorLavaOverlay, true);
+			scene.RemoveChild(floorLava2Overlay, true);
 			volcTextureInfo.Dispose();
 			wallTextureInfo.Dispose();
 			wall2TextureInfo.Dispose();
@@ -204,6 +240,7 @@ namespace Game
 			underFloorTextureInfo.Dispose();
 			floorTextureInfo.Dispose();
 			floorOTextureInfo.Dispose();
+			floorLavaTextureInfo.Dispose();
 		}
 		
 		public void Update(float speed)
@@ -211,6 +248,29 @@ namespace Game
 			UpdateWalls();
 			UpdateFloor(speed);
 			UpdateSmog();
+			
+			if(_frameTime == _animationDelay)
+				{
+					if (_widthCount == _noOnSpritesheetWidth)
+					{
+						_heightCount--;
+						_widthCount = 0;
+					}
+					
+					if (_heightCount < 0)
+					{
+						//_widthCount++;
+						_heightCount = _noOnSpritesheetHeight - 1;
+					}
+					
+					floorLavaOverlay.UV.T = new Vector2((1.0f/_noOnSpritesheetWidth)*_widthCount,(1.0f/_noOnSpritesheetHeight)*_heightCount);
+					floorLava2Overlay.UV.T = new Vector2((1.0f/_noOnSpritesheetWidth)*_widthCount,(1.0f/_noOnSpritesheetHeight)*_heightCount);
+					_widthCount++;
+					//_heightCount--;
+					_frameTime = 0;
+				}
+				
+				_frameTime++;
 		}
 		
 		public void UpdateSmog()
@@ -265,6 +325,14 @@ namespace Game
 			
 			floorOverlay.Position = new Vector2(floorOverlay.Position.X-speed, floorOverlay.Position.Y);
 			floor2Overlay.Position = new Vector2(floor2Overlay.Position.X-speed, floor2Overlay.Position.Y);
+			floorLavaOverlay.Position = new Vector2(floorLavaOverlay.Position.X-speed, floorLavaOverlay.Position.Y);
+			floorLava2Overlay.Position = new Vector2(floorLava2Overlay.Position.X-speed, floorLava2Overlay.Position.Y);
+			
+			if(floorLavaOverlay.Position.X+floorLavaTextureInfo.TextureSizef.X <= volcSprite.Position.X)
+				floorLavaOverlay.Position = new Vector2(floorLavaOverlay.Position.X + floorLavaTextureInfo.TextureSizef.X, 0.0f);
+			if(floorLava2Overlay.Position.X+floorLavaTextureInfo.TextureSizef.X <= volcSprite.Position.X)
+				floorLava2Overlay.Position = new Vector2(floorLavaOverlay.Position.X + floorLavaTextureInfo.TextureSizef.X, 0.0f);
+
 			
 			//Resets the position once off screen
 			if(floorOverlay.Position.X+floorOTextureInfo.TextureSizef.X <= volcSprite.Position.X)

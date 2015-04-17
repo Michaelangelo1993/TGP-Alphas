@@ -138,5 +138,6 @@
     <Content Include="textures\plungerHandle.png" />
     <Content Include="textures\boxFront.png" />
     <Content Include="textures\reset.png" />
+    <Content Include="textures\underLavaSS.png" />
   </ItemGroup>
 </Project>
